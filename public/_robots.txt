@@ -1,0 +1,3 @@
+# Managed by @nuxtjs/seo (robots module) — this file is a fallback.
+User-agent: *
+Allow: /

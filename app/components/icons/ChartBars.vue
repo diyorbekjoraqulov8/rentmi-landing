@@ -1,0 +1,15 @@
+<!-- ChartBars icon. Size via font-size (1em); color via currentColor. -->
+<template>
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13.3332 4H15.3332V5.33333H14.6665V12.6667H15.3332V14H0.666504V12.6667H1.33317V5.33333H0.666504V4H2.6665V2.66667C2.6665 2.29848 2.96498 2 3.33317 2H12.6665C13.0347 2 13.3332 2.29848 13.3332 2.66667V4ZM13.3332 5.33333H2.6665V12.6667H4.6665V8H5.99984V12.6667H7.33317V8H8.6665V12.6667H9.99984V8H11.3332V12.6667H13.3332V5.33333ZM3.99984 3.33333V4H11.9998V3.33333H3.99984Z"
+      fill="currentColor"
+    />
+  </svg>
+</template>

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   Rentmi design tokens — mapped 1:1 from the Figma "Atoms / Color" system.
+   Tailwind CSS 4 is configured CSS-first: every token below is exposed as a
+   utility (e.g. --color-brand-600 → bg-brand-600 / text-brand-600).
+
+   Color roles from the design system panel:
+     Normal      → primary text          (text-fg)
+     Subtle-1    → secondary text         (text-fg-subtle)
+     Subtle-2    → tertiary / placeholder (text-fg-muted)
+     Background  → page background        (bg-background)
+     Surface     → cards / header / footer(bg-surface)
+     Primary     → brand blue             (brand-600)
+     Primary Subtle → tinted brand wash   (brand-50)
+   =========================================================================== */
+@theme {
+  /* --- Typography --- */
+  --font-sans: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Primary / brand — blue from the "Primary" swatch (~#2541E3).
+     Ramp generated around the design-system primary. --- */
+  --color-brand-50: #eef0fd;   /* "Primary Subtle" wash */
+  --color-brand-100: #dadffb;
+  --color-brand-200: #b6bef7;
+  --color-brand-300: #8b97f1;
+  --color-brand-400: #5a6cea;
+  --color-brand-500: #3b50e6;
+  --color-brand-600: #2541e3;  /* Primary */
+  --color-brand-700: #1c33c4;
+  --color-brand-800: #1a2c9f;
+  --color-brand-900: #1a2a7e;
+  --color-brand-950: #11184d;
+
+  /* --- Neutral scale (named to match Normal / Subtle / Background / Surface) --- */
+  --color-neutral-50: #f7f7f8;
+  --color-neutral-100: #ececee;   /* Background */
+  --color-neutral-200: #e1e1e4;
+  --color-neutral-300: #cfcfd4;
+  --color-neutral-400: #b0b0b5;   /* Subtle-2 */
+  --color-neutral-500: #8a8a90;
+  --color-neutral-600: #6b6b6f;   /* Subtle-1 */
+  --color-neutral-700: #46464a;
+  --color-neutral-800: #2a2a2d;
+  --color-neutral-900: #1a1a1a;   /* Normal */
+  --color-neutral-950: #0d0d0e;
+
+  /* --- Semantic aliases (use these in components for design-system fidelity) --- */
+  --color-fg: #1a1a1a;            /* Normal — body text */
+  --color-fg-subtle: #6b6b6f;     /* Subtle-1 — secondary text */
+  --color-fg-muted: #b0b0b5;      /* Subtle-2 — placeholder / tertiary */
+  --color-background: #ececee;    /* page background */
+  --color-surface: #ffffff;       /* cards / header / footer */
+
+  /* --- Success / score — the green "Kuch Skoringda" card & checkmarks --- */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+
+  /* --- Radii (cards/buttons are rounded & pill-ish in the design) --- */
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+
+  /* --- Shadows — soft card elevation on listing/testimonial cards --- */
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04),
+    0 8px 24px rgba(16, 24, 40, 0.06);
+}
+
+/* ===========================================================================
+   Base
+   =========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent header overlap when jumping to in-page sections */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Visible focus ring for keyboard users (a11y) */
+:where(a, button, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 65, 227, 0.35);
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

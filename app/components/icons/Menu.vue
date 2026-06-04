@@ -1,0 +1,15 @@
+<!-- Menu icon. Size via font-size (1em); color via currentColor. -->
+<template>
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M2 2.66667H14V4H2V2.66667ZM2 7.33333H14V8.66667H2V7.33333ZM2 12H14V13.3333H2V12Z"
+      fill="currentColor"
+    />
+  </svg>
+</template>

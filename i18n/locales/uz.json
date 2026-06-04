@@ -1,0 +1,193 @@
+{
+  "seo": {
+    "title": "rentmi.uz — Ishonchga asoslangan ijara",
+    "description": "Xavfsiz, shaffof va qulay uy ijarasi uchun yagona platforma.",
+    "og": {
+      "title": "rentmi.uz — Ishonchga asoslangan ijara platformasi",
+      "description": "Uyingizni ijaraga bering yoki orzuingizdagi uyni toping!"
+    }
+  },
+  "header": {
+    "postAd": "E'lon joylashtirish",
+    "download": "Ilovani yuklab olish",
+    "menu": "MENU",
+    "nav": {
+      "listings": "E'lonlar",
+      "about": "Biz haqimizda"
+    }
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan",
+    "legal": "Huquqiy masalalar",
+    "payments": "To'lov usullari:",
+    "useful": {
+      "title": "Foydali havolalar",
+      "faq": "Ko'p so'raladigan savollar",
+      "terms": "Foydalanish shartlari",
+      "privacy": "Maxfiylik siyosati",
+      "payment": "To'lov va qaytarish"
+    },
+    "contact": { "title": "Biz bilan aloqa" },
+    "social": { "title": "Ijtimoiy tarmoqlarda" }
+  },
+  "landing": {
+    "audience": {
+      "owner": "Uy egalari uchun",
+      "tenant": "Ijarachilar uchun"
+    },
+    "hero": {
+      "cta": "E'lonlarni ko'rish",
+      "secondary": "Batafsil",
+      "owner": {
+        "title": "Uyingizni ishonchli ijarachilarga bering",
+        "desc": "Skoring tizimi orqali ijarachini tekshiring, shartnomani onlayn imzolang."
+      },
+      "tenant": {
+        "title": "Orzuingizdagi uyni oson va xavfsiz toping!",
+        "desc": "Xavfsiz, shaffof va qulay uy ijarasi uchun yagona platforma."
+      },
+      "cards": {
+        "aiAdvice": {
+          "title": "AI maslahat",
+          "action": "AI maslahat"
+        },
+        "score": {
+          "tag": "Ishonchli ijarachi",
+          "blurb": "Ijarachi ishonchli, to'lov qobiliyatiga ega.",
+          "owner": {
+            "name": "Abdullayev Axror",
+            "tag": "Ishonchli ijarachi",
+            "blurb": "Ijarachi ishonchli, to'lov qobiliyatiga ega."
+          },
+          "tenant": {
+            "name": "Sizning skoringiz",
+            "tag": "Yuqori skoring",
+            "blurb": "Skoringiz yuqori — uy egalari sizga tez ishonadi."
+          }
+        },
+        "profile": {
+          "verified": "MyID orqali ro'yhatdan o'tgan",
+          "phone": "Telefon raqami",
+          "marital": "Oilaviy holati",
+          "upload": "Ma'lumot yuklash"
+        },
+        "rental": {
+          "tenant": "Ijarachi",
+          "contractDate": "Shartnoma sanasi",
+          "nextPayment": "Keyingi to'lov sanasi"
+        }
+      }
+    },
+    "about": {
+      "title": "Biz haqimizda",
+      "body": "Rentmi — bu O'zbekistondagi eng ishonchli uy-joy ijara platformasi. Biz uy egalari va ijarachilarni xavfsiz, shaffof va qulay tarzda bog'laymiz.",
+      "stats": {
+        "properties": "Ko'chmas mulklar",
+        "scoredTenants": "Skoringdan o'tgan ijarachilar",
+        "satisfaction": "Mamnun foydalanuvchilar"
+      }
+    },
+    "features": {
+      "title": "Afzalliklarimiz",
+      "panel": {
+        "bureauTitle": "Kredit byuro skori",
+        "trusted": "Ishonchli",
+        "court": "MIB qarzdorligi",
+        "tax": "Soliq qarzdorligi",
+        "noDebt": "Qarzdorlik mavjud emas"
+      },
+      "items": {
+        "scoredTenants": {
+          "title": "Rentmi skore dan o'tgan ijarachilar",
+          "desc": "Rentmi platformasida faqatgina skoringdan o'tgan ijarachilar bo'ladi va bu uy egalari uchun, ijarachi tarixi va u oldingi yashagan uylarida qanday yashagani haqida ma'lumot beradi"
+        },
+        "manage": {
+          "title": "Ko'chmas mulklaringizni oson boshqarish imkoniyati"
+        },
+        "contract": {
+          "title": "Ijara shartnomasini platformaning o'zida yaratish imkoniyati"
+        },
+        "integration": {
+          "title": "Ko'chmas mulklaringizni boshqa platformalardan integratsiya qilish imkoniyati"
+        }
+      }
+    },
+    "listings": {
+      "title": "Aynan siz uchun mos uylar",
+      "perMonth": "oyiga",
+      "favorite": "Saralanganlarga qo'shish",
+      "prev": "Oldingi",
+      "next": "Keyingi",
+      "badge": {
+        "top": "TOP",
+        "recommended": "Rentmi tavsiyasi"
+      },
+      "items": {
+        "1": { "title": "Dushja NRG U Tower", "address": "Toshkent, Yunusobod", "area": "120 m²", "rooms": "3 xona" },
+        "2": { "title": "Mirobod Square Penthouse", "address": "Toshkent, Mirobod", "area": "180 m²", "rooms": "4 xona" },
+        "3": { "title": "Yunusobod Residence", "address": "Toshkent, Yunusobod", "area": "75 m²", "rooms": "2 xona" },
+        "4": { "title": "Dream City Lux", "address": "Toshkent, Sergeli", "area": "210 m²", "rooms": "5 xona" }
+      }
+    },
+    "manage": {
+      "title": "Rentmi da ko'chmas mulklaringizni qanday boshqarasiz?",
+      "publish": "E'longa chiqarish",
+      "vacant": "Kvartira bo'sh",
+      "addr": {
+        "dreamCity": "Toshkent, Shayhontohur t. O'qchi m. 40",
+        "mirabad": "Toshkent, Mirobod t. Mirobod Avenue, Block D, 34",
+        "duplex": "Toshkent, Yashnobod t. Tolariq k. 40",
+        "drujba": "Toshkent, Yashnobod t. Tolariq k. 40",
+        "yunusobod": "Toshkent, Mirobod t. Mirobod Avenue, Block D, 34"
+      },
+      "stats": {
+        "viewed": "Ko'rildi",
+        "applications": "Ariza",
+        "saved": "Saqlangan"
+      }
+    },
+    "download": {
+      "title": "Ilovani bepul yuklab oling",
+      "desc": "Ko'chmas mulklaringizni eng oson boshqarish usuli.",
+      "onThe": "Download on the",
+      "getItOn": "GET IT ON",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "testimonials": {
+      "title": "Biz haqimizda, mijozlarimiz gapirishadi",
+      "tenure": "Rentmidan foydalanadi",
+      "rating": "Rentmini baholaydi",
+      "year": "yil",
+      "items": {
+        "1": "Rentmi orqali bir necha kun ichida ajoyib uy topdim. Jarayon juda shaffof va oson bo'ldi.",
+        "2": "Skoring tizimi tufayli uy egasi menga tez ishondi. Tavsiya qilaman!",
+        "3": "Shartnomani onlayn imzoladim, hech qayerga borishim shart bo'lmadi. Zo'r xizmat."
+      }
+    },
+    "faq": {
+      "title": "Ko'p berilgan savollar",
+      "items": {
+        "1": { "q": "Uy egasi muddatidan oldin uydan chiqarib yuborsa nima bo'ladi?", "a": "Shartnoma shartlari ikkala tomonni himoya qiladi; nizolar Rentmi qo'llab-quvvatlash xizmati orqali hal qilinadi." },
+        "2": { "q": "Platformadan foydalanish pullikmi?", "a": "Ro'yxatdan o'tish va e'lonlarni ko'rish bepul. Ba'zi qo'shimcha xizmatlar pullik bo'lishi mumkin." },
+        "3": { "q": "Skoringimni qanday yaxshilash mumkin?", "a": "MyID va IHamkor orqali ma'lumotlaringizni tasdiqlang va ijara tarixini to'ldiring." },
+        "4": { "q": "Shartnomani onlayn imzolash xavfsizmi?", "a": "Ha, barcha imzolar elektron raqamli imzo orqali huquqiy kuchga ega bo'ladi." },
+        "5": { "q": "To'lovlar qanday amalga oshiriladi?", "a": "To'lovlar platforma orqali xavfsiz tarzda, himoyalangan to'lov tizimida amalga oshiriladi." }
+      }
+    },
+    "blog": {
+      "title": "Foydali maqolalar",
+      "readMore": "Batafsil o'qish",
+      "items": {
+        "1": "Rentmi'ning siz bilmagan 8 ta foydali funksiyasi",
+        "2": "Qanday qilib Rentmi skoringini yaxshilash mumkin",
+        "3": "Mobil ilovada qulay tahlil qilish"
+      }
+    }
+  },
+  "hero": {
+    "title": "Uyingizni ijaraga bering yoki orzuingizdagi uyni toping!",
+    "description": "Xavfsiz, shaffof va qulay uy ijarasi uchun yagona platforma.",
+    "cta": "E'lonlarni ko'rish"
+  }
+}

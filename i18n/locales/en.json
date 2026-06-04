@@ -1,0 +1,193 @@
+{
+  "seo": {
+    "title": "rentmi.uz — Rental built on trust",
+    "description": "A single platform for safe, transparent and convenient home rental.",
+    "og": {
+      "title": "rentmi.uz — The rental platform built on trust",
+      "description": "List your home or find the home of your dreams!"
+    }
+  },
+  "header": {
+    "postAd": "Post a listing",
+    "download": "Download the app",
+    "menu": "MENU",
+    "nav": {
+      "listings": "Listings",
+      "about": "About us"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "legal": "Legal",
+    "payments": "Payment methods:",
+    "useful": {
+      "title": "Useful links",
+      "faq": "FAQ",
+      "terms": "Terms of use",
+      "privacy": "Privacy policy",
+      "payment": "Payment & refund"
+    },
+    "contact": { "title": "Contact us" },
+    "social": { "title": "Social media" }
+  },
+  "landing": {
+    "audience": {
+      "owner": "For owners",
+      "tenant": "For tenants"
+    },
+    "hero": {
+      "cta": "Browse listings",
+      "secondary": "Learn more",
+      "owner": {
+        "title": "Rent your home to trusted tenants",
+        "desc": "Screen tenants with the scoring system and sign the contract online."
+      },
+      "tenant": {
+        "title": "Find the home of your dreams, easily and safely!",
+        "desc": "A single platform for safe, transparent and convenient home rental."
+      },
+      "cards": {
+        "aiAdvice": {
+          "title": "AI advice",
+          "action": "AI advice"
+        },
+        "score": {
+          "tag": "Trusted tenant",
+          "blurb": "The tenant is reliable and solvent.",
+          "owner": {
+            "name": "Abdullayev Axror",
+            "tag": "Trusted tenant",
+            "blurb": "The tenant is reliable and solvent."
+          },
+          "tenant": {
+            "name": "Your score",
+            "tag": "High score",
+            "blurb": "Your score is high — owners trust you quickly."
+          }
+        },
+        "profile": {
+          "verified": "Registered via MyID",
+          "phone": "Phone number",
+          "marital": "Marital status",
+          "upload": "Upload data"
+        },
+        "rental": {
+          "tenant": "Tenant",
+          "contractDate": "Contract date",
+          "nextPayment": "Next payment date"
+        }
+      }
+    },
+    "about": {
+      "title": "About us",
+      "body": "Rentmi is the most trusted home rental platform in Uzbekistan. We connect owners and tenants safely, transparently and conveniently.",
+      "stats": {
+        "properties": "Properties",
+        "scoredTenants": "Tenants who passed scoring",
+        "satisfaction": "Satisfied users"
+      }
+    },
+    "features": {
+      "title": "Our advantages",
+      "panel": {
+        "bureauTitle": "Credit bureau score",
+        "trusted": "Trusted",
+        "court": "Court debt",
+        "tax": "Tax debt",
+        "noDebt": "No debt"
+      },
+      "items": {
+        "scoredTenants": {
+          "title": "Tenants who passed Rentmi scoring",
+          "desc": "Only tenants who passed scoring appear on Rentmi — for owners this provides the tenant's history and how they lived in their previous homes"
+        },
+        "manage": {
+          "title": "Easily manage your real estate"
+        },
+        "contract": {
+          "title": "Create the rental contract right on the platform"
+        },
+        "integration": {
+          "title": "Integrate your real estate from other platforms"
+        }
+      }
+    },
+    "listings": {
+      "title": "Homes just for you",
+      "perMonth": "per month",
+      "favorite": "Add to favorites",
+      "prev": "Previous",
+      "next": "Next",
+      "badge": {
+        "top": "TOP",
+        "recommended": "Rentmi pick"
+      },
+      "items": {
+        "1": { "title": "Dushja NRG U Tower", "address": "Tashkent, Yunusabad", "area": "120 m²", "rooms": "3 rooms" },
+        "2": { "title": "Mirobod Square Penthouse", "address": "Tashkent, Mirabad", "area": "180 m²", "rooms": "4 rooms" },
+        "3": { "title": "Yunusobod Residence", "address": "Tashkent, Yunusabad", "area": "75 m²", "rooms": "2 rooms" },
+        "4": { "title": "Dream City Lux", "address": "Tashkent, Sergeli", "area": "210 m²", "rooms": "5 rooms" }
+      }
+    },
+    "manage": {
+      "title": "How do you manage your real estate in Rentmi?",
+      "publish": "Publish listing",
+      "vacant": "Apartment available",
+      "addr": {
+        "dreamCity": "Tashkent, Shaykhantakhur d. Oqchi 40",
+        "mirabad": "Tashkent, Mirabad d. Mirobod Avenue, Block D, 34",
+        "duplex": "Tashkent, Yashnabad d. Tolariq st. 40",
+        "drujba": "Tashkent, Yashnabad d. Tolariq st. 40",
+        "yunusobod": "Tashkent, Mirabad d. Mirobod Avenue, Block D, 34"
+      },
+      "stats": {
+        "viewed": "Viewed",
+        "applications": "Applications",
+        "saved": "Saved"
+      }
+    },
+    "download": {
+      "title": "Download the app for free",
+      "desc": "The easiest way to manage your real estate.",
+      "onThe": "Download on the",
+      "getItOn": "GET IT ON",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "testimonials": {
+      "title": "Our clients speak about us",
+      "tenure": "Uses Rentmi for",
+      "rating": "Rates Rentmi",
+      "year": "yr",
+      "items": {
+        "1": "Through Rentmi I found a great home within a few days. The process was very transparent and easy.",
+        "2": "Thanks to the scoring system, the owner trusted me quickly. Highly recommend!",
+        "3": "I signed the contract online and didn't have to go anywhere. Excellent service."
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "1": { "q": "What if the owner evicts me before the term ends?", "a": "The contract terms protect both parties; disputes are resolved through Rentmi support." },
+        "2": { "q": "Is the platform paid?", "a": "Registration and browsing listings are free. Some additional services may be paid." },
+        "3": { "q": "How can I improve my score?", "a": "Verify your data via MyID and IHamkor and complete your rental history." },
+        "4": { "q": "Is signing the contract online safe?", "a": "Yes, all signatures are legally binding via electronic digital signature." },
+        "5": { "q": "How are payments made?", "a": "Payments go through the platform in a secure, protected payment system." }
+      }
+    },
+    "blog": {
+      "title": "Useful articles",
+      "readMore": "Read more",
+      "items": {
+        "1": "8 useful Rentmi features you didn't know about",
+        "2": "How to improve your Rentmi score",
+        "3": "Convenient analytics in the mobile app"
+      }
+    }
+  },
+  "hero": {
+    "title": "List your home or find the home of your dreams!",
+    "description": "A single platform for safe, transparent and convenient home rental.",
+    "cta": "Browse listings"
+  }
+}
