@@ -1,0 +1,29 @@
+# Netlify deployment config for the Nuxt 4 (SSR) client app.
+# Nitro auto-detects the `netlify` preset on Netlify, building the SSR
+# server as a Netlify Function and serving static assets from the CDN.
+
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  # Nitro reads this and emits the Netlify (functions) preset.
+  NITRO_PRESET = "netlify"
+  # Match the project's package manager / Node toolchain.
+  NPM_FLAGS = "--version"
+  NODE_VERSION = "22"
+  PNPM_VERSION = "10.21.0"
+
+# Site identity for @nuxtjs/seo (canonical, sitemap, og-image).
+# Override per-context below; this is the production default.
+[context.production.environment]
+  NUXT_PUBLIC_SITE_URL = "https://rentmi.uz"
+  NUXT_PUBLIC_API_BASE = "/api/v1"
+
+[context.deploy-preview.environment]
+  NUXT_PUBLIC_SITE_URL = "https://uzrentme.powerapp.uz"
+  NUXT_PUBLIC_API_BASE = "/api/v1"
+
+[context.branch-deploy.environment]
+  NUXT_PUBLIC_SITE_URL = "https://uzrentme.powerapp.uz"
+  NUXT_PUBLIC_API_BASE = "/api/v1"

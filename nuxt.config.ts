@@ -53,7 +53,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-01-15',
 
   nitro: {
-    preset: 'node-server'
+    // Default to the standalone Node server (Docker / behind Nginx).
+    // On Netlify, `NITRO_PRESET=netlify` (set in netlify.toml) overrides this.
+    preset: process.env.NITRO_PRESET || 'node-server'
   },
 
   // Tailwind CSS 4 — configured via CSS (@import "tailwindcss"), wired
