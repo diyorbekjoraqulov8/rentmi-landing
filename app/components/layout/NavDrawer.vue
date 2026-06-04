@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
     >
       <aside
         v-if="open"
-        class="fixed inset-y-0 left-0 z-[70] flex w-full max-w-[590px] flex-col overflow-y-auto bg-surface px-8 py-6 shadow-2xl sm:px-12"
+        class="fixed inset-y-3 left-3 z-[70] flex w-[calc(100%-1.5rem)] max-w-[560px] flex-col overflow-y-auto rounded-3xl bg-surface px-8 py-6 shadow-2xl sm:inset-y-4 sm:left-4 sm:px-12"
         role="dialog"
         aria-modal="true"
       >
