@@ -14,6 +14,11 @@
     "nav": {
       "listings": "Listings",
       "about": "About us"
+    },
+    "drawer": {
+      "team": "Our team",
+      "testimonials": "User reviews",
+      "offer": "Public offer"
     }
   },
   "footer": {
@@ -75,6 +80,32 @@
           "tenant": "Tenant",
           "contractDate": "Contract date",
           "nextPayment": "Next payment date"
+        },
+        "support": {
+          "title": "Help & support",
+          "body": "Our specialists review your request carefully and respond accurately, at the speed of light."
+        },
+        "priceFilter": {
+          "title": "Rent price",
+          "currencyUzs": "UZS",
+          "currencyUsd": "Dollar",
+          "min": "Minimum",
+          "max": "Maximum"
+        },
+        "propertyType": {
+          "title": "Property type",
+          "items": {
+            "apartment": "Apartment",
+            "house": "House/yard",
+            "studio": "Studio",
+            "duplex": "Duplex",
+            "penthouse": "Penthouse",
+            "cottage": "Cottage",
+            "townhouse": "Townhouse"
+          }
+        },
+        "listing": {
+          "views": "Views"
         }
       }
     },
@@ -102,13 +133,89 @@
           "desc": "Only tenants who passed scoring appear on Rentmi — for owners this provides the tenant's history and how they lived in their previous homes"
         },
         "manage": {
-          "title": "Easily manage your real estate"
+          "title": "Easily manage your real estate",
+          "desc": "Track views, requests and calls for every listing and manage your properties and tenants from a single dashboard"
         },
         "contract": {
-          "title": "Create the rental contract right on the platform"
+          "title": "Create the rental contract right on the platform",
+          "desc": "Generate the rental contract on the platform, sign it digitally and keep every payment date in one place"
         },
         "integration": {
-          "title": "Integrate your real estate from other platforms"
+          "title": "Integrate your real estate from other platforms",
+          "desc": "Already listed elsewhere? Import your property from OLX, UyBor or Joyme in one click and share it anywhere"
+        }
+      },
+      "panels": {
+        "analytics": {
+          "title": "Analytics and statistics",
+          "ranges": { "d7": "7 days", "d30": "30 days", "d90": "90 days" },
+          "stats": { "views": "Views", "requests": "Requests", "likes": "Likes", "calls": "Calls" },
+          "dynamics": "Dynamics"
+        },
+        "contract": {
+          "badge": "Contract",
+          "tenant": "Tenant",
+          "contractDate": "Contract date",
+          "nextPayment": "Next payment",
+          "signed": "Signed by both parties"
+        },
+        "integration": {
+          "title": "Which platform should we import your property from?",
+          "linkLabel": "Link",
+          "linkDesc": "Paste your listing link in the field below and press the import button",
+          "send": "Send",
+          "shareTitle": "Share listing"
+        }
+      },
+      "tenant": {
+        "filter": {
+          "title": "A handy filter to find a rental home",
+          "desc": "Filter by price, number of rooms, property type and location to find your match in seconds"
+        },
+        "bestHomes": {
+          "title": "The finest homes in Uzbekistan",
+          "desc": "The best verified listings in one place — with photos, price and full details"
+        },
+        "profile": {
+          "title": "Profile and settings fully under your control",
+          "desc": "Your profile, requests, notifications and settings — all in one convenient menu"
+        },
+        "scoring": {
+          "title": "Our scoring service at your disposal",
+          "desc": "Check your score, learn the evaluation criteria and build trust with owners"
+        }
+      },
+      "tpanels": {
+        "profile": {
+          "filled": "filled",
+          "passScore": "Pass scoring",
+          "menu": {
+            "wishlist": "Wishlist",
+            "requests": "Requests",
+            "notifications": "Notifications",
+            "switchRole": "Switch role",
+            "appSettings": "App settings",
+            "support": "Support",
+            "terms": "Terms of use",
+            "logout": "Log out"
+          }
+        },
+        "scoring": {
+          "cardTitle": "Power is in scoring.",
+          "improve": "Improve score",
+          "criteriaTitle": "Evaluation criteria",
+          "criteria": {
+            "income": "Income stability",
+            "credit": "Credit history",
+            "obligations": "Financial obligations",
+            "rental": "Rental history"
+          },
+          "secure": "Rest assured! Your data is protected to security standards.",
+          "samples": {
+            "high": "Owners trust scored tenants more.",
+            "mid": "Your score is good. But it can still be improved.",
+            "low": "Unfortunately your Rentmi score is very low. Please improve it."
+          }
         }
       }
     },

@@ -18,11 +18,20 @@ export interface Stat {
   value: string
 }
 
+/** Which right-side illustration a feature row reveals when it becomes active. */
+export type FeaturePanel
+  // owner tab
+  = | 'score' | 'analytics' | 'contract' | 'integration'
+  // tenant tab
+    | 'filter' | 'bestHomes' | 'profile' | 'scoring'
+
 export interface Feature {
   icon: string
   titleKey: string
-  /** optional supporting text — only the first feature shows one in the design */
-  descKey?: string
+  /** supporting text — shown only while the row is the active one */
+  descKey: string
+  /** the panel illustration swapped in on the right when this row is active */
+  panel: FeaturePanel
 }
 
 export interface Listing {
@@ -67,24 +76,61 @@ export const stats: Stat[] = [
   { labelKey: 'landing.about.stats.satisfaction', value: '98,2%' }
 ]
 
-/* --- Features ("Afzalliklarimiz") — only the first item shows a description --- */
+/* --- Features ("Afzalliklarimiz") — one row is "active" at a time (hover or
+   scroll); the active row expands its description and swaps the right panel. --- */
 export const features: Feature[] = [
   {
     icon: 'IconsScoringFlame',
     titleKey: 'landing.features.items.scoredTenants.title',
-    descKey: 'landing.features.items.scoredTenants.desc'
+    descKey: 'landing.features.items.scoredTenants.desc',
+    panel: 'score'
   },
   {
     icon: 'lucide:key-round',
-    titleKey: 'landing.features.items.manage.title'
+    titleKey: 'landing.features.items.manage.title',
+    descKey: 'landing.features.items.manage.desc',
+    panel: 'analytics'
   },
   {
     icon: 'IconsDocument',
-    titleKey: 'landing.features.items.contract.title'
+    titleKey: 'landing.features.items.contract.title',
+    descKey: 'landing.features.items.contract.desc',
+    panel: 'contract'
   },
   {
     icon: 'IconsShareLarge',
-    titleKey: 'landing.features.items.integration.title'
+    titleKey: 'landing.features.items.integration.title',
+    descKey: 'landing.features.items.integration.desc',
+    panel: 'integration'
+  }
+]
+
+/* --- Features, "Ijarachilar uchun" (tenant) tab — same interaction, a
+   different four rows + panels (filter / best homes / profile / scoring). --- */
+export const tenantFeatures: Feature[] = [
+  {
+    icon: 'lucide:sliders-horizontal',
+    titleKey: 'landing.features.tenant.filter.title',
+    descKey: 'landing.features.tenant.filter.desc',
+    panel: 'filter'
+  },
+  {
+    icon: 'lucide:door-open',
+    titleKey: 'landing.features.tenant.bestHomes.title',
+    descKey: 'landing.features.tenant.bestHomes.desc',
+    panel: 'bestHomes'
+  },
+  {
+    icon: 'lucide:circle-user-round',
+    titleKey: 'landing.features.tenant.profile.title',
+    descKey: 'landing.features.tenant.profile.desc',
+    panel: 'profile'
+  },
+  {
+    icon: 'lucide:gauge',
+    titleKey: 'landing.features.tenant.scoring.title',
+    descKey: 'landing.features.tenant.scoring.desc',
+    panel: 'scoring'
   }
 ]
 

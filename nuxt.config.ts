@@ -6,8 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    '@nuxtjs/seo',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/seo'
   ],
 
   ssr: true,
@@ -68,17 +67,6 @@ export default defineNuxtConfig({
     config: {
       stylistic: true
     }
-  },
-
-  googleFonts: {
-    families: {
-      // Weights used across the landing design: body, medium labels,
-      // semibold/bold section titles, extrabold hero highlights.
-      'Public Sans': [400, 500, 600, 700, 800]
-    },
-    display: 'swap',
-    preconnect: true,
-    preload: true
   },
 
   i18n: {

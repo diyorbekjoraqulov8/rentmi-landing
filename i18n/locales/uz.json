@@ -14,6 +14,11 @@
     "nav": {
       "listings": "E'lonlar",
       "about": "Biz haqimizda"
+    },
+    "drawer": {
+      "team": "Bizning jamoa",
+      "testimonials": "Foydalanuvchilarimiz fikri",
+      "offer": "Umumiy offerta"
     }
   },
   "footer": {
@@ -75,6 +80,32 @@
           "tenant": "Ijarachi",
           "contractDate": "Shartnoma sanasi",
           "nextPayment": "Keyingi to'lov sanasi"
+        },
+        "support": {
+          "title": "Yordam va qo'llab-quvvatlash",
+          "body": "Mutaxassislarimiz murojaatingizni diqqat bilan ko'rib chiqib, yorug'lik tezligida aniq javob beradi."
+        },
+        "priceFilter": {
+          "title": "Ijara narxi",
+          "currencyUzs": "So'm",
+          "currencyUsd": "Dollar",
+          "min": "Minimum",
+          "max": "Maximum"
+        },
+        "propertyType": {
+          "title": "Ko'chmas mulk turi",
+          "items": {
+            "apartment": "Kvartira",
+            "house": "Uy/hovli",
+            "studio": "Studiya",
+            "duplex": "Dupleks",
+            "penthouse": "Penthouse",
+            "cottage": "Kottedj",
+            "townhouse": "Taunhouse"
+          }
+        },
+        "listing": {
+          "views": "Ko'rildi"
         }
       }
     },
@@ -102,13 +133,89 @@
           "desc": "Rentmi platformasida faqatgina skoringdan o'tgan ijarachilar bo'ladi va bu uy egalari uchun, ijarachi tarixi va u oldingi yashagan uylarida qanday yashagani haqida ma'lumot beradi"
         },
         "manage": {
-          "title": "Ko'chmas mulklaringizni oson boshqarish imkoniyati"
+          "title": "Ko'chmas mulklaringizni oson boshqarish imkoniyati",
+          "desc": "Har bir e'lon bo'yicha ko'rishlar, so'rovlar va qo'ng'iroqlarni kuzating, mulklaringiz va ijarachilarni bitta kabinetdan boshqaring"
         },
         "contract": {
-          "title": "Ijara shartnomasini platformaning o'zida yaratish imkoniyati"
+          "title": "Ijara shartnomasini platformaning o'zida yaratish imkoniyati",
+          "desc": "Ijara shartnomasini platformaning o'zida yarating, onlayn imzolang va barcha to'lov sanalarini bir joyda saqlang"
         },
         "integration": {
-          "title": "Ko'chmas mulklaringizni boshqa platformalardan integratsiya qilish imkoniyati"
+          "title": "Ko'chmas mulklaringizni boshqa platformalardan integratsiya qilish imkoniyati",
+          "desc": "E'loningiz boshqa platformada bormi? Ko'chmas mulkni OLX, UyBor yoki Joyme'dan bir bosishda olib keling va istalgan joyda ulashing"
+        }
+      },
+      "panels": {
+        "analytics": {
+          "title": "Tahlil va statistika",
+          "ranges": { "d7": "7 kun", "d30": "30 kun", "d90": "90 kun" },
+          "stats": { "views": "Ko'rishlar", "requests": "So'rovlar", "likes": "Yoqtirishlar", "calls": "Qo'ng'iroqlar" },
+          "dynamics": "Dinamika"
+        },
+        "contract": {
+          "badge": "Shartnoma",
+          "tenant": "Ijarachi",
+          "contractDate": "Shartnoma sanasi",
+          "nextPayment": "Keyingi to'lov sanasi",
+          "signed": "Ikkala tomon imzolagan"
+        },
+        "integration": {
+          "title": "Ko'chmas mulkingizni qaysi platformadan olib kelamiz?",
+          "linkLabel": "Link",
+          "linkDesc": "E'loningiz linkini quyidagi maydonga joylang va olib kelish tugmasini bosing",
+          "send": "Jo'natish",
+          "shareTitle": "E'lonni ulashish"
+        }
+      },
+      "tenant": {
+        "filter": {
+          "title": "Ijaraga uy topish uchun qulay filter",
+          "desc": "Narx, xona soni, mulk turi va joylashuv bo'yicha filtrlab, o'zingizga mos uyni bir necha soniyada toping"
+        },
+        "bestHomes": {
+          "title": "O'zbekistondagi eng sara uylar",
+          "desc": "Tekshiruvdan o'tgan eng sifatli e'lonlar bir joyda — rasmlar, narx va batafsil ma'lumot bilan"
+        },
+        "profile": {
+          "title": "Profil va sozlamalar to'liq sizning boshqaruvingizda",
+          "desc": "Profilingiz, so'rovlar, bildirishnomalar va sozlamalar — barchasi bitta qulay menyuda"
+        },
+        "scoring": {
+          "title": "Skoring xizmatimiz sizni ixtiyoringizda",
+          "desc": "Skoringingizni ko'ring, baholash mezonlarini biling va uy egalari oldida ishonchni oshiring"
+        }
+      },
+      "tpanels": {
+        "profile": {
+          "filled": "to'ldirilgan",
+          "passScore": "Skoringdan o'ting",
+          "menu": {
+            "wishlist": "Wishlist",
+            "requests": "So'rovlar",
+            "notifications": "Bildirishnomalar",
+            "switchRole": "Ro'l almashtirish",
+            "appSettings": "Ilova sozlamalari",
+            "support": "Qo'llab-quvvatlash",
+            "terms": "Ilova shartlari",
+            "logout": "Ilovadan chiqish"
+          }
+        },
+        "scoring": {
+          "cardTitle": "Kuch Skoringda.",
+          "improve": "Skoringni yaxshilash",
+          "criteriaTitle": "Baholash mezonlari",
+          "criteria": {
+            "income": "Daromad barqarorligi",
+            "credit": "Kredit tarixi",
+            "obligations": "Moliyaviy majburiyatlar",
+            "rental": "Ijara tarixi"
+          },
+          "secure": "Ko'nglingiz to'q bo'lsin! Ma'lumotlar xavfsizlik standartlariga muvofiq himoyalangan.",
+          "samples": {
+            "high": "Uy egalari skoringdan o'tgan ijarachilarga ko'proq ishonadi.",
+            "mid": "Sizda skoring yaxshi. Lekin yanada yaxshilash mumkin.",
+            "low": "Afsuski sizda Rentmi ball juda past. Iltimos uni yaxshilang."
+          }
         }
       }
     },

@@ -15,8 +15,13 @@
      Primary Subtle → tinted brand wash   (brand-50)
    =========================================================================== */
 @theme {
-  /* --- Typography --- */
-  --font-sans: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  /* --- Typography ---
+     SF Pro Display across the whole site. It's Apple's system font (not on
+     Google Fonts and not web-licensable), so we reference it by name first —
+     real SF Pro shows on macOS/iOS where it's installed — then fall back to
+     the platform UI font everywhere else via -apple-system / system-ui. */
+  --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, ui-sans-serif,
+    system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   /* --- Primary / brand — blue from the "Primary" swatch (~#2541E3).
      Ramp generated around the design-system primary. --- */
@@ -49,7 +54,7 @@
   --color-fg: #1a1a1a;            /* Normal — body text */
   --color-fg-subtle: #6b6b6f;     /* Subtle-1 — secondary text */
   --color-fg-muted: #b0b0b5;      /* Subtle-2 — placeholder / tertiary */
-  --color-background: #ececee;    /* page background */
+  --color-background: #F2F2F2;    /* page background */
   --color-surface: #ffffff;       /* cards / header / footer */
 
   /* --- Success / score — the green "Kuch Skoringda" card & checkmarks --- */
@@ -71,6 +76,19 @@
   /* --- Shadows — soft card elevation on listing/testimonial cards --- */
   --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04),
     0 8px 24px rgba(16, 24, 40, 0.06);
+}
+
+/* ===========================================================================
+   Container — project-wide override.
+   Tailwind 4 has no JS-config `theme.container`; the container utility is
+   redefined here (CSS-first). Every `container` class is capped at 1024px
+   and centered. Horizontal gutters stay with each component's own px-* so
+   this doesn't fight existing paddings (e.g. AppHeader's `px-4 sm:px-6`).
+   =========================================================================== */
+@utility container {
+  width: 100%;
+  max-width: 1024px;
+  margin-inline: auto;
 }
 
 /* ===========================================================================

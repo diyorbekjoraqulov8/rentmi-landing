@@ -14,7 +14,7 @@ const localePath = useLocalePath()
     id="blog"
     class="mx-auto max-w-6xl px-4 py-16 md:py-24"
   >
-    <SectionHeading
+    <BaseSectionHeading
       :title="t('landing.blog.title')"
       align="center"
     />

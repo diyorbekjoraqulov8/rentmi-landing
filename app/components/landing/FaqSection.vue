@@ -20,7 +20,7 @@ const toggle = (id: number) => {
     id="faq"
     class="mx-auto max-w-3xl px-4 py-16 md:py-24"
   >
-    <SectionHeading
+    <BaseSectionHeading
       :title="t('landing.faq.title')"
       align="center"
     />
