@@ -255,7 +255,7 @@
     },
     "download": {
       "title": "Ilovani bepul yuklab oling",
-      "desc": "Ko'chmas mulklaringizni eng oson boshqarish usuli.",
+      "desc": "Ko'chmas mulklaringizni eng oson boshqarish usuli",
       "onThe": "Download on the",
       "getItOn": "GET IT ON",
       "appStore": "App Store",
@@ -270,6 +270,16 @@
         "1": "Rentmi orqali bir necha kun ichida ajoyib uy topdim. Jarayon juda shaffof va oson bo'ldi.",
         "2": "Skoring tizimi tufayli uy egasi menga tez ishondi. Tavsiya qilaman!",
         "3": "Shartnomani onlayn imzoladim, hech qayerga borishim shart bo'lmadi. Zo'r xizmat."
+      }
+    },
+    "videoReviews": {
+      "title": "Biz haqimizda, mijozlarimiz gapirishadi",
+      "items": {
+        "1": "*Rentmi* ni siz bilmagan *8 ta* foydali *funksiyalari*",
+        "2": "Qanday qilib *Rentmi Skoreni* yaxshilash mumkin",
+        "3": "*Mobil* ilovada qulay *analitika* yuritish",
+        "4": "*Rentmi* bilan ijara *shartnomasi* bir necha daqiqada",
+        "5": "*Ishonchli ijarachilarni* qanday *topish* mumkin"
       }
     },
     "faq": {

@@ -24,6 +24,7 @@ useSeoMeta({
     <LandingAppDownloadSection />
     <LandingTestimonialsSection />
     <LandingFaqSection />
+    <LandingVideoReviewsSection />
     <LandingBlogSection />
   </div>
 </template>

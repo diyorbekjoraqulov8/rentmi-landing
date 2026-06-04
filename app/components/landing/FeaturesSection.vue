@@ -37,14 +37,16 @@ function measure() {
     const line = window.innerHeight * 0.42
     let best = 0
     let bestDist = Infinity
-    list.value.querySelectorAll(':scope > li').forEach((el: { getBoundingClientRect(): DOMRect }, i: number) => {
-      const r = el.getBoundingClientRect()
-      const dist = Math.abs(r.top + r.height / 2 - line)
-      if (dist < bestDist) {
-        bestDist = dist
-        best = i
-      }
-    })
+    list.value
+      .querySelectorAll(':scope > li')
+      .forEach((el: { getBoundingClientRect(): DOMRect }, i: number) => {
+        const r = el.getBoundingClientRect()
+        const dist = Math.abs(r.top + r.height / 2 - line)
+        if (dist < bestDist) {
+          bestDist = dist
+          best = i
+        }
+      })
     scrollIndex.value = best
   })
 }
@@ -75,10 +77,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section
-    id="features"
-    class="bg-background"
-  >
+  <section id="features" class="bg-background">
     <div class="container py-20 md:py-28">
       <h2 class="text-2xl md:text-3xl font-bold text-neutral-900">
         {{ t('landing.features.title') }}
@@ -90,49 +89,39 @@ onBeforeUnmount(() => {
 
       <div class="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-start">
         <!-- Feature list -->
-        <ul
-          ref="list"
-          @mouseleave="onLeave"
-        >
+        <ul ref="list" @mouseleave="onLeave">
           <li
             v-for="(feature, i) in items"
             :key="feature.titleKey"
             class="group relative cursor-default py-8 first:pt-0"
             :class="i < items.length - 1 ? 'border-b border-neutral-200' : ''"
-            @mouseenter="hoverIndex = i"
-          >
+            @mouseenter="hoverIndex = i">
             <!-- moving accent bar -->
-            <span
-              class="absolute left-0 top-8 h-10 w-1 rounded-full bg-brand-600 transition-all duration-200 first:top-0"
-              :class="active === i ? 'opacity-100' : 'opacity-0'"
-            />
 
             <span
               class="inline-flex size-11 items-center justify-center rounded-full transition-colors duration-200"
-              :class="active === i
-                ? 'bg-brand-600 text-white'
-                : 'bg-brand-50 text-brand-600'"
-            >
-              <AppIcon
-                :name="feature.icon"
-                class="size-5"
-              />
+              :class="
+                active === i
+                  ? 'bg-brand-600 text-white'
+                  : 'bg-brand-50 text-brand-600'
+              ">
+              <AppIcon :name="feature.icon" class="size-5" />
             </span>
 
             <h3
               class="mt-5 text-2xl font-bold transition-colors duration-200"
-              :class="active === i ? 'text-neutral-900' : 'text-neutral-400'"
-            >
+              :class="active === i ? 'text-neutral-900' : 'text-neutral-400'">
               {{ t(feature.titleKey) }}
             </h3>
 
             <!-- description: smooth height via grid-rows trick -->
             <div
               class="grid transition-all duration-300 ease-out"
-              :class="active === i
-                ? 'mt-3 grid-rows-[1fr] opacity-100'
-                : 'grid-rows-[0fr] opacity-0'"
-            >
+              :class="
+                active === i
+                  ? 'mt-3 grid-rows-[1fr] opacity-100'
+                  : 'grid-rows-[0fr] opacity-0'
+              ">
               <div class="overflow-hidden">
                 <p class="max-w-xl text-base leading-relaxed text-neutral-500">
                   {{ t(feature.descKey) }}
@@ -144,24 +133,25 @@ onBeforeUnmount(() => {
 
         <!-- Crossfading panel -->
         <div class="lg:sticky lg:top-24">
-          <Transition
-            name="panel"
-            mode="out-in"
-          >
-            <div
-              :key="activePanel"
-              class="min-h-[420px]"
-            >
+          <Transition name="panel" mode="out-in">
+            <div :key="activePanel" class="min-h-[420px]">
               <!-- owner panels -->
               <LandingCardsScoreDetailPanel v-if="activePanel === 'score'" />
-              <LandingFeaturesAnalyticsPanel v-else-if="activePanel === 'analytics'" />
-              <LandingFeaturesContractPanel v-else-if="activePanel === 'contract'" />
-              <LandingFeaturesIntegrationPanel v-else-if="activePanel === 'integration'" />
+              <LandingFeaturesAnalyticsPanel
+                v-else-if="activePanel === 'analytics'" />
+              <LandingFeaturesContractPanel
+                v-else-if="activePanel === 'contract'" />
+              <LandingFeaturesIntegrationPanel
+                v-else-if="activePanel === 'integration'" />
               <!-- tenant panels -->
-              <LandingFeaturesFilterPanel v-else-if="activePanel === 'filter'" />
-              <LandingFeaturesBestHomesPanel v-else-if="activePanel === 'bestHomes'" />
-              <LandingFeaturesProfilePanel v-else-if="activePanel === 'profile'" />
-              <LandingFeaturesScoringPanel v-else-if="activePanel === 'scoring'" />
+              <LandingFeaturesFilterPanel
+                v-else-if="activePanel === 'filter'" />
+              <LandingFeaturesBestHomesPanel
+                v-else-if="activePanel === 'bestHomes'" />
+              <LandingFeaturesProfilePanel
+                v-else-if="activePanel === 'profile'" />
+              <LandingFeaturesScoringPanel
+                v-else-if="activePanel === 'scoring'" />
             </div>
           </Transition>
         </div>

@@ -272,6 +272,16 @@
         "3": "I signed the contract online and didn't have to go anywhere. Excellent service."
       }
     },
+    "videoReviews": {
+      "title": "Our clients speak about us",
+      "items": {
+        "1": "*8 useful features* of *Rentmi* you didn't know",
+        "2": "How can you *improve* your *Rentmi Score*",
+        "3": "Convenient *analytics* in the *mobile app*",
+        "4": "A rental *contract* with *Rentmi* in minutes",
+        "5": "How to *find* *trusted tenants*"
+      }
+    },
     "faq": {
       "title": "Frequently asked questions",
       "items": {

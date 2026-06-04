@@ -304,6 +304,30 @@ export const testimonials: Testimonial[] = [
   }
 ]
 
+/* --- Video reviews ("Biz haqimizda, mijozlarimiz gapirishadi") ---
+   Vertical video cards: a marketing headline over a poster image; clicking
+   plays the (optional) clip. `*word*` segments in the headline render in the
+   brand colour. Drop posters/clips under public/landing/reviews/. */
+export interface VideoReview {
+  id: number
+  /** headline i18n key — `*...*` spans are highlighted in brand blue */
+  headlineKey: string
+  /** poster frame (person photo) */
+  poster: string
+  /** reviewer avatar badge */
+  avatar: string
+  /** optional clip; without it the card is poster-only */
+  src?: string
+}
+
+export const videoReviews: VideoReview[] = [
+  { id: 1, headlineKey: 'landing.videoReviews.items.1', poster: '/landing/reviews/review-1.png', avatar: '/landing/testimonial-1.png' },
+  { id: 2, headlineKey: 'landing.videoReviews.items.2', poster: '/landing/reviews/review-2.png', avatar: '/landing/testimonial-2.png' },
+  { id: 3, headlineKey: 'landing.videoReviews.items.3', poster: '/landing/reviews/review-3.png', avatar: '/landing/testimonial-3.png' },
+  { id: 4, headlineKey: 'landing.videoReviews.items.4', poster: '/landing/reviews/review-4.png', avatar: '/landing/testimonial-1.png' },
+  { id: 5, headlineKey: 'landing.videoReviews.items.5', poster: '/landing/reviews/review-5.png', avatar: '/landing/testimonial-2.png' }
+]
+
 /* --- FAQ accordion --- */
 export const faqItems: FaqItem[] = [
   { id: 1, questionKey: 'landing.faq.items.1.q', answerKey: 'landing.faq.items.1.a' },

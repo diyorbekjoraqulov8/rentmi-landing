@@ -18,7 +18,7 @@ withDefaults(
 </script>
 
 <template>
-  <div class="relative mx-auto w-xs sm:w-sm">
+  <div class="relative mx-auto w-3xs sm:w-2xs">
     <!-- Titanium frame -->
     <img
       :src="src"

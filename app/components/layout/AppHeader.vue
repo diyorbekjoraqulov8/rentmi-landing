@@ -8,13 +8,38 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 
 const menuOpen = ref(false)
+
+// Frosted-glass once the page is scrolled; transparent (blends with the page)
+// at the very top. rAF-throttled passive listener so scrolling stays smooth.
+const scrolled = ref(false)
+let ticking = false
+
+function onScroll() {
+  if (ticking) return
+  ticking = true
+  requestAnimationFrame(() => {
+    scrolled.value = window.scrollY > 8
+    ticking = false
+  })
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="bg-background">
-    <!-- thin brand accent line at the very top (matches design) -->
+  <header
+    class="sticky top-0 z-50 border-b transition-colors duration-300"
+    :class="scrolled
+      ? 'border-neutral-200/70 bg-surface/80 shadow-[0_6px_24px_-16px_rgba(16,24,40,0.45)] backdrop-blur-xl'
+      : 'border-transparent bg-background'">
     <div
-      class="mx-auto container px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      class="mx-auto container px-4 sm:px-6 flex items-center justify-between gap-4 transition-all duration-300"
+      :class="scrolled ? 'h-16' : 'h-20'">
       <!-- Left slot: MENU on desktop, logo on mobile -->
       <div class="flex flex-1 items-center">
         <!-- desktop MENU -->
