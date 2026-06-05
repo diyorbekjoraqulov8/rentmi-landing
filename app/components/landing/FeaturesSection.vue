@@ -26,6 +26,17 @@ const hoverIndex = ref<number | null>(null)
 const active = computed(() => hoverIndex.value ?? scrollIndex.value)
 const activePanel = computed(() => items.value[active.value]?.panel)
 
+/**
+ * Mobile renders an accordion instead of the two-column hover/scroll layout:
+ * each feature shows its title; the open one reveals its description AND its
+ * illustration inline beneath it (the desktop "right panel" moved in-row).
+ */
+const mobileOpen = ref(0)
+// Switching audience swaps the rows — reopen the first one.
+watch(isOwner, () => {
+  mobileOpen.value = 0
+})
+
 // The <ul> (untyped to dodge clashing DOM lib types); rows are read from it.
 const list = ref()
 
@@ -78,7 +89,7 @@ onBeforeUnmount(() => {
 
 <template>
   <section id="features" class="bg-background">
-    <div class="container py-20 md:py-28">
+    <div class="container py-14 md:py-28">
       <h2 class="text-2xl md:text-3xl font-bold text-neutral-900">
         {{ t('landing.features.title') }}
       </h2>
@@ -87,7 +98,73 @@ onBeforeUnmount(() => {
         <LandingAudienceTabs class="max-w-md" />
       </div>
 
-      <div class="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-start">
+      <!-- ===================== MOBILE (accordion) ===================== -->
+      <div class="mt-10 lg:hidden">
+        <div
+          v-for="(feature, i) in items"
+          :key="feature.titleKey"
+          class="border-b border-neutral-200 py-6 first:pt-0 last:border-0">
+          <button
+            type="button"
+            class="flex w-full items-center gap-4 text-left"
+            @click="mobileOpen = mobileOpen === i ? -1 : i">
+            <span
+              class="inline-flex size-11 shrink-0 items-center justify-center rounded-full transition-colors duration-200"
+              :class="
+                mobileOpen === i
+                  ? 'bg-brand-600 text-white'
+                  : 'bg-brand-50 text-brand-600'
+              ">
+              <AppIcon :name="feature.icon" class="size-5" />
+            </span>
+            <h3
+              class="text-xl font-bold transition-colors duration-200"
+              :class="
+                mobileOpen === i ? 'text-neutral-900' : 'text-neutral-400'
+              ">
+              {{ t(feature.titleKey) }}
+            </h3>
+          </button>
+
+          <!-- description + illustration, revealed for the open row -->
+          <div
+            class="grid transition-all duration-300 ease-out"
+            :class="
+              mobileOpen === i
+                ? 'mt-4 grid-rows-[1fr] opacity-100'
+                : 'grid-rows-[0fr] opacity-0'
+            ">
+            <div class="overflow-hidden">
+              <p class="text-base leading-relaxed text-neutral-500">
+                {{ t(feature.descKey) }}
+              </p>
+              <div v-if="mobileOpen === i" class="mt-6">
+                <!-- owner panels -->
+                <LandingCardsScoreDetailPanel
+                  v-if="feature.panel === 'score'" />
+                <LandingFeaturesAnalyticsPanel
+                  v-else-if="feature.panel === 'analytics'" />
+                <LandingFeaturesContractPanel
+                  v-else-if="feature.panel === 'contract'" />
+                <LandingFeaturesIntegrationPanel
+                  v-else-if="feature.panel === 'integration'" />
+                <!-- tenant panels -->
+                <LandingFeaturesFilterPanel
+                  v-else-if="feature.panel === 'filter'" />
+                <LandingFeaturesBestHomesPanel
+                  v-else-if="feature.panel === 'bestHomes'" />
+                <LandingFeaturesProfilePanel
+                  v-else-if="feature.panel === 'profile'" />
+                <LandingFeaturesScoringPanel
+                  v-else-if="feature.panel === 'scoring'" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================ DESKTOP (two-column hover/scroll) ============ -->
+      <div class="mt-12 hidden gap-12 lg:grid lg:grid-cols-2 lg:gap-20 lg:items-start">
         <!-- Feature list -->
         <ul ref="list" @mouseleave="onLeave">
           <li

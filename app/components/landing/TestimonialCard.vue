@@ -13,37 +13,37 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div class="flex h-full flex-col">
+  <div
+    class="flex h-full flex-col rounded-2xl bg-white px-5 py-6 shadow-lg md:px-10 md:py-8">
     <!-- Head: avatar + name -->
     <div class="flex items-center gap-4">
       <img
         :src="item.avatar"
         :alt="item.name"
-        class="size-14 shrink-0 rounded-full bg-neutral-200 object-cover"
-        onerror="this.style.visibility='hidden'"
-      >
-      <p class="text-2xl font-bold text-neutral-900">
+        class="size-14 shrink-0 rounded-full bg-white object-cover md:size-16"
+        onerror="this.style.visibility = 'hidden'" />
+      <p class="text-xl font-bold leading-tight text-neutral-900 md:text-[26px]">
         {{ item.name }}
       </p>
     </div>
 
     <!-- Stats: tenure (left) and rating (right) -->
-    <div class="mt-7 flex items-center justify-between gap-4">
+    <div class="mt-6 flex items-center justify-between gap-4 md:mt-7">
       <div class="flex items-center gap-3">
-        <span class="max-w-[72px] text-[13px] leading-tight text-neutral-400">
+        <span class="max-w-[84px] text-[13px] leading-tight text-neutral-400">
           {{ t(item.tenureKey) }}
         </span>
-        <span class="h-8 w-px bg-neutral-200" />
-        <span class="text-xl font-bold text-neutral-900">
+        <span class="h-9 w-px bg-neutral-200" />
+        <span class="text-xl font-bold text-neutral-900 md:text-2xl">
           {{ item.tenure }} {{ t('landing.testimonials.year') }}
         </span>
       </div>
       <div class="flex items-center gap-3">
-        <span class="max-w-[72px] text-[13px] leading-tight text-neutral-400">
+        <span class="max-w-[84px] text-[13px] leading-tight text-neutral-400">
           {{ t(item.ratingKey) }}
         </span>
-        <span class="h-8 w-px bg-neutral-200" />
-        <span class="text-xl font-bold text-neutral-900">
+        <span class="h-9 w-px bg-neutral-200" />
+        <span class="text-xl font-bold text-neutral-900 md:text-2xl">
           {{ item.rating }}
         </span>
       </div>
@@ -53,7 +53,7 @@ const { t } = useI18n()
     <div class="mt-5 h-px w-full bg-neutral-200" />
 
     <!-- Body -->
-    <p class="mt-6 text-base leading-relaxed text-neutral-900 md:text-[17px]">
+    <p class="mt-6 text-base leading-relaxed text-neutral-800 md:text-[19px]">
       {{ t(item.bodyKey) }}
     </p>
   </div>

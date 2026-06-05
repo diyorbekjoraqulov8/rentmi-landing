@@ -18,25 +18,30 @@ const scrollBy = (dir: 1 | -1) => {
 </script>
 
 <template>
-  <section id="listings" class="bg-background py-16 md:py-24">
+  <section
+    id="listings"
+    class="bg-background py-16 md:py-24"
+  >
     <div class="px-10 sm:px-16">
       <div class="container flex items-center justify-between gap-4">
         <h2 class="text-2xl md:text-3xl font-bold text-neutral-900">
-          {{ t('landing.manage.title') }}
+          {{ t('landing.listings.title') }}
         </h2>
         <div class="hidden sm:flex gap-2">
           <button
             type="button"
             class="inline-flex size-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:bg-neutral-50"
             :aria-label="t('landing.listings.prev')"
-            @click="scrollBy(-1)">
+            @click="scrollBy(-1)"
+          >
             <IconsChevronLeft class="size-5" />
           </button>
           <button
             type="button"
             class="inline-flex size-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:bg-neutral-50"
             :aria-label="t('landing.listings.next')"
-            @click="scrollBy(1)">
+            @click="scrollBy(1)"
+          >
             <IconsChevronRight class="size-5" />
           </button>
         </div>
@@ -44,12 +49,17 @@ const scrollBy = (dir: 1 | -1) => {
 
       <div
         ref="track"
-        class="mt-8 flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        role="region"
+        tabindex="0"
+        :aria-label="t('landing.listings.title')"
+        class="mt-8 flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
         <LandingCardsManageListingCard
           v-for="item in manageListings"
           :key="item.id"
           :item="item"
-          class="w-[300px] shrink-0 snap-start self-start" />
+          class="w-68 shrink-0 snap-start"
+        />
       </div>
     </div>
   </section>

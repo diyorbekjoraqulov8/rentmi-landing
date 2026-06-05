@@ -180,93 +180,86 @@ export const listings: Listing[] = [
   }
 ]
 
-/* --- "Qanday boshqarasiz?" management showcase ---
-   Three card variants illustrate the lifecycle of a listing:
-     'cta'    — a fresh listing with a "publish" button
-     'rented' — an active rental (tenant + payment progress + dates)
-     'stats'  — a published listing showing view/application/saved counts   */
-export type ManageVariant = 'cta' | 'rented' | 'stats'
-
+/* --- "Aynan siz uchun mos uylar" recommendation carousel ---
+   One unified property card. `recommended` marks the highlighted lead card —
+   rendered permanently in the dark full-bleed treatment (the same look every
+   card takes on hover); the rest carry a "Top" badge. */
 export interface ManageListing {
   id: number
-  variant: ManageVariant
   title: string
   addressKey: string
   price: string
   area: string
   floor: string
-  /** 'rented' only */
-  tenant?: string
-  paid?: number
-  total?: number
-  badgeKey?: string
-  /** 'stats' only — viewed / applications / saved */
-  stats?: { icon: string, value: string, labelKey: string }[]
+  /** views count shown next to the eye icon */
+  views: string
+  /** cover photo from public/landing */
+  src: string
+  /** the lead card: rendered permanently in the dark/active state */
+  recommended?: boolean
 }
 
 export const manageListings: ManageListing[] = [
   {
     id: 1,
-    variant: 'cta',
-    title: 'Dream City 3 xonali',
-    addressKey: 'landing.manage.addr.dreamCity',
-    price: '23 mln so\'m',
-    area: '120m²',
-    floor: '12/16'
-  },
-  {
-    id: 2,
-    variant: 'rented',
-    title: 'Mirabad Square | Penthouse',
-    addressKey: 'landing.manage.addr.mirabad',
-    price: '24,5 mln so\'m',
-    area: '185m²',
-    floor: '12/12',
-    tenant: 'Abdullayev Sarvar',
-    paid: 6,
-    total: 8
-  },
-  {
-    id: 3,
-    variant: 'stats',
-    title: 'Duplex Yakkasaroy',
-    addressKey: 'landing.manage.addr.duplex',
-    price: '18 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    badgeKey: 'landing.manage.vacant',
-    stats: [
-      { icon: 'IconsEye', value: '24', labelKey: 'landing.manage.stats.viewed' },
-      { icon: 'IconsFileExport', value: '2', labelKey: 'landing.manage.stats.applications' },
-      { icon: 'IconsBookmark', value: '31', labelKey: 'landing.manage.stats.saved' }
-    ]
-  },
-  {
-    id: 4,
-    variant: 'stats',
     title: 'Drujba NRG | U Tower',
     addressKey: 'landing.manage.addr.drujba',
     price: '18 mln so\'m',
     area: '120m²',
     floor: '12/16',
-    badgeKey: 'landing.manage.vacant',
-    stats: [
-      { icon: 'IconsEye', value: '125', labelKey: 'landing.manage.stats.viewed' },
-      { icon: 'IconsFileExport', value: '3', labelKey: 'landing.manage.stats.applications' },
-      { icon: 'IconsBookmark', value: '45', labelKey: 'landing.manage.stats.saved' }
-    ]
+    views: '125',
+    src: '/landing/drujba-nrg.png',
+    recommended: true
+  },
+  {
+    id: 2,
+    title: 'Drujba NRG | U Tower',
+    addressKey: 'landing.manage.addr.drujba',
+    price: '18 mln so\'m',
+    area: '120m²',
+    floor: '12/16',
+    views: '125',
+    src: '/landing/drujba.png'
+  },
+  {
+    id: 3,
+    title: 'Mirabad Square | Penthouse',
+    addressKey: 'landing.manage.addr.mirabad',
+    price: '24 mln so\'m',
+    area: '120m²',
+    floor: '12/16',
+    views: '125',
+    src: '/landing/mirabad-square.png'
+  },
+  {
+    id: 4,
+    title: 'Duplex Yakkasaroy',
+    addressKey: 'landing.manage.addr.duplex',
+    price: '56 mln so\'m',
+    area: '120m²',
+    floor: '12/16',
+    views: '125',
+    src: '/landing/drujba-nrg.png'
   },
   {
     id: 5,
-    variant: 'rented',
-    title: 'Yunusobod 3 xonali',
+    title: 'Mirabad Square | Penthouse',
+    addressKey: 'landing.manage.addr.mirabad',
+    price: '12 mln so\'m',
+    area: '120m²',
+    floor: '12/16',
+    views: '125',
+    src: '/landing/mirabad-square.png'
+  },
+  {
+    id: 6,
+    title: 'Yunusobod Residence',
     addressKey: 'landing.manage.addr.yunusobod',
-    price: '50 mln so\'m',
-    area: '185m²',
-    floor: '12/12',
-    tenant: 'Bekzodov Mahmud',
-    paid: 6,
-    total: 8
+    price: '24 mln so\'m',
+    area: '120m²',
+    floor: '12/16',
+    views: '125',
+    src: '/landing/drujba.png'
   }
 ]
 
@@ -275,7 +268,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 1,
     name: 'Abullayeva Munira',
-    avatar: '/landing/testimonial-1.png',
+    avatar: '/landing/profile-1.png',
     tenureKey: 'landing.testimonials.tenure',
     tenure: '2',
     ratingKey: 'landing.testimonials.rating',
@@ -285,7 +278,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 2,
     name: 'Bekzodov Anvar',
-    avatar: '/landing/testimonial-2.png',
+    avatar: '/landing/profile-2.png',
     tenureKey: 'landing.testimonials.tenure',
     tenure: '3',
     ratingKey: 'landing.testimonials.rating',
@@ -295,7 +288,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 3,
     name: 'Elmurod Haqnazarov',
-    avatar: '/landing/testimonial-3.png',
+    avatar: '/landing/profile-3.png',
     tenureKey: 'landing.testimonials.tenure',
     tenure: '1',
     ratingKey: 'landing.testimonials.rating',
@@ -307,7 +300,7 @@ export const testimonials: Testimonial[] = [
 /* --- Video reviews ("Biz haqimizda, mijozlarimiz gapirishadi") ---
    Vertical video cards: a marketing headline over a poster image; clicking
    plays the (optional) clip. `*word*` segments in the headline render in the
-   brand colour. Drop posters/clips under public/landing/reviews/. */
+   brand colour. Cutout person posters live under public/landing/girls/. */
 export interface VideoReview {
   id: number
   /** headline i18n key — `*...*` spans are highlighted in brand blue */
@@ -321,11 +314,11 @@ export interface VideoReview {
 }
 
 export const videoReviews: VideoReview[] = [
-  { id: 1, headlineKey: 'landing.videoReviews.items.1', poster: '/landing/reviews/review-1.png', avatar: '/landing/testimonial-1.png' },
-  { id: 2, headlineKey: 'landing.videoReviews.items.2', poster: '/landing/reviews/review-2.png', avatar: '/landing/testimonial-2.png' },
-  { id: 3, headlineKey: 'landing.videoReviews.items.3', poster: '/landing/reviews/review-3.png', avatar: '/landing/testimonial-3.png' },
-  { id: 4, headlineKey: 'landing.videoReviews.items.4', poster: '/landing/reviews/review-4.png', avatar: '/landing/testimonial-1.png' },
-  { id: 5, headlineKey: 'landing.videoReviews.items.5', poster: '/landing/reviews/review-5.png', avatar: '/landing/testimonial-2.png' }
+  { id: 1, headlineKey: 'landing.videoReviews.items.1', poster: '/landing/girls/girl-1.png', avatar: '/landing/profile-1.png' },
+  { id: 2, headlineKey: 'landing.videoReviews.items.2', poster: '/landing/girls/girl-2.png', avatar: '/landing/profile-2.png' },
+  { id: 3, headlineKey: 'landing.videoReviews.items.3', poster: '/landing/girls/girl-3.png', avatar: '/landing/profile-3.png' },
+  { id: 4, headlineKey: 'landing.videoReviews.items.4', poster: '/landing/girls/girl-4.png', avatar: '/landing/profile-4.png' },
+  { id: 5, headlineKey: 'landing.videoReviews.items.5', poster: '/landing/girls/girl-5.png', avatar: '/landing/profile-1.png' }
 ]
 
 /* --- FAQ accordion --- */

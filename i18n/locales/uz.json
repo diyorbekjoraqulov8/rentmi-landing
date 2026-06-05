@@ -10,6 +10,7 @@
   "header": {
     "postAd": "E'lon joylashtirish",
     "download": "Ilovani yuklab olish",
+    "language": "Tilni tanlash",
     "menu": "MENU",
     "nav": {
       "listings": "E'lonlar",
@@ -38,9 +39,11 @@
   "landing": {
     "audience": {
       "owner": "Uy egalari uchun",
-      "tenant": "Ijarachilar uchun"
+      "tenant": "Ijarachilar uchun",
+      "label": "Maqsadli auditoriyani tanlash"
     },
     "hero": {
+      "h1": "rentmi.uz — O'zbekistonda xavfsiz, shaffof va qulay uy ijarasi platformasi",
       "cta": "E'lonlarni ko'rish",
       "secondary": "Batafsil",
       "owner": {
@@ -226,8 +229,8 @@
       "prev": "Oldingi",
       "next": "Keyingi",
       "badge": {
-        "top": "TOP",
-        "recommended": "Rentmi tavsiyasi"
+        "top": "Top",
+        "recommended": "Rentmi tavsiya qiladi"
       },
       "items": {
         "1": { "title": "Dushja NRG U Tower", "address": "Toshkent, Yunusobod", "area": "120 m²", "rooms": "3 xona" },
@@ -267,9 +270,9 @@
       "rating": "Rentmini baholaydi",
       "year": "yil",
       "items": {
-        "1": "Rentmi orqali bir necha kun ichida ajoyib uy topdim. Jarayon juda shaffof va oson bo'ldi.",
-        "2": "Skoring tizimi tufayli uy egasi menga tez ishondi. Tavsiya qilaman!",
-        "3": "Shartnomani onlayn imzoladim, hech qayerga borishim shart bo'lmadi. Zo'r xizmat."
+        "1": "Rentmi orqali bir necha kun ichida ajoyib uy topdim. Jarayon juda shaffof va oson kechdi — barcha hujjatlar onlayn rasmiylashtirildi. Uy egasi bilan muloqot ham qulay edi, ortiqcha tashvishsiz ko'chib o'tdim. Endi do'stlarimga ham bemalol tavsiya qilyapman.",
+        "2": "Skoring tizimi tufayli uy egasi menga juda tez ishondi. Ilgari ijaraga uy topish uchun haftalab vaqt ketardi, Rentmi bilan esa hammasi bir kunda hal bo'ldi. To'lovlar va shartnoma ham ilovaning o'zida — juda qulay va tartibli.",
+        "3": "Shartnomani onlayn imzoladim, hech qayerga borishim shart bo'lmadi. Qo'llab-quvvatlash xizmati har bir savolimga tez va aniq javob berdi. Bunday darajadagi xizmatni kutmagandim — rostdan ham zo'r ekan."
       }
     },
     "videoReviews": {

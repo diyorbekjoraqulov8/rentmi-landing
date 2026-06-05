@@ -51,7 +51,10 @@ const scrollBy = (dir: 1 | -1) => {
 
       <div
         ref="track"
-        class="mt-12 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth md:gap-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        role="region"
+        tabindex="0"
+        :aria-label="t('landing.videoReviews.title')"
+        class="mt-12 flex gap-2 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth md:gap-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         <LandingVideoReviewCard
           v-for="item in videoReviews"

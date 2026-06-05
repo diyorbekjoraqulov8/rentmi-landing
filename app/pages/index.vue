@@ -13,6 +13,16 @@ useSeoMeta({
   ogType: 'website',
   twitterCard: 'summary_large_image'
 })
+
+// Structured data for rich results (Organization + WebSite/SearchAction).
+useSchemaOrg([
+  defineOrganization({
+    name: 'rentmi.uz',
+    logo: '/landing/rentme-logo.png',
+    sameAs: ['https://t.me/rentmi_uz', 'https://instagram.com/rentmi.uz']
+  }),
+  defineWebSite({ name: 'rentmi.uz' })
+])
 </script>
 
 <template>
@@ -25,6 +35,6 @@ useSeoMeta({
     <LandingTestimonialsSection />
     <LandingFaqSection />
     <LandingVideoReviewsSection />
-    <LandingBlogSection />
+    <!-- <LandingBlogSection /> -->
   </div>
 </template>

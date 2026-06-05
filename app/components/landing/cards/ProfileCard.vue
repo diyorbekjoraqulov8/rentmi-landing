@@ -12,16 +12,13 @@ const { t } = useI18n()
     <div class="flex items-center gap-3">
       <div class="relative shrink-0">
         <img
-          src="/landing/avatar-owner.png"
+          src="/landing/profile-4.png"
           alt="Murod Talipov"
           class="size-11 rounded-full object-cover bg-neutral-200"
-          onerror="this.style.visibility='hidden'"
-        >
-        <span class="absolute -bottom-0.5 -right-0.5 inline-flex size-4 items-center justify-center rounded-full bg-success-600 ring-2 ring-white">
-          <Icon
-            name="lucide:check"
-            class="size-2.5 text-white"
-          />
+          onerror="this.style.visibility = 'hidden'" />
+        <span
+          class="absolute -bottom-0.5 -right-0.5 inline-flex size-4 items-center justify-center rounded-full bg-success-600 ring-2 ring-white">
+          <Icon name="lucide:check" class="size-2.5 text-white" />
         </span>
       </div>
       <div>
@@ -50,7 +47,8 @@ const { t } = useI18n()
           {{ t('landing.hero.cards.profile.marital') }}
         </dt>
         <dd>
-          <span class="inline-flex items-center gap-1.5 rounded-lg bg-neutral-100 px-2.5 py-1 text-neutral-600">
+          <span
+            class="inline-flex items-center gap-1.5 rounded-lg bg-neutral-100 px-2.5 py-1 text-neutral-600">
             {{ t('landing.hero.cards.profile.upload') }}
             <IconsShare class="size-3.5" />
           </span>

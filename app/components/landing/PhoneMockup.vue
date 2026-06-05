@@ -9,10 +9,13 @@ withDefaults(
   defineProps<{
     src?: string
     alt?: string
+    /** Hero phone is the LCP element → load eagerly with high priority. */
+    priority?: boolean
   }>(),
   {
     src: 'landing/hero-phone.png',
-    alt: 'Rentmi app'
+    alt: 'Rentmi app',
+    priority: false
   }
 )
 </script>
@@ -23,8 +26,13 @@ withDefaults(
     <img
       :src="src"
       :alt="alt"
+      width="384"
+      height="788"
       class="relative h-full w-full object-cover object-top"
-      loading="lazy"
-      onerror="this.style.display = 'none'" />
+      :loading="priority ? 'eager' : 'lazy'"
+      :fetchpriority="priority ? 'high' : 'auto'"
+      decoding="async"
+      onerror="this.style.display = 'none'"
+    >
   </div>
 </template>

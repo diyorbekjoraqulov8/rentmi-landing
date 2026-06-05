@@ -16,11 +16,16 @@ const tabs: { key: Audience, labelKey: string }[] = [
 </script>
 
 <template>
-  <div class="inline-flex w-full rounded-full bg-surface p-1.5 shadow-card sm:w-auto">
+  <div
+    class="inline-flex w-full rounded-full bg-surface p-1.5 shadow-card sm:w-auto"
+    role="group"
+    :aria-label="t('landing.audience.label')"
+  >
     <button
       v-for="tab in tabs"
       :key="tab.key"
       type="button"
+      :aria-pressed="audience === tab.key"
       class="flex-1 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-colors sm:px-10"
       :class="audience === tab.key
         ? 'bg-brand-600 text-white shadow-sm'

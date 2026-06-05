@@ -16,8 +16,16 @@ const legal = [
 
 const socials = [
   { icon: 'IconsTelegram', label: 'rentmi_uz', href: 'https://t.me/rentmi_uz' },
-  { icon: 'IconsInstagram', label: 'rentmi.uz', href: 'https://instagram.com/rentmi.uz' },
-  { icon: 'IconsFacebook', label: 'rentmi uz', href: 'https://facebook.com/rentmi.uz' }
+  {
+    icon: 'IconsInstagram',
+    label: 'rentmi.uz',
+    href: 'https://instagram.com/rentmi.uz'
+  },
+  {
+    icon: 'IconsFacebook',
+    label: 'rentmi uz',
+    href: 'https://facebook.com/rentmi.uz'
+  }
 ]
 
 // Payment providers — text badges for now; swap for logos in public/landing/.
@@ -28,19 +36,18 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="bg-surface border-t border-neutral-200">
-    <div class="mx-auto max-w-[1320px] px-4 sm:px-6 py-14">
+    <div class="container px-4 sm:px-6 py-14">
       <div class="grid gap-10 md:grid-cols-4">
         <!-- Brand + copyright -->
         <div class="space-y-4">
           <NuxtLink
             :to="localePath('/')"
-            class="flex items-center gap-2 text-2xl font-extrabold text-brand-600"
-          >
+            class="flex items-center gap-2 text-2xl font-extrabold text-brand-600">
             <IconsLocationPin class="size-7" />
             Rentmi
           </NuxtLink>
           <p class="text-sm leading-relaxed text-neutral-500">
-            © Rentmi {{ year }}<br>
+            © Rentmi {{ year }}<br />
             {{ t('footer.rights') }}
           </p>
         </div>
@@ -51,14 +58,10 @@ const year = new Date().getFullYear()
             {{ t('footer.legal') }}
           </h3>
           <ul class="space-y-3">
-            <li
-              v-for="link in legal"
-              :key="link.to"
-            >
+            <li v-for="link in legal" :key="link.to">
               <NuxtLink
                 :to="localePath(link.to)"
-                class="text-sm text-neutral-500 hover:text-brand-600 transition-colors"
-              >
+                class="text-sm text-neutral-500 hover:text-brand-600 transition-colors">
                 {{ t(link.labelKey) }}
               </NuxtLink>
             </li>
@@ -75,13 +78,15 @@ const year = new Date().getFullYear()
               <a
                 href="mailto:info@rentmi.uz"
                 class="text-neutral-500 hover:text-brand-600"
-              >info@rentmi.uz</a>
+                >info@rentmi.uz</a
+              >
             </li>
             <li>
               <a
                 href="tel:+998781138878"
                 class="text-neutral-500 hover:text-brand-600"
-              >+998 78 113 88 78</a>
+                >+998 78 113 88 78</a
+              >
             </li>
           </ul>
         </div>
@@ -92,20 +97,13 @@ const year = new Date().getFullYear()
             {{ t('footer.social.title') }}
           </h3>
           <ul class="space-y-3">
-            <li
-              v-for="s in socials"
-              :key="s.label"
-            >
+            <li v-for="s in socials" :key="s.label">
               <a
                 :href="s.href"
                 target="_blank"
                 rel="noopener"
-                class="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-brand-600 transition-colors"
-              >
-                <component
-                  :is="s.icon"
-                  class="size-4 text-brand-600"
-                />
+                class="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-brand-600 transition-colors">
+                <component :is="s.icon" class="size-4 text-brand-600" />
                 {{ s.label }}
               </a>
             </li>
@@ -116,13 +114,16 @@ const year = new Date().getFullYear()
       <!-- Divider + payments -->
       <div class="mt-12 border-t border-neutral-200 pt-8">
         <div class="flex flex-wrap items-center gap-6">
-          <span class="font-semibold text-neutral-900">{{ t('footer.payments') }}</span>
+          <span class="font-semibold text-neutral-900">{{
+            t('footer.payments')
+          }}</span>
           <div class="flex flex-wrap items-center gap-5">
             <span
               v-for="p in payments"
               :key="p"
               class="text-sm font-semibold text-neutral-400"
-            >{{ p }}</span>
+              >{{ p }}</span
+            >
           </div>
         </div>
       </div>

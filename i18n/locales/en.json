@@ -10,6 +10,7 @@
   "header": {
     "postAd": "Post a listing",
     "download": "Download the app",
+    "language": "Choose language",
     "menu": "MENU",
     "nav": {
       "listings": "Listings",
@@ -38,9 +39,11 @@
   "landing": {
     "audience": {
       "owner": "For owners",
-      "tenant": "For tenants"
+      "tenant": "For tenants",
+      "label": "Choose audience"
     },
     "hero": {
+      "h1": "rentmi.uz — a safe, transparent and convenient home-rental platform in Uzbekistan",
       "cta": "Browse listings",
       "secondary": "Learn more",
       "owner": {
@@ -267,9 +270,9 @@
       "rating": "Rates Rentmi",
       "year": "yr",
       "items": {
-        "1": "Through Rentmi I found a great home within a few days. The process was very transparent and easy.",
-        "2": "Thanks to the scoring system, the owner trusted me quickly. Highly recommend!",
-        "3": "I signed the contract online and didn't have to go anywhere. Excellent service."
+        "1": "Through Rentmi I found a great home within just a few days. The process was very transparent and easy — all the paperwork was done online. Talking to the owner was convenient too, and I moved in without any hassle. Now I happily recommend it to my friends.",
+        "2": "Thanks to the scoring system, the owner trusted me very quickly. Finding a rental used to take weeks; with Rentmi everything was sorted in a single day. Payments and the contract are in the app too — very convenient and well organized.",
+        "3": "I signed the contract online and didn't have to go anywhere. Support answered every question quickly and clearly. I didn't expect this level of service — it's genuinely excellent."
       }
     },
     "videoReviews": {

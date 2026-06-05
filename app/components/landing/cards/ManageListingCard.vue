@@ -2,8 +2,14 @@
 import type { ManageListing } from '~/data/landing'
 
 /**
- * Property card for the "Qanday boshqarasiz?" carousel. One component, three
- * variants (cta / rented / stats) sharing the same cover + title/price head.
+ * Property card for the "Aynan siz uchun mos uylar" carousel.
+ *
+ * Two states sharing one cover photo:
+ *  - default — a white card: framed cover up top, details below.
+ *  - active  — a dark full-bleed cover with the details overlaid in white.
+ *
+ * Hovering crossfades default → active. The `recommended` lead card is pinned
+ * to the active state (and carries the "Rentmi tavsiya qiladi" badge).
  */
 defineProps<{ item: ManageListing }>()
 
@@ -11,151 +17,117 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div class="flex flex-col overflow-hidden rounded-2xl bg-surface shadow-card">
-    <!-- Cover -->
-    <div class="relative aspect-[4/3] bg-neutral-200">
-      <img
-        src="/landing/listing-penthouse.png"
-        :alt="item.title"
-        class="h-full w-full object-cover"
-        onerror="this.style.visibility='hidden'"
-      >
-      <!-- vacant badge (stats variant) -->
-      <span
-        v-if="item.badgeKey"
-        class="absolute left-3 top-3 rounded-full bg-success-600 px-3 py-1 text-xs font-medium text-white"
-      >
-        {{ t(item.badgeKey) }}
-      </span>
-      <!-- id badge (rented variant) -->
-      <span
-        v-else
-        class="absolute left-3 top-3 inline-flex items-center gap-1 rounded-md bg-black/55 px-2 py-1 text-[10px] font-medium text-white backdrop-blur"
-      >
-        <Icon
-          name="lucide:hash"
-          class="size-3"
-        />1324565345
-      </span>
-      <!-- more menu (cta) -->
-      <button
-        v-if="item.variant === 'cta'"
-        type="button"
-        class="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full bg-white/90 text-neutral-600"
-        aria-label="menu"
-      >
-        <IconsDotsHorizontal class="size-4" />
-      </button>
-      <!-- area/floor (non-cta) -->
-      <span
-        v-else
-        class="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-md bg-black/55 px-2 py-1 text-[10px] text-white backdrop-blur"
-      >
-        <span class="flex items-center gap-1"><Icon
-          name="lucide:scan"
-          class="size-3"
-        />{{ item.area }}</span>
-        <span class="flex items-center gap-1"><Icon
-          name="lucide:layers"
-          class="size-3"
-        />{{ item.floor }}</span>
-      </span>
-    </div>
+  <article
+    class="group relative h-[372px] overflow-hidden rounded-[22px] bg-surface shadow-card transition-shadow duration-300 hover:shadow-xl"
+  >
+    <!-- full-bleed cover (the active-state background) -->
+    <img
+      :src="item.src"
+      :alt="item.title"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover"
+      onerror="this.style.visibility = 'hidden'"
+    >
+    <!-- darkening gradient: on hover, or always for the lead card -->
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5 transition-opacity duration-300"
+      :class="
+        item.recommended ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+      "
+    />
 
-    <!-- Body -->
-    <div class="flex flex-1 flex-col p-4">
-      <p class="font-semibold text-neutral-900">
-        {{ item.title }}
-      </p>
-      <p class="mt-1 flex items-center gap-1 text-xs text-neutral-500">
-        <IconsMapPin class="size-3.5 shrink-0" />
-        {{ t(item.addressKey) }}
-      </p>
-
-      <div class="mt-2 flex items-center justify-between">
-        <p class="font-bold text-neutral-900">
-          {{ item.price }} <span class="text-xs font-normal text-neutral-400">/ {{ t('landing.listings.perMonth') }}</span>
-        </p>
+    <!-- DEFAULT white panel — fades out on hover (absent for the lead card) -->
+    <div
+      class="absolute inset-0 flex flex-col bg-surface p-2.5 transition-opacity duration-300"
+      :class="
+        item.recommended ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
+      "
+    >
+      <div class="relative h-[200px] shrink-0 overflow-hidden rounded-2xl bg-neutral-200">
+        <img
+          :src="item.src"
+          :alt="item.title"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+          onerror="this.style.visibility = 'hidden'"
+        >
         <span
-          v-if="item.variant === 'rented'"
-          class="text-xs text-neutral-400"
-        >{{ item.paid }}/{{ item.total }} oy</span>
+          class="absolute bottom-2.5 right-2.5 inline-flex items-center gap-2 rounded-lg bg-black/55 px-2 py-1 text-[11px] font-medium text-white backdrop-blur"
+        >
+          <span class="flex items-center gap-1"><IconsGrid class="text-[13px]" />{{ item.area }}</span>
+          <span class="h-3 w-px bg-white/30" />
+          <span class="flex items-center gap-1"><IconsChartBars class="text-[13px]" />{{ item.floor }}</span>
+        </span>
       </div>
 
-      <!-- CTA variant -->
-      <BaseButton
-        v-if="item.variant === 'cta'"
-        block
-        class="mt-4"
-      >
-        {{ t('landing.manage.publish') }}
-      </BaseButton>
-
-      <!-- RENTED variant -->
-      <template v-else-if="item.variant === 'rented'">
-        <div class="mt-3 flex gap-1">
-          <span
-            v-for="i in item.total"
-            :key="i"
-            class="h-1.5 flex-1 rounded-full"
-            :class="i <= (item.paid ?? 0) ? 'bg-success-500' : 'bg-neutral-200'"
-          />
-        </div>
-        <div class="mt-3">
-          <p class="text-xs text-neutral-400">
-            {{ t('landing.hero.cards.rental.tenant') }}
+      <div class="flex flex-1 flex-col px-1.5 pt-3">
+        <p class="font-semibold text-neutral-900 line-clamp-1">
+          {{ item.title }}
+        </p>
+        <p class="mt-1 flex items-center gap-1 text-xs text-neutral-500 line-clamp-1">
+          <IconsMapPin class="shrink-0 text-sm" />{{ t(item.addressKey) }}
+        </p>
+        <div class="mt-auto flex items-center justify-between pt-3">
+          <p class="font-bold text-neutral-900">
+            {{ item.price }}
+            <span class="text-xs font-normal text-neutral-400">/ {{ t('landing.listings.perMonth') }}</span>
           </p>
-          <div class="mt-1 flex items-center gap-2">
-            <img
-              src="/landing/avatar-tenant.png"
-              :alt="item.tenant"
-              class="size-6 rounded-full object-cover bg-neutral-200"
-              onerror="this.style.visibility='hidden'"
-            >
-            <span class="text-sm font-medium text-neutral-900">{{ item.tenant }}</span>
-          </div>
+          <span class="flex items-center gap-1 text-xs text-neutral-400">{{ item.views }}<IconsEye class="text-sm" /></span>
         </div>
-        <dl class="mt-3 space-y-1.5 border-t border-neutral-100 pt-3 text-xs">
-          <div class="flex justify-between">
-            <dt class="text-neutral-400">
-              {{ t('landing.hero.cards.rental.contractDate') }}
-            </dt>
-            <dd class="font-medium text-neutral-900">
-              2-Avgust, 2025
-            </dd>
-          </div>
-          <div class="flex justify-between">
-            <dt class="text-neutral-400">
-              {{ t('landing.hero.cards.rental.nextPayment') }}
-            </dt>
-            <dd class="font-medium text-neutral-900">
-              3-Aprel, 2025
-            </dd>
-          </div>
-        </dl>
-      </template>
-
-      <!-- STATS variant -->
-      <dl
-        v-else
-        class="mt-4 grid grid-cols-3 gap-2 border-t border-neutral-100 pt-4"
-      >
-        <div
-          v-for="s in item.stats"
-          :key="s.labelKey"
-        >
-          <dt class="text-[11px] text-neutral-400">
-            {{ t(s.labelKey) }}
-          </dt>
-          <dd class="mt-1 flex items-center gap-1 text-sm font-semibold text-neutral-900">
-            {{ s.value }}
-            <AppIcon
-              :name="s.icon"
-              class="size-3.5 text-neutral-400"
-            />
-          </dd>
-        </div>
-      </dl>
+      </div>
     </div>
-  </div>
+
+    <!-- ACTIVE dark overlay — fades in on hover (always on for the lead card) -->
+    <div
+      class="absolute inset-x-0 bottom-0 flex flex-col p-5 text-white transition-opacity duration-300"
+      :class="
+        item.recommended ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+      "
+    >
+      <div class="mb-2 flex items-center gap-3 text-xs text-white/90">
+        <span class="flex items-center gap-1"><IconsGrid class="text-[13px]" />{{ item.area }}</span>
+        <span class="flex items-center gap-1"><IconsChartBars class="text-[13px]" />{{ item.floor }}</span>
+      </div>
+      <p class="font-semibold line-clamp-1">
+        {{ item.title }}
+      </p>
+      <p class="mt-1 flex items-center gap-1 text-xs text-white/70 line-clamp-1">
+        <IconsMapPin class="shrink-0 text-sm" />{{ t(item.addressKey) }}
+      </p>
+      <div class="mt-3 flex items-center justify-between">
+        <p class="font-bold">
+          {{ item.price }}
+          <span class="text-xs font-normal text-white/60">/ {{ t('landing.listings.perMonth') }}</span>
+        </p>
+        <span class="flex items-center gap-1 text-xs text-white/70">{{ item.views }}<IconsEye class="text-sm" /></span>
+      </div>
+    </div>
+
+    <!-- shared chrome: badge + favourite, above both layers -->
+    <span
+      class="absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur"
+      :class="
+        item.recommended ? 'bg-black/40 text-white' : 'bg-white/95 text-neutral-800'
+      "
+    >
+      <IconsCrown
+        class="text-sm"
+        :class="item.recommended ? 'text-amber-300' : 'text-amber-500'"
+      />
+      {{
+        item.recommended
+          ? t('landing.listings.badge.recommended')
+          : t('landing.listings.badge.top')
+      }}
+    </span>
+    <button
+      type="button"
+      class="absolute right-4 top-4 z-10 inline-flex size-8 items-center justify-center rounded-full bg-white/95 text-neutral-600 shadow-sm transition hover:text-brand-600"
+      :aria-label="t('landing.listings.favorite')"
+    >
+      <IconsHeart class="text-sm" />
+    </button>
+  </article>
 </template>

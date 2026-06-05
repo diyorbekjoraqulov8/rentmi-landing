@@ -23,18 +23,19 @@ const stores = [
 </script>
 
 <template>
-  <section class="bg-brand-600 text-white my-50">
-    <div class="container grid gap-2 relative md:grid-cols-2 md:items-end">
+  <section class="bg-brand-600 text-white my-16 md:my-32">
+    <div
+      class="container relative grid gap-8 overflow-hidden md:grid-cols-2 md:items-end md:gap-2 md:overflow-visible">
       <!-- Left copy -->
-      <div class="py-14 md:py-24">
-        <span class="text-3xl md:text-5xl leading-tight font-medium">
+      <div class="pt-12 text-center md:py-24 md:text-left">
+        <h2 class="text-3xl md:text-5xl leading-tight font-medium">
           {{ t('landing.download.title') }}
-        </span>
-        <p class="mt-2 max-w-md text-white/80">
+        </h2>
+        <p class="mx-auto mt-3 max-w-md text-white/80 md:mx-0">
           {{ t('landing.download.desc') }}
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
+        <div class="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
           <a
             v-for="store in stores"
             :key="store.bottom"
@@ -53,8 +54,9 @@ const stores = [
         </div>
       </div>
 
-      <!-- Phone -->
-      <div class="absolute right-0 top-1/2 -translate-y-1/2 md:block">
+      <!-- Phone: in-flow & centered on mobile, bleeds off the bottom on desktop -->
+      <div
+        class="flex justify-center md:absolute md:right-0 md:top-1/2 md:block md:-translate-y-1/2">
         <LandingPhoneMockup src="/landing/download-app.png" />
       </div>
     </div>

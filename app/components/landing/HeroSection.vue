@@ -15,6 +15,7 @@
  *
  *  Mobile: tabs (full width) → cards stacked → phone, in the screenshot order.
  */
+const { t } = useI18n()
 const { isOwner } = useAudience()
 
 const phoneSrc = computed(() =>
@@ -23,8 +24,20 @@ const phoneSrc = computed(() =>
 </script>
 
 <template>
-  <section class="relative overflow-hidden bg-background">
+  <section
+    class="relative overflow-hidden bg-background"
+    aria-labelledby="hero-heading"
+  >
     <div class="mx-auto max-w-[1320px] px-4 sm:px-6 pt-6 pb-16 md:pb-24">
+      <!-- Primary page heading. The hero is visual (phone + cards), so the
+           SEO/a11y H1 is rendered for assistive tech and crawlers. -->
+      <h1
+        id="hero-heading"
+        class="sr-only"
+      >
+        {{ t('landing.hero.h1') }}
+      </h1>
+
       <!-- Audience tabs -->
       <div class="flex justify-center">
         <LandingAudienceTabs class="max-w-xl" />
@@ -56,12 +69,18 @@ const phoneSrc = computed(() =>
           <LandingFloatingCard :delay="220">
             <LandingCardsPropertyTypeCard />
           </LandingFloatingCard>
-          <LandingFloatingCard :delay="300" class="mx-auto max-w-[240px]">
+          <LandingFloatingCard
+            :delay="300"
+            class="mx-auto max-w-[240px]"
+          >
             <LandingCardsMiniListingCard />
           </LandingFloatingCard>
         </template>
         <div class="pt-4">
-          <LandingPhoneMockup :src="phoneSrc" />
+          <LandingPhoneMockup
+            :src="phoneSrc"
+            priority
+          />
         </div>
       </div>
 
@@ -70,35 +89,58 @@ const phoneSrc = computed(() =>
         <!-- Phone, centered (entrance only, no bob — it's the anchor) -->
         <div class="relative z-20 flex justify-center">
           <LandingFloatingCard :float="false">
-            <LandingPhoneMockup :src="phoneSrc" />
+            <LandingPhoneMockup
+              :src="phoneSrc"
+              priority
+            />
           </LandingFloatingCard>
         </div>
 
         <!-- ===== OWNER card set ===== -->
         <template v-if="isOwner">
           <div class="absolute left-28 top-12 z-10 w-[280px]">
-            <LandingFloatingCard :delay="100" :amplitude="9" :duration="6.5">
+            <LandingFloatingCard
+              :delay="100"
+              :amplitude="9"
+              :duration="6.5"
+            >
               <LandingCardsAiAdviceCard />
             </LandingFloatingCard>
           </div>
           <div class="absolute left-22 top-50 z-10 w-[330px]">
-            <LandingFloatingCard :delay="200" :amplitude="12" :duration="7.5">
+            <LandingFloatingCard
+              :delay="200"
+              :amplitude="12"
+              :duration="7.5"
+            >
               <LandingCardsProfileCard />
             </LandingFloatingCard>
           </div>
           <div class="absolute left-30 top-110 z-10 w-[270px]">
-            <LandingFloatingCard :delay="320" :amplitude="10" :duration="6.8">
+            <LandingFloatingCard
+              :delay="320"
+              :amplitude="10"
+              :duration="6.8"
+            >
               <LandingCardsMiniRentalCard />
             </LandingFloatingCard>
           </div>
 
           <div class="absolute right-0 top-16 z-10 w-[360px]">
-            <LandingFloatingCard :delay="160" :amplitude="11" :duration="7">
+            <LandingFloatingCard
+              :delay="160"
+              :amplitude="11"
+              :duration="7"
+            >
               <LandingCardsScoreCard />
             </LandingFloatingCard>
           </div>
           <div class="absolute right-22 top-64 z-10 w-[300px]">
-            <LandingFloatingCard :delay="280" :amplitude="13" :duration="8">
+            <LandingFloatingCard
+              :delay="280"
+              :amplitude="13"
+              :duration="8"
+            >
               <LandingCardsRentalCard />
             </LandingFloatingCard>
           </div>
@@ -107,23 +149,39 @@ const phoneSrc = computed(() =>
         <!-- ===== TENANT card set ===== -->
         <template v-else>
           <div class="absolute left-13 top-24 z-10 w-[300px]">
-            <LandingFloatingCard :delay="100" :amplitude="10" :duration="6.8">
+            <LandingFloatingCard
+              :delay="100"
+              :amplitude="10"
+              :duration="6.8"
+            >
               <LandingCardsSupportCard />
             </LandingFloatingCard>
           </div>
           <div class="absolute left-26 bottom-40 z-10 w-[210px]">
-            <LandingFloatingCard :delay="300" :amplitude="12" :duration="7.6">
+            <LandingFloatingCard
+              :delay="300"
+              :amplitude="12"
+              :duration="7.6"
+            >
               <LandingCardsMiniListingCard />
             </LandingFloatingCard>
           </div>
 
           <div class="absolute right-10 top-40 z-10 w-[330px]">
-            <LandingFloatingCard :delay="160" :amplitude="11" :duration="7.2">
+            <LandingFloatingCard
+              :delay="160"
+              :amplitude="11"
+              :duration="7.2"
+            >
               <LandingCardsPriceFilterCard />
             </LandingFloatingCard>
           </div>
           <div class="absolute right-6 bottom-50 z-10 w-[300px]">
-            <LandingFloatingCard :delay="240" :amplitude="9" :duration="6.4">
+            <LandingFloatingCard
+              :delay="240"
+              :amplitude="9"
+              :duration="6.4"
+            >
               <LandingCardsPropertyTypeCard />
             </LandingFloatingCard>
           </div>

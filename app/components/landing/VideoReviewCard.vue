@@ -60,52 +60,18 @@ function onEnded() {
 </script>
 
 <template>
-  <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-neutral-100 shadow-card">
-    <!-- Media -->
-    <video
-      v-if="item.src"
-      ref="video"
-      class="absolute inset-0 size-full object-cover"
-      :poster="item.poster"
-      playsinline
-      preload="metadata"
-      @timeupdate="onTime"
-      @ended="onEnded"
-    >
-      <source :src="item.src">
-    </video>
-    <img
-      v-else
-      :src="item.poster"
-      alt=""
-      class="absolute inset-0 size-full object-cover"
-      onerror="this.style.visibility='hidden'"
-    >
-
-    <!-- Hover dim + play (hidden while playing) -->
-    <div
-      v-if="!playing"
-      class="absolute inset-0 flex items-center justify-center bg-neutral-900/0 opacity-0 transition duration-300 group-hover:bg-neutral-900/30 group-hover:opacity-100"
-    >
-      <button
-        type="button"
-        class="inline-flex size-16 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-lg backdrop-blur transition hover:scale-105"
-        aria-label="Play"
-        @click="toggle"
-      >
-        <Icon
-          name="lucide:play"
-          class="size-7 translate-x-0.5"
-        />
-      </button>
-    </div>
-
+  <div
+    class="group relative aspect-[3/4] overflow-hidden rounded-[28px] bg-white shadow-card transition-colors duration-300"
+    :class="playing ? 'bg-neutral-300' : 'bg-white group-hover:bg-neutral-200'"
+  >
     <!-- Headline (hidden while playing) -->
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 p-6 transition-opacity duration-300"
+      class="pointer-events-none absolute inset-x-0 top-0 z-10 px-6 pt-8 transition-opacity duration-300"
       :class="playing ? 'opacity-0' : 'opacity-100'"
     >
-      <h3 class="text-center text-2xl font-semibold leading-snug md:text-[26px]">
+      <h3
+        class="text-center text-[26px] font-semibold leading-tight tracking-tight md:text-3xl"
+      >
         <span
           v-for="(s, i) in headline"
           :key="i"
@@ -114,19 +80,57 @@ function onEnded() {
       </h3>
     </div>
 
-    <!-- Avatar badge (hidden while playing) -->
-    <img
-      v-if="!playing"
-      :src="item.avatar"
-      alt=""
-      class="absolute bottom-4 left-1/2 size-10 -translate-x-1/2 rounded-full bg-neutral-200 object-cover ring-4 ring-white"
-      onerror="this.style.visibility='hidden'"
+    <!-- Cutout person, standing on the card floor -->
+    <video
+      v-if="item.src"
+      ref="video"
+      class="absolute inset-x-0 bottom-0 mx-auto h-[84%] w-auto max-w-none object-contain object-bottom"
+      :poster="item.poster"
+      playsinline
+      preload="metadata"
+      @timeupdate="onTime"
+      @ended="onEnded"
     >
+      <source :src="item.src">
+    </video>
+    <!-- Decorative cutout (the headline carries the meaning → empty alt).
+         Served as a height-bounded WebP so the ~3 MB source PNG ships as
+         ~100 KB, and lazily since this section is far below the fold. -->
+    <NuxtImg
+      v-else
+      :src="item.poster"
+      alt=""
+      height="760"
+      format="webp"
+      quality="70"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-x-0 bottom-0 mx-auto h-[84%] w-auto max-w-none object-contain object-bottom"
+      onerror="this.style.visibility = 'hidden'"
+    />
+
+    <!-- Hover/active dim + play (hidden while playing) -->
+    <div
+      v-if="!playing"
+      class="absolute inset-0 z-20 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100"
+    >
+      <button
+        type="button"
+        class="inline-flex size-14 items-center justify-center rounded-full bg-white/85 text-neutral-700 shadow-lg backdrop-blur transition hover:scale-105"
+        aria-label="Play"
+        @click="toggle"
+      >
+        <Icon
+          name="lucide:play"
+          class="size-6 translate-x-0.5"
+        />
+      </button>
+    </div>
 
     <!-- Controls (while playing) -->
     <div
       v-else
-      class="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-white/70 p-4 backdrop-blur"
+      class="absolute inset-x-0 bottom-0 z-20 flex items-center gap-3 bg-white/70 p-4 backdrop-blur"
     >
       <button
         type="button"

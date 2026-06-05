@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/i18n',
     '@nuxtjs/seo'
   ],
@@ -20,8 +21,8 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'apple-touch-icon', href: '/favicon.svg' }
+        { rel: 'icon', type: 'image/png', href: '/landing/logo.png' },
+        { rel: 'apple-touch-icon', href: '/landing/logo.png' }
       ]
     }
   },
@@ -51,10 +52,15 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
+  // Standalone Node server (Docker / behind Nginx); Netlify overrides via
+  // NITRO_PRESET=netlify. Compress static assets and cache hashed output hard.
   nitro: {
-    // Default to the standalone Node server (Docker / behind Nginx).
-    // On Netlify, `NITRO_PRESET=netlify` (set in netlify.toml) overrides this.
-    preset: process.env.NITRO_PRESET || 'node-server'
+    preset: process.env.NITRO_PRESET || 'node-server',
+    compressPublicAssets: { gzip: true, brotli: true },
+    routeRules: {
+      '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
+    }
   },
 
   // Tailwind CSS 4 — configured via CSS (@import "tailwindcss"), wired
@@ -69,7 +75,18 @@ export default defineNuxtConfig({
     }
   },
 
+  googleFonts: {
+    families: {
+      'Public Sans': [400, 500, 600, 700, 800]
+    },
+    display: 'swap',
+    download: true,
+    preload: false,
+    subsets: ['latin', 'latin-ext', 'cyrillic']
+  },
+
   i18n: {
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
     locales: [
       { code: 'uz', name: 'O\'zbekcha', language: 'uz-UZ', file: 'uz.json' },
       { code: 'ru', name: 'Русский', language: 'ru-RU', file: 'ru.json' },
@@ -84,9 +101,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // The default icon endpoint is `/api/_nuxt_icon`, but in production the outer
-  // Nginx proxies all `/api/*` to the Django backend (404 for icon sets). Move
-  // it outside `/api` and bundle scanned icons so they render with no round trip.
   icon: {
     localApiEndpoint: '/_nuxt_icon',
     clientBundle: {
@@ -96,8 +110,18 @@ export default defineNuxtConfig({
   },
 
   image: {
-    format: ['svg', 'webp'],
+    format: ['avif', 'webp'],
+    quality: 72,
     provider: 'ipx',
+    densities: [1, 2],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536
+    },
     ipx: {
       maxAge: 31536000
     }
