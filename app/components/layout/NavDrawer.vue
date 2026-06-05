@@ -1,15 +1,4 @@
 <script setup lang="ts">
-/**
- * Left slide-in navigation drawer (opened from the header MENU button).
- *
- * Teleported to <body> so it overlays the whole page: a blurred/dimmed
- * backdrop behind, the white panel sliding in from the left with a transform
- * transition. Holds the section nav, the app-download block, language switcher
- * and legal links — mirroring the Figma site menu.
- *
- * Closes on backdrop click, the MENU ✕ button, Escape, or picking a link
- * (which then smooth-scrolls to the section). Locks body scroll while open.
- */
 const open = defineModel<boolean>('open', { required: true })
 
 const { t } = useI18n()
@@ -23,8 +12,16 @@ const nav = [
 ]
 
 const stores = [
-  { icon: 'lucide:apple', top: 'landing.download.onThe', bottom: 'landing.download.appStore' },
-  { icon: 'lucide:play', top: 'landing.download.getItOn', bottom: 'landing.download.googlePlay' }
+  {
+    icon: 'lucide:apple',
+    top: 'landing.download.onThe',
+    bottom: 'landing.download.appStore'
+  },
+  {
+    icon: 'lucide:play',
+    top: 'landing.download.getItOn',
+    bottom: 'landing.download.googlePlay'
+  }
 ]
 
 const legal = [
@@ -41,7 +38,9 @@ function go(href: string) {
   // Wait for the drawer to close / body scroll to unlock, then scroll.
   nextTick(() => {
     window.setTimeout(() => {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      document
+        .querySelector(href)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 60)
   })
 }
@@ -71,13 +70,11 @@ onBeforeUnmount(() => {
       enter-active-class="transition-opacity duration-300 ease-out"
       enter-from-class="opacity-0"
       leave-active-class="transition-opacity duration-300 ease-in"
-      leave-to-class="opacity-0"
-    >
+      leave-to-class="opacity-0">
       <div
         v-if="open"
         class="fixed inset-0 z-[60] bg-neutral-900/20 backdrop-blur-md"
-        @click="close"
-      />
+        @click="close" />
     </Transition>
 
     <!-- Panel -->
@@ -85,21 +82,18 @@ onBeforeUnmount(() => {
       enter-active-class="transition-transform duration-300 ease-out"
       enter-from-class="-translate-x-full"
       leave-active-class="transition-transform duration-300 ease-in"
-      leave-to-class="-translate-x-full"
-    >
+      leave-to-class="-translate-x-full">
       <aside
         v-if="open"
         class="fixed inset-y-3 left-3 z-[70] flex w-[calc(100%-1.5rem)] max-w-[560px] flex-col overflow-y-auto rounded-3xl bg-surface px-8 py-6 shadow-2xl sm:inset-y-4 sm:left-4 sm:px-12"
         role="dialog"
-        aria-modal="true"
-      >
+        aria-modal="true">
         <!-- Close (MENU ✕) -->
         <div class="flex justify-end">
           <button
             type="button"
             class="inline-flex items-center gap-3 rounded-full border border-neutral-300 px-6 py-3 text-sm font-semibold text-neutral-900 transition-colors hover:bg-neutral-100"
-            @click="close"
-          >
+            @click="close">
             {{ t('header.menu') }}
             <IconsClose class="size-5" />
           </button>
@@ -112,8 +106,7 @@ onBeforeUnmount(() => {
             :key="item.href"
             :href="item.href"
             class="w-fit text-2xl font-bold text-neutral-900 transition-colors hover:text-brand-600"
-            @click.prevent="go(item.href)"
-          >
+            @click.prevent="go(item.href)">
             {{ t(item.key) }}
           </a>
         </nav>
@@ -132,15 +125,15 @@ onBeforeUnmount(() => {
               v-for="store in stores"
               :key="store.bottom"
               href="#"
-              class="inline-flex items-center gap-3 rounded-xl bg-black px-5 py-2.5 text-white transition-colors hover:bg-neutral-900"
-            >
-              <Icon
-                :name="store.icon"
-                class="size-7"
-              />
+              class="inline-flex items-center gap-3 rounded-xl bg-black px-5 py-2.5 text-white transition-colors hover:bg-neutral-900">
+              <Icon :name="store.icon" class="size-7" />
               <span class="text-left leading-tight">
-                <span class="block text-[10px] text-white/70">{{ t(store.top) }}</span>
-                <span class="block text-base font-semibold">{{ t(store.bottom) }}</span>
+                <span class="block text-[10px] text-white/70">{{
+                  t(store.top)
+                }}</span>
+                <span class="block text-base font-semibold">{{
+                  t(store.bottom)
+                }}</span>
               </span>
             </a>
           </div>
@@ -151,14 +144,14 @@ onBeforeUnmount(() => {
           </div>
 
           <!-- Legal -->
-          <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-neutral-500">
+          <div
+            class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-neutral-500">
             <NuxtLink
               v-for="link in legal"
               :key="link.to"
               :to="localePath(link.to)"
               class="transition-colors hover:text-brand-600"
-              @click="close"
-            >
+              @click="close">
               {{ t(link.key) }}
             </NuxtLink>
           </div>
