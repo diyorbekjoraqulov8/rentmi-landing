@@ -3,25 +3,15 @@ const open = defineModel<boolean>('open', { required: true })
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const route = useRoute()
+const { goToSection } = useSectionNav()
 
+// `to` → real route (NuxtLink); `href` → in-page anchor on the landing page.
 const nav = [
   { key: 'header.nav.about', href: '#about' },
-  { key: 'header.drawer.team', href: '#team' },
+  { key: 'header.drawer.team', to: '/team' },
   { key: 'landing.features.title', href: '#features' },
   { key: 'header.drawer.testimonials', href: '#testimonials' }
-]
-
-const stores = [
-  {
-    icon: 'lucide:apple',
-    top: 'landing.download.onThe',
-    bottom: 'landing.download.appStore'
-  },
-  {
-    icon: 'lucide:play',
-    top: 'landing.download.getItOn',
-    bottom: 'landing.download.googlePlay'
-  }
 ]
 
 const legal = [
@@ -29,20 +19,28 @@ const legal = [
   { key: 'footer.useful.privacy', to: '/privacy' }
 ]
 
+// Scroll-spy over the landing sections so the open drawer highlights the
+// section currently in view. Empty (no highlight) on real pages like /team.
+const activeSection = useActiveSection(['about', 'features', 'testimonials'])
+
+// Compare paths ignoring trailing slashes (routes may be normalised to `/x/`).
+const norm = (p: string) => p.replace(/\/+$/, '') || '/'
+const onHome = computed(() => norm(route.path) === norm(localePath('/')))
+
+function isActive(item: { to?: string, href?: string }) {
+  if (item.to) return norm(route.path) === norm(localePath(item.to))
+  return onHome.value && item.href === `#${activeSection.value}`
+}
+
 function close() {
   open.value = false
 }
 
-function go(href: string) {
+function go(href?: string) {
+  if (!href) return
   close()
-  // Wait for the drawer to close / body scroll to unlock, then scroll.
-  nextTick(() => {
-    window.setTimeout(() => {
-      document
-        .querySelector(href)
-        ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 60)
-  })
+  // Navigates home first when on another page, then smooth-scrolls.
+  goToSection(href)
 }
 
 // Lock body scroll while the drawer is open.
@@ -101,14 +99,30 @@ onBeforeUnmount(() => {
 
         <!-- Nav -->
         <nav class="mt-10 flex flex-col gap-7">
-          <a
-            v-for="item in nav"
-            :key="item.href"
-            :href="item.href"
-            class="w-fit text-2xl font-bold text-neutral-900 transition-colors hover:text-brand-600"
-            @click.prevent="go(item.href)">
-            {{ t(item.key) }}
-          </a>
+          <template v-for="item in nav" :key="item.key">
+            <NuxtLink
+              v-if="item.to"
+              :to="localePath(item.to)"
+              class="w-fit text-2xl font-medium text-neutral-900 transition-colors"
+              :class="isActive(item)
+                ? 'rounded-full border border-neutral-300 px-6 py-3'
+                : 'px-2 hover:text-brand-600'"
+              :aria-current="isActive(item) ? 'page' : undefined"
+              @click="close">
+              {{ t(item.key) }}
+            </NuxtLink>
+            <a
+              v-else
+              :href="item.href"
+              class="w-fit text-2xl font-medium text-neutral-900 transition-colors"
+              :class="isActive(item)
+                ? 'rounded-full border border-neutral-300 px-6 py-3'
+                : 'px-2 hover:text-brand-600'"
+              :aria-current="isActive(item) ? 'true' : undefined"
+              @click.prevent="go(item.href)">
+              {{ t(item.key) }}
+            </a>
+          </template>
         </nav>
 
         <!-- App download block (bottom) -->
@@ -121,21 +135,8 @@ onBeforeUnmount(() => {
           </p>
 
           <div class="mt-5 flex flex-wrap gap-3">
-            <a
-              v-for="store in stores"
-              :key="store.bottom"
-              href="#"
-              class="inline-flex items-center gap-3 rounded-xl bg-black px-5 py-2.5 text-white transition-colors hover:bg-neutral-900">
-              <Icon :name="store.icon" class="size-7" />
-              <span class="text-left leading-tight">
-                <span class="block text-[10px] text-white/70">{{
-                  t(store.top)
-                }}</span>
-                <span class="block text-base font-semibold">{{
-                  t(store.bottom)
-                }}</span>
-              </span>
-            </a>
+            <SharedAppStoreBadge />
+            <SharedGooglePlayBadge />
           </div>
 
           <!-- Language -->

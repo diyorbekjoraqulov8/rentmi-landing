@@ -17,13 +17,11 @@ withDefaults(
 
 <template>
   <div :class="align === 'center' ? 'text-center' : 'text-left'">
-    <p
-      v-if="eyebrow"
-      class="text-sm font-medium text-brand-600 mb-2"
-    >
+    <p v-if="eyebrow" class="text-sm font-medium text-brand-600 mb-2">
       {{ eyebrow }}
     </p>
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900">
+    <h2
+      class="text-2xl md:text-5xl font-semibold tracking-tight text-neutral-900">
       {{ title }}
     </h2>
   </div>

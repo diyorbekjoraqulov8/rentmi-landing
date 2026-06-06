@@ -21,8 +21,8 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/png', href: '/landing/logo.png' },
-        { rel: 'apple-touch-icon', href: '/landing/logo.png' }
+        { rel: 'icon', type: 'image/svg+xml', href: '/landing/logo.svg' },
+        { rel: 'apple-touch-icon', href: '/landing/logo.svg' }
       ]
     }
   },

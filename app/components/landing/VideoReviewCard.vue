@@ -61,8 +61,8 @@ function onEnded() {
 
 <template>
   <div
-    class="group relative aspect-[3/4] overflow-hidden rounded-[28px] bg-white shadow-card transition-colors duration-300"
-    :class="playing ? 'bg-neutral-300' : 'bg-white group-hover:bg-neutral-200'"
+    class="group relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-card transition-colors duration-300"
+    :class="playing ? 'bg-neutral-400' : 'bg-white hover:bg-neutral-400'"
   >
     <!-- Headline (hidden while playing) -->
     <div

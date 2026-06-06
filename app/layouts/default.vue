@@ -9,5 +9,6 @@
       <slot />
     </main>
     <LayoutAppFooter />
+    <LayoutAppDownloadModal />
   </div>
 </template>

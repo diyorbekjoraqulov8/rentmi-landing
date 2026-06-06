@@ -43,7 +43,7 @@ const year = new Date().getFullYear()
           <NuxtLink
             :to="localePath('/')"
             class="flex items-center gap-2 text-2xl font-extrabold text-brand-600">
-            <IconsLocationPin class="size-7" />
+            <IconsLogo class="size-7" />
             Rentmi
           </NuxtLink>
           <p class="text-sm leading-relaxed text-neutral-500">

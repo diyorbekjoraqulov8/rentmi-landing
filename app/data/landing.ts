@@ -180,88 +180,9 @@ export const listings: Listing[] = [
   }
 ]
 
-/* --- "Aynan siz uchun mos uylar" recommendation carousel ---
-   One unified property card. `recommended` marks the highlighted lead card —
-   rendered permanently in the dark full-bleed treatment (the same look every
-   card takes on hover); the rest carry a "Top" badge. */
-export interface ManageListing {
-  id: number
-  title: string
-  addressKey: string
-  price: string
-  area: string
-  floor: string
-  /** views count shown next to the eye icon */
-  views: string
-  /** cover photo from public/landing */
-  src: string
-  /** the lead card: rendered permanently in the dark/active state */
-  recommended?: boolean
-}
-
-export const manageListings: ManageListing[] = [
-  {
-    id: 1,
-    title: 'Drujba NRG | U Tower',
-    addressKey: 'landing.manage.addr.drujba',
-    price: '18 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    views: '125',
-    src: '/landing/drujba-nrg.png',
-    recommended: true
-  },
-  {
-    id: 2,
-    title: 'Drujba NRG | U Tower',
-    addressKey: 'landing.manage.addr.drujba',
-    price: '18 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    views: '125',
-    src: '/landing/drujba.png'
-  },
-  {
-    id: 3,
-    title: 'Mirabad Square | Penthouse',
-    addressKey: 'landing.manage.addr.mirabad',
-    price: '24 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    views: '125',
-    src: '/landing/mirabad-square.png'
-  },
-  {
-    id: 4,
-    title: 'Duplex Yakkasaroy',
-    addressKey: 'landing.manage.addr.duplex',
-    price: '56 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    views: '125',
-    src: '/landing/drujba-nrg.png'
-  },
-  {
-    id: 5,
-    title: 'Mirabad Square | Penthouse',
-    addressKey: 'landing.manage.addr.mirabad',
-    price: '12 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    views: '125',
-    src: '/landing/mirabad-square.png'
-  },
-  {
-    id: 6,
-    title: 'Yunusobod Residence',
-    addressKey: 'landing.manage.addr.yunusobod',
-    price: '24 mln so\'m',
-    area: '120m²',
-    floor: '12/16',
-    views: '125',
-    src: '/landing/drujba.png'
-  }
-]
+/* "Aynan siz uchun mos uylar" / "O'xshash e'lonlar" now read from the unified
+   ~/data/properties source (see <ListingsCarousel>); the old `manageListings`
+   placeholder array lived here and has been removed. */
 
 /* --- Testimonials --- */
 export const testimonials: Testimonial[] = [

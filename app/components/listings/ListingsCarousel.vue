@@ -1,31 +1,35 @@
 <script setup lang="ts">
 /**
- * "Biz haqimizda, mijozlarimiz gapirishadi" — video reviews. Centered heading
- * with prev/next controls, then a horizontal snap-scroll of vertical video
- * cards (poster + headline; click to play).
+ * Horizontal property carousel — shared by the home "Aynan siz uchun mos uylar"
+ * section and the listing detail "O'xshash e'lonlar" row. Native overflow-scroll
+ * with snap; cards are a fixed width and don't stretch. Arrows page by ~80%.
  */
-import { videoReviews } from '~/data/landing'
+import type { Property } from '~/data/properties'
+
+defineProps<{
+  title: string
+  items: Property[]
+}>()
 
 const { t } = useI18n()
 
 const track = ref<HTMLElement | null>(null)
 const scrollBy = (dir: 1 | -1) => {
   track.value?.scrollBy({
-    left: dir * (track.value.clientWidth * 0.6),
+    left: dir * (track.value.clientWidth * 0.8),
     behavior: 'smooth'
   })
 }
 </script>
 
 <template>
-  <section id="video-reviews" class="bg-background py-16 md:py-24">
-    <div class="mx-auto max-w-[1320px] px-4 sm:px-6">
-      <div class="relative flex items-center">
-        <h2
-          class="container text-2xl md:text-3xl font-semibold text-neutral-900">
-          {{ t('landing.videoReviews.title') }}
+  <section class="bg-background py-16 md:py-24">
+    <div class="px-10 sm:px-16">
+      <div class="container flex items-center justify-between gap-4">
+        <h2 class="text-2xl font-bold text-neutral-900 md:text-3xl">
+          {{ title }}
         </h2>
-        <div class="absolute right-0 hidden sm:flex gap-2">
+        <div class="hidden gap-2 sm:flex">
           <button
             type="button"
             class="inline-flex size-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:bg-neutral-50"
@@ -47,13 +51,13 @@ const scrollBy = (dir: 1 | -1) => {
         ref="track"
         role="region"
         tabindex="0"
-        :aria-label="t('landing.videoReviews.title')"
-        class="mt-12 flex gap-2 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth md:gap-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <LandingVideoReviewCard
-          v-for="item in videoReviews"
+        :aria-label="title"
+        class="mt-8 flex gap-5 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <LandingCardsManageListingCard
+          v-for="item in items"
           :key="item.id"
           :item="item"
-          class="w-[78%] shrink-0 snap-start sm:w-[360px]" />
+          class="w-68 shrink-0 snap-start" />
       </div>
     </div>
   </section>

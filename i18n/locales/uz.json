@@ -33,8 +33,12 @@
       "privacy": "Maxfiylik siyosati",
       "payment": "To'lov va qaytarish"
     },
-    "contact": { "title": "Biz bilan aloqa" },
-    "social": { "title": "Ijtimoiy tarmoqlarda" }
+    "contact": {
+      "title": "Biz bilan aloqa"
+    },
+    "social": {
+      "title": "Ijtimoiy tarmoqlarda"
+    }
   },
   "landing": {
     "audience": {
@@ -151,8 +155,17 @@
       "panels": {
         "analytics": {
           "title": "Tahlil va statistika",
-          "ranges": { "d7": "7 kun", "d30": "30 kun", "d90": "90 kun" },
-          "stats": { "views": "Ko'rishlar", "requests": "So'rovlar", "likes": "Yoqtirishlar", "calls": "Qo'ng'iroqlar" },
+          "ranges": {
+            "d7": "7 kun",
+            "d30": "30 kun",
+            "d90": "90 kun"
+          },
+          "stats": {
+            "views": "Ko'rishlar",
+            "requests": "So'rovlar",
+            "likes": "Yoqtirishlar",
+            "calls": "Qo'ng'iroqlar"
+          },
           "dynamics": "Dinamika"
         },
         "contract": {
@@ -223,7 +236,7 @@
       }
     },
     "listings": {
-      "title": "Aynan siz uchun mos uylar",
+      "title": "Rentmi da ko’chmas mulklaringizni qanday boshqarasiz?",
       "perMonth": "oyiga",
       "favorite": "Saralanganlarga qo'shish",
       "prev": "Oldingi",
@@ -233,10 +246,30 @@
         "recommended": "Rentmi tavsiya qiladi"
       },
       "items": {
-        "1": { "title": "Dushja NRG U Tower", "address": "Toshkent, Yunusobod", "area": "120 m²", "rooms": "3 xona" },
-        "2": { "title": "Mirobod Square Penthouse", "address": "Toshkent, Mirobod", "area": "180 m²", "rooms": "4 xona" },
-        "3": { "title": "Yunusobod Residence", "address": "Toshkent, Yunusobod", "area": "75 m²", "rooms": "2 xona" },
-        "4": { "title": "Dream City Lux", "address": "Toshkent, Sergeli", "area": "210 m²", "rooms": "5 xona" }
+        "1": {
+          "title": "Dushja NRG U Tower",
+          "address": "Toshkent, Yunusobod",
+          "area": "120 m²",
+          "rooms": "3 xona"
+        },
+        "2": {
+          "title": "Mirobod Square Penthouse",
+          "address": "Toshkent, Mirobod",
+          "area": "180 m²",
+          "rooms": "4 xona"
+        },
+        "3": {
+          "title": "Yunusobod Residence",
+          "address": "Toshkent, Yunusobod",
+          "area": "75 m²",
+          "rooms": "2 xona"
+        },
+        "4": {
+          "title": "Dream City Lux",
+          "address": "Toshkent, Sergeli",
+          "area": "210 m²",
+          "rooms": "5 xona"
+        }
       }
     },
     "manage": {
@@ -259,6 +292,7 @@
     "download": {
       "title": "Ilovani bepul yuklab oling",
       "desc": "Ko'chmas mulklaringizni eng oson boshqarish usuli",
+      "modalDesc": "Uyni ijaraga olish yoki berish uchun mobil ilovamizni bepul yuklab oling",
       "onThe": "Download on the",
       "getItOn": "GET IT ON",
       "appStore": "App Store",
@@ -288,11 +322,26 @@
     "faq": {
       "title": "Ko'p berilgan savollar",
       "items": {
-        "1": { "q": "Uy egasi muddatidan oldin uydan chiqarib yuborsa nima bo'ladi?", "a": "Shartnoma shartlari ikkala tomonni himoya qiladi; nizolar Rentmi qo'llab-quvvatlash xizmati orqali hal qilinadi." },
-        "2": { "q": "Platformadan foydalanish pullikmi?", "a": "Ro'yxatdan o'tish va e'lonlarni ko'rish bepul. Ba'zi qo'shimcha xizmatlar pullik bo'lishi mumkin." },
-        "3": { "q": "Skoringimni qanday yaxshilash mumkin?", "a": "MyID va IHamkor orqali ma'lumotlaringizni tasdiqlang va ijara tarixini to'ldiring." },
-        "4": { "q": "Shartnomani onlayn imzolash xavfsizmi?", "a": "Ha, barcha imzolar elektron raqamli imzo orqali huquqiy kuchga ega bo'ladi." },
-        "5": { "q": "To'lovlar qanday amalga oshiriladi?", "a": "To'lovlar platforma orqali xavfsiz tarzda, himoyalangan to'lov tizimida amalga oshiriladi." }
+        "1": {
+          "q": "Uy egasi muddatidan oldin uydan chiqarib yuborsa nima bo'ladi?",
+          "a": "Shartnoma shartlari ikkala tomonni himoya qiladi; nizolar Rentmi qo'llab-quvvatlash xizmati orqali hal qilinadi."
+        },
+        "2": {
+          "q": "Platformadan foydalanish pullikmi?",
+          "a": "Ro'yxatdan o'tish va e'lonlarni ko'rish bepul. Ba'zi qo'shimcha xizmatlar pullik bo'lishi mumkin."
+        },
+        "3": {
+          "q": "Skoringimni qanday yaxshilash mumkin?",
+          "a": "MyID va IHamkor orqali ma'lumotlaringizni tasdiqlang va ijara tarixini to'ldiring."
+        },
+        "4": {
+          "q": "Shartnomani onlayn imzolash xavfsizmi?",
+          "a": "Ha, barcha imzolar elektron raqamli imzo orqali huquqiy kuchga ega bo'ladi."
+        },
+        "5": {
+          "q": "To'lovlar qanday amalga oshiriladi?",
+          "a": "To'lovlar platforma orqali xavfsiz tarzda, himoyalangan to'lov tizimida amalga oshiriladi."
+        }
       }
     },
     "blog": {
@@ -309,5 +358,230 @@
     "title": "Uyingizni ijaraga bering yoki orzuingizdagi uyni toping!",
     "description": "Xavfsiz, shaffof va qulay uy ijarasi uchun yagona platforma.",
     "cta": "E'lonlarni ko'rish"
+  },
+  "team": {
+    "seo": {
+      "title": "Bizning jamoa — rentmi.uz",
+      "description": "Rentmi ortidagi jamoa bilan tanishing: asoschi, maslahat kengashi, boshqaruv va dasturchilar. Maqsadimiz — ijara bozorini yaxshiroq qilish.",
+      "og": {
+        "title": "Rentmi ortidagi jamoa",
+        "description": "Texnologiya, product va foydalanuvchi tajribasiga ishonadigan mutaxassislar jamoasi."
+      }
+    },
+    "hero": {
+      "title": "Rentmi ortidagi jamoa",
+      "subtitle": "Biz texnologiya, product va foydalanuvchi tajribasiga ishonadigan mutaxassislardan iborat jamoamiz. Maqsadimiz — ijara bozorini yaxshiroq qilish."
+    },
+    "sections": {
+      "founder": "Founder",
+      "advice": "Advice board",
+      "management": "Management",
+      "developers": "Developers"
+    },
+    "founderQuote": "Bu loyiha real muammodan tug'ilgan. Biz O'zbekistondagi ijara jarayonidagi noqulayliklarni ko'rib, odamlar uchun ishonchli va qulay yechim yaratishga qaror qildik.",
+    "roles": {
+      "founder": "Asoschi",
+      "cto": "CTO",
+      "cmo": "CMO",
+      "manager": "Loyiha menejeri",
+      "backend": "Back-end dasturchi",
+      "frontend": "Front-end dasturchi",
+      "solution": "Solution architecture",
+      "devops": "DevOps",
+      "smm": "SMM menejer",
+      "product": "Product dizayner"
+    }
+  },
+  "property": {
+    "seo": {
+      "title": "{title} — ijaraga | rentmi.uz",
+      "description": "{title}, {address}. Narxi: {price} / oyiga. Rentmi'da xavfsiz, shaffof va qulay uy ijarasi."
+    },
+    "published": "E'lon joylangan vaqt:",
+    "minRent": "Minimal ijara vaqti",
+    "deposit": "Garov depoziti bor",
+    "apply": "Ariza jo'natish",
+    "readMore": "Ko'proq ko'rsatish",
+    "readLess": "Kamroq ko'rsatish",
+    "openMap": "Xaritada ochish",
+    "stats": {
+      "viewed": "Ko'rildi",
+      "applications": "Ariza",
+      "saved": "Saqlangan"
+    },
+    "sections": {
+      "description": "Tavsif",
+      "amenities": "Qulayliklar",
+      "nearby": "Atrofdagi qulayliklar",
+      "audience": "Kimlar uchun",
+      "location": "Manzil",
+      "similar": "O'xshash e'lonlar"
+    },
+    "gallery": {
+      "open": "Rasmlarni ko'rish",
+      "close": "Yopish",
+      "prev": "Oldingi",
+      "next": "Keyingi"
+    },
+    "amenities": {
+      "lift": "Lift",
+      "parking": "Parking / Garaj",
+      "balcony": "Balkon",
+      "dishwasher": "Idish yuvish mashinasi",
+      "vacuum": "Chang yutgich",
+      "iron": "Dazmol",
+      "furniture": "Mebel to'plami",
+      "gasStove": "Gaz plitasi",
+      "hotWater": "Issiq suv",
+      "wifi": "Internet / WiFi"
+    },
+    "nearby": {
+      "bank": "Bank / Bankomat",
+      "mosque": "Masjid",
+      "hospital": "Kasalxona",
+      "kindergarten": "Bog'cha",
+      "school": "Maktab",
+      "metro": "Metro bekati",
+      "market": "Bozor / Market"
+    },
+    "audience": {
+      "women": "Faqat ayollar",
+      "youngFamilies": "Yosh oilalilar",
+      "elderly": "Keksa yoshdagilar",
+      "familiesWithKids": "Bolali oilalar"
+    }
+  },
+  "solution": {
+    "seo": {
+      "title": "Rentmi — uy topish va ijaraga berish endi muammo emas",
+      "description": "Rentmi — O‘zbekistondagi uy-joy ijarasi uchun ishonchli, shaffof va qulay platforma. Tasdiqlangan e’lonlar, aqlli filterlar, skoring tizimi va to‘liq raqamli jarayon. Uy toping yoki ijaraga bering.",
+      "og": {
+        "title": "Rentmi — ijara endi sodda va ishonchli",
+        "description": "Soxta e’lonlarsiz, tasdiqlangan uylar va skoringdan o‘tgan foydalanuvchilar. Rentmi qanday ishlashini bilib oling."
+      }
+    },
+    "hero": {
+      "title": "Uy topish va ijaraga berish endi muammo emas.",
+      "subtitle": "Biz ijarachilar va uy egalarini xavfsiz, tez va qulay tarzda bog‘laydigan zamonaviy rental platformamiz. Endi uy qidirish yoki e’lon joylashtirish uchun soatlab vaqt sarflash shart emas."
+    },
+    "nav": {
+      "story": "Bizning hikoya",
+      "problemSolution": "Muammo & Yechim",
+      "mission": "Missiya",
+      "vision": "Bizning qarashimiz",
+      "values": "Qadriyatlarimiz",
+      "howItWorks": "Platforma qanday ishlaydi?",
+      "why": "Nega aynan Rentmi"
+    },
+    "story": {
+      "title": "Bizning Hikoyamiz",
+      "subtitle": "Nega biz Rentmi’ni yaratdik?",
+      "p1": "O‘zbekistonda uy-joy ijarasi bozori uzoq yillardan beri noqulay va tartibsiz jarayon bo‘lib kelmoqda. Uy qidirayotgan insonlar ko‘pincha tasdiqlanmagan e’lonlar, noto‘g‘ri ma’lumotlar, vaqtni oladigan muloqotlar va ishonchsiz manbalarga duch kelishadi.",
+      "p2": "Uy egalariga esa o‘z mulkini tez va to‘g‘ri auditoriyaga yetkazish qiyin. Biz shu muammoni ko‘rdik va zamonaviy yechim yaratishga qaror qildik.",
+      "p3": "Maqsadimiz — O‘zbekistonda uy-joy ijarasi jarayonini sodda, shaffof va ishonchli qilish."
+    },
+    "problemSolution": {
+      "title": "Muammo & Yechim",
+      "subtitle": "Eski usuldagi qiyinchiliklarga zamonaviy yechim",
+      "problem": "Muammo",
+      "solution": "Yechim",
+      "rows": {
+        "fake": {
+          "problem": "Soxta e’lonlar",
+          "solution": "Tasdiqlangan va tartibli e’lonlar"
+        },
+        "slow": {
+          "problem": "Ko‘p vaqt oladigan qidiruv",
+          "solution": "Qulay filter va tezkor qidiruv"
+        },
+        "calls": {
+          "problem": "Keraksiz qo‘ng‘iroqlar",
+          "solution": "Aniq va to‘liq ma’lumot"
+        },
+        "trust": {
+          "problem": "Ishonchsiz odamlar",
+          "solution": "Skoringdan o‘tgan foydalanuvchilar"
+        }
+      }
+    },
+    "mission": {
+      "title": "Missiyamiz",
+      "body": "O‘zbekiston uy-joy ijarasi bozorini raqamlashtirish va foydalanuvchilar uchun xavfsiz, shaffof hamda qulay ekotizim yaratish."
+    },
+    "vision": {
+      "title": "Bizning qarashimiz",
+      "body": "Markaziy Osiyodagi eng ishonchli va eng qulay rental platformaga aylanish."
+    },
+    "values": {
+      "title": "Qadriyatlarimiz",
+      "items": {
+        "trust": {
+          "title": "Ishonch",
+          "desc": "har bir foydalanuvchi o‘zini xavfsiz his qilishi kerak."
+        },
+        "transparency": {
+          "title": "Shaffoflik",
+          "desc": "yashirin ma’lumotlarsiz aniq jarayon."
+        },
+        "convenience": {
+          "title": "Qulaylik",
+          "desc": "murakkab jarayonlarni soddalashtirish."
+        },
+        "speed": {
+          "title": "Tezlik",
+          "desc": "vaqt eng muhim resurs."
+        },
+        "userCentric": {
+          "title": "Foydalanuvchi markada",
+          "desc": "barcha qarorlar foydalanuvchi ehtiyojidan kelib chiqadi."
+        }
+      }
+    },
+    "how": {
+      "title": "Platforma qanday ishlaydi?",
+      "tenant": {
+        "download": "Ilovani yuklab oling",
+        "filter": "Qulay filter bo‘yicha qidiring",
+        "browse": "Mos uylarni ko‘rib chiqing",
+        "contact": "Uy egasi bilan bog‘laning",
+        "find": "Yangi uyingizni toping"
+      },
+      "owner": {
+        "download": "Ilovani yuklab oling",
+        "publish": "E’lon joylashtiring",
+        "requests": "So‘rovlarni qabul qiling",
+        "contact": "Ijarachi bilan bog‘laning",
+        "contract": "Shartnomani rasmiylashtiring"
+      }
+    },
+    "why": {
+      "title": "Nega aynan Rentmi?",
+      "items": {
+        "trusted": {
+          "title": "Ishonchli platforma",
+          "desc": "Admin tomonidan tasdiqlangan e’lonlar"
+        },
+        "search": {
+          "title": "Oson qidiruv tizimi",
+          "desc": "Kerakli uyni soniyalar ichida topish uchun aqlli filterlar"
+        },
+        "mobile": {
+          "title": "Mobil qulaylik",
+          "desc": "Barcha jarayon smartfoningiz ichida"
+        },
+        "scoring": {
+          "title": "Skoring tizimi",
+          "desc": "Skoringdan o‘tgan ishonchli foydalanuvchilar"
+        },
+        "stats": {
+          "title": "Statistika",
+          "desc": "Ko‘chmas mulklar va ijara statistikasining boshqaruvi"
+        },
+        "curated": {
+          "title": "Saralangan uylar",
+          "desc": "Admin tomonidan tekshirilib, tasdiqlangan uy-joylar va ijarachilar"
+        }
+      }
+    }
   }
 }

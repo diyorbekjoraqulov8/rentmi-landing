@@ -5,9 +5,10 @@
  *  Mobile:  📍 Rentmi  ........................................  [ MENU ☰ ]
  */
 const { t } = useI18n()
-const localePath = useLocalePath()
 
 const menuOpen = ref(false)
+
+const { show: showDownload } = useAppDownloadModal()
 
 // Frosted-glass once the page is scrolled; transparent (blends with the page)
 // at the very top. rAF-throttled passive listener so scrolling stays smooth.
@@ -52,26 +53,16 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
         </button>
 
         <!-- mobile logo -->
-        <NuxtLink
-          :to="localePath('/')"
-          class="md:hidden flex items-center gap-1.5 text-xl text-brand-600">
-          <IconsLocationPin class="size-6" />
-          Rentmi
-        </NuxtLink>
+        <LayoutBrandLogo size="sm" class="md:hidden" />
       </div>
 
       <!-- Center: logo (desktop only) -->
-      <NuxtLink
-        :to="localePath('/')"
-        class="hidden md:flex items-center gap-2 text-2xl font-bold text-brand-600">
-        <IconsLocationPin class="size-7" />
-        Rentmi
-      </NuxtLink>
+      <LayoutBrandLogo class="hidden md:flex" />
 
       <!-- Right slot: download (desktop), MENU (mobile) -->
       <div class="flex flex-1 justify-end">
         <div class="hidden md:block">
-          <BaseButton :to="localePath('/download')" size="lg">
+          <BaseButton size="lg" @click="showDownload">
             {{ t('header.download') }}
           </BaseButton>
         </div>

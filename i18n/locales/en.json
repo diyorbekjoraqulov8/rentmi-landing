@@ -33,8 +33,12 @@
       "privacy": "Privacy policy",
       "payment": "Payment & refund"
     },
-    "contact": { "title": "Contact us" },
-    "social": { "title": "Social media" }
+    "contact": {
+      "title": "Contact us"
+    },
+    "social": {
+      "title": "Social media"
+    }
   },
   "landing": {
     "audience": {
@@ -151,8 +155,17 @@
       "panels": {
         "analytics": {
           "title": "Analytics and statistics",
-          "ranges": { "d7": "7 days", "d30": "30 days", "d90": "90 days" },
-          "stats": { "views": "Views", "requests": "Requests", "likes": "Likes", "calls": "Calls" },
+          "ranges": {
+            "d7": "7 days",
+            "d30": "30 days",
+            "d90": "90 days"
+          },
+          "stats": {
+            "views": "Views",
+            "requests": "Requests",
+            "likes": "Likes",
+            "calls": "Calls"
+          },
           "dynamics": "Dynamics"
         },
         "contract": {
@@ -233,10 +246,30 @@
         "recommended": "Rentmi pick"
       },
       "items": {
-        "1": { "title": "Dushja NRG U Tower", "address": "Tashkent, Yunusabad", "area": "120 m²", "rooms": "3 rooms" },
-        "2": { "title": "Mirobod Square Penthouse", "address": "Tashkent, Mirabad", "area": "180 m²", "rooms": "4 rooms" },
-        "3": { "title": "Yunusobod Residence", "address": "Tashkent, Yunusabad", "area": "75 m²", "rooms": "2 rooms" },
-        "4": { "title": "Dream City Lux", "address": "Tashkent, Sergeli", "area": "210 m²", "rooms": "5 rooms" }
+        "1": {
+          "title": "Dushja NRG U Tower",
+          "address": "Tashkent, Yunusabad",
+          "area": "120 m²",
+          "rooms": "3 rooms"
+        },
+        "2": {
+          "title": "Mirobod Square Penthouse",
+          "address": "Tashkent, Mirabad",
+          "area": "180 m²",
+          "rooms": "4 rooms"
+        },
+        "3": {
+          "title": "Yunusobod Residence",
+          "address": "Tashkent, Yunusabad",
+          "area": "75 m²",
+          "rooms": "2 rooms"
+        },
+        "4": {
+          "title": "Dream City Lux",
+          "address": "Tashkent, Sergeli",
+          "area": "210 m²",
+          "rooms": "5 rooms"
+        }
       }
     },
     "manage": {
@@ -259,6 +292,7 @@
     "download": {
       "title": "Download the app for free",
       "desc": "The easiest way to manage your real estate.",
+      "modalDesc": "Download our mobile app for free to rent or list a home",
       "onThe": "Download on the",
       "getItOn": "GET IT ON",
       "appStore": "App Store",
@@ -288,11 +322,26 @@
     "faq": {
       "title": "Frequently asked questions",
       "items": {
-        "1": { "q": "What if the owner evicts me before the term ends?", "a": "The contract terms protect both parties; disputes are resolved through Rentmi support." },
-        "2": { "q": "Is the platform paid?", "a": "Registration and browsing listings are free. Some additional services may be paid." },
-        "3": { "q": "How can I improve my score?", "a": "Verify your data via MyID and IHamkor and complete your rental history." },
-        "4": { "q": "Is signing the contract online safe?", "a": "Yes, all signatures are legally binding via electronic digital signature." },
-        "5": { "q": "How are payments made?", "a": "Payments go through the platform in a secure, protected payment system." }
+        "1": {
+          "q": "What if the owner evicts me before the term ends?",
+          "a": "The contract terms protect both parties; disputes are resolved through Rentmi support."
+        },
+        "2": {
+          "q": "Is the platform paid?",
+          "a": "Registration and browsing listings are free. Some additional services may be paid."
+        },
+        "3": {
+          "q": "How can I improve my score?",
+          "a": "Verify your data via MyID and IHamkor and complete your rental history."
+        },
+        "4": {
+          "q": "Is signing the contract online safe?",
+          "a": "Yes, all signatures are legally binding via electronic digital signature."
+        },
+        "5": {
+          "q": "How are payments made?",
+          "a": "Payments go through the platform in a secure, protected payment system."
+        }
       }
     },
     "blog": {
@@ -309,5 +358,230 @@
     "title": "List your home or find the home of your dreams!",
     "description": "A single platform for safe, transparent and convenient home rental.",
     "cta": "Browse listings"
+  },
+  "team": {
+    "seo": {
+      "title": "Our team — rentmi.uz",
+      "description": "Meet the team behind Rentmi: the founder, advice board, management and developers. Our goal is to make the rental market better.",
+      "og": {
+        "title": "The team behind Rentmi",
+        "description": "A team of specialists who believe in technology, product and user experience."
+      }
+    },
+    "hero": {
+      "title": "The team behind Rentmi",
+      "subtitle": "We are a team of specialists who believe in technology, product and user experience. Our goal is to make the rental market better."
+    },
+    "sections": {
+      "founder": "Founder",
+      "advice": "Advice board",
+      "management": "Management",
+      "developers": "Developers"
+    },
+    "founderQuote": "This project was born from a real problem. Seeing the friction in Uzbekistan's rental process, we decided to build a trustworthy and convenient solution for people.",
+    "roles": {
+      "founder": "Founder",
+      "cto": "CTO",
+      "cmo": "CMO",
+      "manager": "Project manager",
+      "backend": "Back-end developer",
+      "frontend": "Front-end developer",
+      "solution": "Solution architecture",
+      "devops": "DevOps",
+      "smm": "SMM manager",
+      "product": "Product designer"
+    }
+  },
+  "property": {
+    "seo": {
+      "title": "{title} — for rent | rentmi.uz",
+      "description": "{title}, {address}. Price: {price} / month. Safe, transparent and convenient home rental on Rentmi."
+    },
+    "published": "Listing published:",
+    "minRent": "Minimum rental term",
+    "deposit": "Security deposit",
+    "apply": "Send a request",
+    "readMore": "Show more",
+    "readLess": "Show less",
+    "openMap": "Open on map",
+    "stats": {
+      "viewed": "Viewed",
+      "applications": "Requests",
+      "saved": "Saved"
+    },
+    "sections": {
+      "description": "Description",
+      "amenities": "Amenities",
+      "nearby": "Nearby",
+      "audience": "Suitable for",
+      "location": "Location",
+      "similar": "Similar listings"
+    },
+    "gallery": {
+      "open": "View photos",
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "amenities": {
+      "lift": "Lift",
+      "parking": "Parking / Garage",
+      "balcony": "Balcony",
+      "dishwasher": "Dishwasher",
+      "vacuum": "Vacuum cleaner",
+      "iron": "Iron",
+      "furniture": "Furniture set",
+      "gasStove": "Gas stove",
+      "hotWater": "Hot water",
+      "wifi": "Internet / WiFi"
+    },
+    "nearby": {
+      "bank": "Bank / ATM",
+      "mosque": "Mosque",
+      "hospital": "Hospital",
+      "kindergarten": "Kindergarten",
+      "school": "School",
+      "metro": "Metro station",
+      "market": "Bazaar / Market"
+    },
+    "audience": {
+      "women": "Women only",
+      "youngFamilies": "Young families",
+      "elderly": "Elderly",
+      "familiesWithKids": "Families with kids"
+    }
+  },
+  "solution": {
+    "seo": {
+      "title": "Rentmi — finding and renting out a home, made simple",
+      "description": "Rentmi is a trusted, transparent and convenient home-rental platform in Uzbekistan. Verified listings, smart filters, a scoring system and a fully digital process. Find a home or rent yours out.",
+      "og": {
+        "title": "Rentmi — renting made simple and trustworthy",
+        "description": "No fake listings, verified homes and scored users. See how Rentmi works."
+      }
+    },
+    "hero": {
+      "title": "Finding and renting out a home is no longer a problem.",
+      "subtitle": "We’re a modern rental platform connecting tenants and owners safely, quickly and conveniently. No more spending hours searching for a home or posting a listing."
+    },
+    "nav": {
+      "story": "Our story",
+      "problemSolution": "Problem & Solution",
+      "mission": "Mission",
+      "vision": "Our vision",
+      "values": "Our values",
+      "howItWorks": "How the platform works",
+      "why": "Why Rentmi"
+    },
+    "story": {
+      "title": "Our Story",
+      "subtitle": "Why did we build Rentmi?",
+      "p1": "For years, the home-rental market in Uzbekistan has been an inconvenient and disorganized process. People searching for a home often face unverified listings, inaccurate information, time-consuming conversations and unreliable sources.",
+      "p2": "And owners struggle to reach the right audience with their property quickly. We saw this problem and decided to build a modern solution.",
+      "p3": "Our goal is to make the home-rental process in Uzbekistan simple, transparent and trustworthy."
+    },
+    "problemSolution": {
+      "title": "Problem & Solution",
+      "subtitle": "A modern answer to old frustrations",
+      "problem": "Problem",
+      "solution": "Solution",
+      "rows": {
+        "fake": {
+          "problem": "Fake listings",
+          "solution": "Verified, well-organized listings"
+        },
+        "slow": {
+          "problem": "Time-consuming search",
+          "solution": "Convenient filters and fast search"
+        },
+        "calls": {
+          "problem": "Unwanted calls",
+          "solution": "Accurate and complete information"
+        },
+        "trust": {
+          "problem": "Untrustworthy people",
+          "solution": "Users who passed the scoring"
+        }
+      }
+    },
+    "mission": {
+      "title": "Our mission",
+      "body": "To digitize Uzbekistan’s home-rental market and create a safe, transparent and convenient ecosystem for users."
+    },
+    "vision": {
+      "title": "Our vision",
+      "body": "To become the most trusted and convenient rental platform in Central Asia."
+    },
+    "values": {
+      "title": "Our values",
+      "items": {
+        "trust": {
+          "title": "Trust",
+          "desc": "every user should feel safe."
+        },
+        "transparency": {
+          "title": "Transparency",
+          "desc": "a clear process with no hidden data."
+        },
+        "convenience": {
+          "title": "Convenience",
+          "desc": "simplifying complex processes."
+        },
+        "speed": {
+          "title": "Speed",
+          "desc": "time is the most valuable resource."
+        },
+        "userCentric": {
+          "title": "User-centric",
+          "desc": "every decision starts from the user’s needs."
+        }
+      }
+    },
+    "how": {
+      "title": "How does the platform work?",
+      "tenant": {
+        "download": "Download the app",
+        "filter": "Search with handy filters",
+        "browse": "Browse matching homes",
+        "contact": "Contact the owner",
+        "find": "Find your new home"
+      },
+      "owner": {
+        "download": "Download the app",
+        "publish": "Post a listing",
+        "requests": "Receive requests",
+        "contact": "Contact the tenant",
+        "contract": "Sign the contract"
+      }
+    },
+    "why": {
+      "title": "Why Rentmi?",
+      "items": {
+        "trusted": {
+          "title": "Trusted platform",
+          "desc": "Listings verified by admins"
+        },
+        "search": {
+          "title": "Easy search",
+          "desc": "Smart filters to find a home in seconds"
+        },
+        "mobile": {
+          "title": "Mobile convenience",
+          "desc": "The whole process inside your smartphone"
+        },
+        "scoring": {
+          "title": "Scoring system",
+          "desc": "Trusted users who passed the scoring"
+        },
+        "stats": {
+          "title": "Statistics",
+          "desc": "Management of property and rental statistics"
+        },
+        "curated": {
+          "title": "Curated homes",
+          "desc": "Homes and tenants verified and approved by admins"
+        }
+      }
+    }
   }
 }
