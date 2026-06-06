@@ -421,7 +421,9 @@
       "open": "Rasmlarni ko'rish",
       "close": "Yopish",
       "prev": "Oldingi",
-      "next": "Keyingi"
+      "next": "Keyingi",
+      "fullscreen": "Butun ekran",
+      "exitFullscreen": "Butun ekrandan chiqish"
     },
     "amenities": {
       "lift": "Lift",

@@ -19,6 +19,13 @@ const { t } = useI18n()
 const scroller = ref<HTMLElement | null>(null)
 const current = ref(props.index)
 
+// "Fill" mode — drops the letterbox padding so the photo spans the whole
+// viewport edge-to-edge (object-cover). Off by default = fully-visible contain.
+const filled = ref(false)
+function toggleFilled() {
+  filled.value = !filled.value
+}
+
 function scrollToIndex(i: number, smooth = true) {
   const el = scroller.value
   if (!el) return
@@ -60,6 +67,7 @@ watch(open, async (isOpen) => {
     scrollToIndex(props.index, false)
   } else {
     document.body.style.overflow = ''
+    filled.value = false
   }
 })
 
@@ -91,14 +99,33 @@ const near = (i: number) => Math.abs(i - current.value) <= 1
           {{ current + 1 }} / {{ images.length }}
         </div>
 
-        <!-- Close -->
-        <button
-          type="button"
-          class="absolute right-4 top-4 z-10 inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          :aria-label="t('property.gallery.close')"
-          @click="open = false">
-          <IconsClose class="size-5" />
-        </button>
+        <!-- Top-right controls: fullscreen + close -->
+        <div class="absolute right-4 top-4 z-10 flex items-center gap-2">
+          <button
+            type="button"
+            class="inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            :aria-label="t(filled ? 'property.gallery.exitFullscreen' : 'property.gallery.fullscreen')"
+            @click="toggleFilled">
+            <Transition
+              mode="out-in"
+              enter-active-class="transition duration-150 ease-out"
+              enter-from-class="opacity-0 scale-75"
+              leave-active-class="transition duration-150 ease-in"
+              leave-to-class="opacity-0 scale-75">
+              <Icon
+                :key="filled ? 'min' : 'max'"
+                :name="filled ? 'lucide:minimize' : 'lucide:maximize'"
+                class="size-5" />
+            </Transition>
+          </button>
+          <button
+            type="button"
+            class="inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            :aria-label="t('property.gallery.close')"
+            @click="open = false">
+            <IconsClose class="size-5" />
+          </button>
+        </div>
 
         <!-- Prev / Next -->
         <button
@@ -126,7 +153,8 @@ const near = (i: number) => Math.abs(i - current.value) <= 1
           <div
             v-for="(img, i) in images"
             :key="i"
-            class="flex h-full w-full shrink-0 snap-center items-center justify-center p-4 md:p-14"
+            class="flex h-full w-full shrink-0 snap-center items-center justify-center transition-[padding] duration-300 ease-out"
+            :class="filled ? 'p-0' : 'p-4 md:p-14'"
             @click.self="open = false">
             <img
               v-if="near(i)"
@@ -135,7 +163,10 @@ const near = (i: number) => Math.abs(i - current.value) <= 1
               loading="lazy"
               decoding="async"
               draggable="false"
-              class="max-h-full max-w-full select-none rounded-lg object-contain"
+              class="h-full w-full select-none transition-all duration-300 ease-out"
+              :class="filled
+                ? 'rounded-none object-cover'
+                : 'max-h-full max-w-full rounded-lg object-contain'"
               @click.stop>
             <IconsSpinner v-else class="size-8 animate-spin text-white/40" />
           </div>

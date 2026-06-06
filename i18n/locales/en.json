@@ -421,7 +421,9 @@
       "open": "View photos",
       "close": "Close",
       "prev": "Previous",
-      "next": "Next"
+      "next": "Next",
+      "fullscreen": "Fullscreen",
+      "exitFullscreen": "Exit fullscreen"
     },
     "amenities": {
       "lift": "Lift",
