@@ -12,7 +12,7 @@ const { t } = useI18n()
   <div
     class="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-800 shadow-card">
     <img
-      src="/landing/drujba.png"
+      src="/landing/drujba.webp"
       alt="Drujba NRG | U Tower"
       class="absolute inset-0 h-full w-full object-cover"
       onerror="this.style.visibility = 'hidden'" />

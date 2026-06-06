@@ -3,7 +3,7 @@
  * Floating detailed rental card: cover image + id badge, title/address,
  * price, payment-progress bar, tenant row, contract/next-payment dates.
  *
- * Cover image: public/landing/listing-penthouse.png (placeholder until given).
+ * Cover image: public/landing/listing-penthouse.webp (placeholder until given).
  */
 const { t } = useI18n()
 
@@ -17,7 +17,7 @@ const total = 8
     <!-- Cover -->
     <div class="relative aspect-[16/9] bg-neutral-200">
       <img
-        src="/landing/mirabad-square.png"
+        src="/landing/mirabad-square.webp"
         alt="Mirabad Square Penthouse"
         loading="lazy"
         class="h-full w-full object-cover"
@@ -71,13 +71,13 @@ const total = 8
         </p>
         <div class="mt-1 flex items-center gap-2">
           <img
-            src="/landing/avatar-tenant.png"
+            src="/landing/profile-4.webp"
             alt="Abdullayev Sarvar"
             class="size-6 rounded-full object-cover bg-neutral-200"
             onerror="this.style.visibility = 'hidden'" />
-          <span class="text-sm font-medium text-neutral-900"
-            >Abdullayev Sarvar</span
-          >
+          <span class="text-sm font-medium text-neutral-900">
+            Abdullayev Sarvar11
+          </span>
         </div>
       </div>
 

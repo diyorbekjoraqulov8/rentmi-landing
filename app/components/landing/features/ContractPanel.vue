@@ -16,7 +16,7 @@ const total = 8
     <!-- Cover -->
     <div class="relative aspect-[16/9] bg-neutral-200">
       <img
-        src="/landing/mirabad-square.png"
+        src="/landing/mirabad-square.webp"
         alt="Mirabad Square | Penthouse"
         class="h-full w-full object-cover"
         onerror="this.style.visibility = 'hidden'" />
@@ -70,13 +70,13 @@ const total = 8
         </p>
         <div class="mt-1 flex items-center gap-2">
           <img
-            src="/landing/avatar-tenant.png"
+            src="/landing/profile-4.webp"
             alt="Abdullayev Sarvar"
             class="size-6 rounded-full bg-neutral-200 object-cover"
             onerror="this.style.visibility = 'hidden'" />
-          <span class="text-sm font-medium text-neutral-900"
-            >Abdullayev Sarvar</span
-          >
+          <span class="text-sm font-medium text-neutral-900">
+            Abdullayev Sarvar
+          </span>
         </div>
       </div>
 

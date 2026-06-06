@@ -88,9 +88,9 @@ export interface Property {
 // visible content (the others are near-empty 2×2 stubs). Swap in real listing
 // photos later — the gallery/cards pick these up automatically.
 const POOL = [
-  '/landing/drujba-nrg.png',
-  '/landing/drujba.png',
-  '/landing/mirabad-square.png'
+  '/landing/drujba-nrg.webp',
+  '/landing/drujba.webp',
+  '/landing/mirabad-square.webp'
 ]
 
 /** Cycle the image pool to fake an n-photo gallery (offset varies per listing). */

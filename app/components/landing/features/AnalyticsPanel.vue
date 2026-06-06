@@ -116,7 +116,7 @@ const area = `0,${points[0]} ${path} 100,${points.at(-1)} 100,50 0,50`
       class="absolute right-0 top-0 z-0 hidden w-[210px] overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-black/5 sm:block">
       <div class="relative aspect-[16/10] bg-neutral-200">
         <img
-          src="/landing/mirabad-square.png"
+          src="/landing/mirabad-square.webp"
           alt="Dream City 3 xonali"
           class="h-full w-full object-cover"
           onerror="this.style.visibility = 'hidden'" />

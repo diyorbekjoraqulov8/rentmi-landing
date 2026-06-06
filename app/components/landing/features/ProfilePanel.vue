@@ -89,7 +89,7 @@ const menu = [
       </span>
       <div class="flex flex-col items-center text-center">
         <img
-          src="/landing/profile-4.png"
+          src="/landing/profile-4.webp"
           alt="Murod Talipov"
           class="size-16 rounded-full bg-neutral-200 object-cover ring-2 ring-brand-100"
           onerror="this.style.visibility = 'hidden'" />

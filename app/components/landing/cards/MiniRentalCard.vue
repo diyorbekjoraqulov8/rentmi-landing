@@ -16,7 +16,7 @@ const total = 8
       <div
         class="relative w-20 h-30 shrink-0 overflow-hidden rounded-xl bg-neutral-200">
         <img
-          src="/landing/mirabad-square.png"
+          src="/landing/mirabad-square.webp"
           alt="Dream City"
           class="h-full w-full object-cover"
           loading="lazy"

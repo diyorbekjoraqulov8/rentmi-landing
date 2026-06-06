@@ -19,7 +19,7 @@ const { t } = useI18n()
 const { isOwner } = useAudience()
 
 const phoneSrc = computed(() =>
-  isOwner.value ? '/landing/hero-phone.png' : '/landing/hero-phone-2.png'
+  isOwner.value ? '/landing/hero-phone.webp' : '/landing/hero-phone-2.webp'
 )
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * Hero for /solution — big headline, supporting copy and the lead image
- * (public/solution/hero.png). Mirrors the team page hero rhythm.
+ * (public/solution/hero.webp). Mirrors the team page hero rhythm.
  */
 const { t } = useI18n()
 </script>
@@ -26,7 +26,7 @@ const { t } = useI18n()
         <div
           class="mt-10 overflow-hidden rounded-3xl bg-neutral-100 shadow-card md:mt-14">
           <NuxtImg
-            src="/solution/hero.png"
+            src="/solution/hero.webp"
             :alt="t('solution.hero.title')"
             class="aspect-[1024/480] w-full object-cover"
             sizes="100vw md:1024px"

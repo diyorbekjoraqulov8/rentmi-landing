@@ -30,7 +30,7 @@ const cards = [
   <div class="relative">
     <!-- Phone -->
     <div class="w-[230px] sm:w-[260px]">
-      <LandingPhoneMockup src="/landing/hero-phone-2.png" />
+      <LandingPhoneMockup src="/landing/hero-phone-2.webp" />
     </div>
 
     <!-- Floating listing cards (off the right edge), stacked -->
@@ -42,7 +42,7 @@ const cards = [
         :class="i === 1 ? 'translate-x-6' : ''">
         <div class="relative aspect-[16/11] bg-neutral-200">
           <img
-            src="/landing/drujba.png"
+            src="/landing/drujba.webp"
             :alt="c.title"
             class="h-full w-full object-cover"
             onerror="this.style.visibility = 'hidden'" />

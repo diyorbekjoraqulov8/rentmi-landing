@@ -31,7 +31,7 @@ const { t } = useI18n()
       <div
         class="flex justify-center md:absolute md:inset-y-0 md:left-1/2 md:right-0 md:items-center">
         <img
-          src="/landing/download-app.png"
+          src="/landing/download-app.webp"
           alt="Rentmi app"
           class="w-60 max-w-full sm:w-72 md:w-85"
           loading="lazy"

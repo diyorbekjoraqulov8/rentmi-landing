@@ -79,7 +79,7 @@ onBeforeUnmount(() => {
             </div>
 
             <img
-              src="/landing/download-app-hand.png"
+              src="/landing/download-app-hand.webp"
               alt="Rentmi app"
               class="mx-auto mt-8 w-full max-w-[460px]"
               loading="lazy"

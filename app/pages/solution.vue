@@ -20,12 +20,12 @@ useSeoMeta({
   ogTitle: () => t('solution.seo.og.title'),
   ogDescription: () => t('solution.seo.og.description'),
   ogType: 'website',
-  ogImage: '/solution/hero.png',
+  ogImage: '/solution/hero.webp',
   ogLocale: () => locale.value,
   twitterCard: 'summary_large_image',
   twitterTitle: () => t('solution.seo.og.title'),
   twitterDescription: () => t('solution.seo.og.description'),
-  twitterImage: '/solution/hero.png'
+  twitterImage: '/solution/hero.webp'
 })
 
 useHead({
@@ -43,7 +43,7 @@ useHead({
 // Structured data — the organisation plus a self-describing service breakdown
 // (helps the page surface for "uy ijara" style queries).
 useSchemaOrg([
-  defineOrganization({ name: 'rentmi.uz', logo: '/landing/rentme-logo.png' }),
+  defineOrganization({ name: 'rentmi.uz', logo: '/landing/rentme-logo.webp' }),
   defineWebPage({
     name: () => t('solution.seo.title'),
     description: () => t('solution.seo.description')

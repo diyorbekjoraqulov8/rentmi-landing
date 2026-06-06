@@ -13,7 +13,7 @@ const APP_STORE_URL = 'https://apps.apple.com/us/app/rentmi/id6761826946'
     aria-label="Download on the App Store"
     class="inline-block transition-transform hover:scale-[1.03]">
     <img
-      src="/landing/apple-store.png"
+      src="/landing/apple-store.webp"
       alt="Download on the App Store"
       class="h-12 w-auto"
       loading="lazy">

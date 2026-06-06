@@ -80,7 +80,7 @@ const socials = [
       <!-- Mini listing -->
       <div class="mt-3 flex gap-3 rounded-xl bg-neutral-50 p-2">
         <img
-          src="/landing/drujba.png"
+          src="/landing/drujba.webp"
           alt="Drujba NRG | U Tower"
           class="size-14 shrink-0 rounded-lg bg-neutral-200 object-cover"
           onerror="this.style.visibility = 'hidden'" />

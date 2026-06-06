@@ -26,7 +26,7 @@ useSeoMeta({
 
 // Structured data: the organisation plus a Person node for everyone on the page.
 useSchemaOrg([
-  defineOrganization({ name: 'rentmi.uz', logo: '/landing/rentme-logo.png' }),
+  defineOrganization({ name: 'rentmi.uz', logo: '/landing/rentme-logo.webp' }),
   ...allMembers.map((m) =>
     definePerson({ name: m.name, jobTitle: t(m.roleKey), image: m.image })
   )

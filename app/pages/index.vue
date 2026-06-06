@@ -18,7 +18,7 @@ useSeoMeta({
 useSchemaOrg([
   defineOrganization({
     name: 'rentmi.uz',
-    logo: '/landing/rentme-logo.png',
+    logo: '/landing/rentme-logo.webp',
     sameAs: ['https://t.me/rentmi_uz', 'https://instagram.com/rentmi.uz']
   }),
   defineWebSite({ name: 'rentmi.uz' })

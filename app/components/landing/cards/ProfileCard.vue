@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * Floating verified-profile card: avatar + MyID badge, phone row, marital row.
- * Avatar image: public/landing/avatar-owner.png (placeholder until provided).
+ * Avatar image: public/landing/avatar-owner.webp (placeholder until provided).
  */
 const { t } = useI18n()
 </script>
@@ -12,7 +12,7 @@ const { t } = useI18n()
     <div class="flex items-center gap-3">
       <div class="relative shrink-0">
         <img
-          src="/landing/profile-4.png"
+          src="/landing/profile-4.webp"
           alt="Murod Talipov"
           class="size-11 rounded-full object-cover bg-neutral-200"
           onerror="this.style.visibility = 'hidden'" />

@@ -86,22 +86,22 @@ export interface HowStep {
 
 /**
  * Two flows behind the audience toggle. Tenant uses phone-1..5, owner uses
- * phone-6..10 (note the source typo `pohne-2.png`). Order = left→right reveal.
+ * phone-6..10 (note the source typo `pohne-2.webp`). Order = left→right reveal.
  */
 export const howItWorks: Record<'tenant' | 'owner', HowStep[]> = {
   tenant: [
-    { labelKey: 'solution.how.tenant.download', image: '/solution/phone-1.png' },
-    { labelKey: 'solution.how.tenant.filter', image: '/solution/pohne-2.png' },
-    { labelKey: 'solution.how.tenant.browse', image: '/solution/phone-3.png' },
-    { labelKey: 'solution.how.tenant.contact', image: '/solution/phone-4.png' },
-    { labelKey: 'solution.how.tenant.find', image: '/solution/phone-5.png' }
+    { labelKey: 'solution.how.tenant.download', image: '/solution/phone-1.webp' },
+    { labelKey: 'solution.how.tenant.filter', image: '/solution/pohne-2.webp' },
+    { labelKey: 'solution.how.tenant.browse', image: '/solution/phone-3.webp' },
+    { labelKey: 'solution.how.tenant.contact', image: '/solution/phone-4.webp' },
+    { labelKey: 'solution.how.tenant.find', image: '/solution/phone-5.webp' }
   ],
   owner: [
-    { labelKey: 'solution.how.owner.download', image: '/solution/phone-6.png' },
-    { labelKey: 'solution.how.owner.publish', image: '/solution/phone-7.png' },
-    { labelKey: 'solution.how.owner.requests', image: '/solution/phone-8.png' },
-    { labelKey: 'solution.how.owner.contact', image: '/solution/phone-9.png' },
-    { labelKey: 'solution.how.owner.contract', image: '/solution/phone-10.png' }
+    { labelKey: 'solution.how.owner.download', image: '/solution/phone-6.webp' },
+    { labelKey: 'solution.how.owner.publish', image: '/solution/phone-7.webp' },
+    { labelKey: 'solution.how.owner.requests', image: '/solution/phone-8.webp' },
+    { labelKey: 'solution.how.owner.contact', image: '/solution/phone-9.webp' },
+    { labelKey: 'solution.how.owner.contract', image: '/solution/phone-10.webp' }
   ]
 }
 

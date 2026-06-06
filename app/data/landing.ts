@@ -189,7 +189,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 1,
     name: 'Abullayeva Munira',
-    avatar: '/landing/profile-1.png',
+    avatar: '/landing/profile-1.webp',
     tenureKey: 'landing.testimonials.tenure',
     tenure: '2',
     ratingKey: 'landing.testimonials.rating',
@@ -199,7 +199,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 2,
     name: 'Bekzodov Anvar',
-    avatar: '/landing/profile-2.png',
+    avatar: '/landing/profile-2.webp',
     tenureKey: 'landing.testimonials.tenure',
     tenure: '3',
     ratingKey: 'landing.testimonials.rating',
@@ -209,7 +209,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 3,
     name: 'Elmurod Haqnazarov',
-    avatar: '/landing/profile-3.png',
+    avatar: '/landing/profile-3.webp',
     tenureKey: 'landing.testimonials.tenure',
     tenure: '1',
     ratingKey: 'landing.testimonials.rating',
@@ -235,11 +235,11 @@ export interface VideoReview {
 }
 
 export const videoReviews: VideoReview[] = [
-  { id: 1, headlineKey: 'landing.videoReviews.items.1', poster: '/landing/girls/girl-1.png', avatar: '/landing/profile-1.png' },
-  { id: 2, headlineKey: 'landing.videoReviews.items.2', poster: '/landing/girls/girl-2.png', avatar: '/landing/profile-2.png' },
-  { id: 3, headlineKey: 'landing.videoReviews.items.3', poster: '/landing/girls/girl-3.png', avatar: '/landing/profile-3.png' },
-  { id: 4, headlineKey: 'landing.videoReviews.items.4', poster: '/landing/girls/girl-4.png', avatar: '/landing/profile-4.png' },
-  { id: 5, headlineKey: 'landing.videoReviews.items.5', poster: '/landing/girls/girl-5.png', avatar: '/landing/profile-1.png' }
+  { id: 1, headlineKey: 'landing.videoReviews.items.1', poster: '/landing/girls/girl-1.webp', avatar: '/landing/profile-1.webp' },
+  { id: 2, headlineKey: 'landing.videoReviews.items.2', poster: '/landing/girls/girl-2.webp', avatar: '/landing/profile-2.webp' },
+  { id: 3, headlineKey: 'landing.videoReviews.items.3', poster: '/landing/girls/girl-3.webp', avatar: '/landing/profile-3.webp' },
+  { id: 4, headlineKey: 'landing.videoReviews.items.4', poster: '/landing/girls/girl-4.webp', avatar: '/landing/profile-4.webp' },
+  { id: 5, headlineKey: 'landing.videoReviews.items.5', poster: '/landing/girls/girl-5.webp', avatar: '/landing/profile-1.webp' }
 ]
 
 /* --- FAQ accordion --- */

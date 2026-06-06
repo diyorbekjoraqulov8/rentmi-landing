@@ -14,7 +14,7 @@ const GOOGLE_PLAY_URL =
     aria-label="Get it on Google Play"
     class="inline-block transition-transform hover:scale-[1.03]">
     <img
-      src="/landing/google-play.png"
+      src="/landing/google-play.webp"
       alt="Get it on Google Play"
       class="h-12 w-auto"
       loading="lazy">

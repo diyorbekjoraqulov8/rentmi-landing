@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * Realistic iPhone frame (Dynamic Island). The inner screen is an image —
- * drop the exported app screen at `public/landing/phone-screen.png` (or pass a
+ * drop the exported app screen at `public/landing/phone-screen.webp` (or pass a
  * different `src`). Until the file exists a soft brand-gradient placeholder is
  * shown so layout/spacing is already correct.
  */
@@ -13,7 +13,7 @@ withDefaults(
     priority?: boolean
   }>(),
   {
-    src: 'landing/hero-phone.png',
+    src: 'landing/hero-phone.webp',
     alt: 'Rentmi app',
     priority: false
   }
