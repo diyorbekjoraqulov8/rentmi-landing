@@ -25,11 +25,11 @@ const { t } = useI18n()
       <!-- Stats -->
       <dl
         class="mt-16 md:mt-20 grid grid-cols-1 gap-10 sm:grid-cols-3 max-w-3xl">
-        <div v-for="stat in stats" :key="stat.labelKey">
+        <div v-for="stat in stats" :key="stat.labelKey" class="flex flex-col h-full">
           <dt class="text-sm md:text-base text-neutral-500">
             {{ t(stat.labelKey) }}
           </dt>
-          <dd class="mt-2 text-4xl md:text-5xl font-medium text-brand-600">
+          <dd class="mt-auto pt-2 text-4xl md:text-5xl font-medium text-brand-600">
             <LandingCountUp :value="stat.value" />
           </dd>
         </div>

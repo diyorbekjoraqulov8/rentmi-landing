@@ -112,7 +112,11 @@ export default defineNuxtConfig({
   image: {
     format: ['avif', 'webp'],
     quality: 72,
-    provider: 'ipx',
+    // IPX (the `/_ipx/**` route) only exists on the node-server preset. On
+    // Netlify the SSR app runs as a function and that route is never wired up,
+    // so every <NuxtImg> 404s — use Netlify's built-in Image CDN there instead.
+    provider:
+      process.env.NITRO_PRESET === 'netlify' ? 'netlifyImageCdn' : 'ipx',
     densities: [1, 2],
     screens: {
       xs: 320,

@@ -5,6 +5,8 @@
  *  row 2 — divider, then "To'lov usullari" with payment-provider badges.
  * Link columns are data-driven.
  */
+import { IconsTelegram, IconsInstagram, IconsFacebook } from '#components'
+
 const { t } = useI18n()
 const localePath = useLocalePath()
 
@@ -15,14 +17,14 @@ const legal = [
 ]
 
 const socials = [
-  { icon: 'IconsTelegram', label: 'rentmi_uz', href: 'https://t.me/rentmi_uz' },
+  { icon: IconsTelegram, label: 'rentmi_uz', href: 'https://t.me/rentmi_uz' },
   {
-    icon: 'IconsInstagram',
+    icon: IconsInstagram,
     label: 'rentmi.uz',
     href: 'https://instagram.com/rentmi.uz'
   },
   {
-    icon: 'IconsFacebook',
+    icon: IconsFacebook,
     label: 'rentmi uz',
     href: 'https://facebook.com/rentmi.uz'
   }

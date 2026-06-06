@@ -103,17 +103,17 @@ useSchemaOrg([
 
 <template>
   <div v-if="property" class="pb-28 lg:pb-16">
-    <div class="mx-auto w-full max-w-330 px-4 py-6 sm:px-6 md:py-10 lg:px-8">
-      <div class="grid gap-x-8 lg:grid-cols-[1.7fr_1fr] lg:items-start">
+    <div class="container py-6 md:py-10">
+      <ListingsGallery
+        :images="property.images"
+        :alt="property.title"
+        :meta="meta" />
+
+      <div class="mt-6 grid gap-x-8 lg:grid-cols-[1.7fr_1fr] lg:items-start">
         <!-- LEFT: gallery + facts + sections -->
         <div class="min-w-0">
-          <ListingsGallery
-            :images="property.images"
-            :alt="property.title"
-            :meta="meta" />
-
           <!-- Title / address / price -->
-          <div class="mt-6">
+          <div>
             <div class="flex flex-wrap items-start justify-between gap-3">
               <h1 class="text-2xl font-bold text-neutral-900 md:text-3xl">
                 {{ property.title }}

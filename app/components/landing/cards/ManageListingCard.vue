@@ -33,19 +33,13 @@ const to = computed(() => localePath(`/listings/${props.item.id}`))
       decoding="async"
       class="absolute inset-0 h-full w-full object-cover"
       onerror="this.style.visibility = 'hidden'" />
-    <!-- darkening gradient: on hover, or always for the lead card -->
+    <!-- darkening gradient: on hover -->
     <div
-      class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5 transition-opacity duration-300"
-      :class="
-        item.recommended ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-      " />
+      class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-    <!-- DEFAULT white panel — fades out on hover (absent for the lead card) -->
+    <!-- DEFAULT white panel — fades out on hover -->
     <div
-      class="absolute inset-0 flex flex-col bg-surface p-2.5 transition-opacity duration-300"
-      :class="
-        item.recommended ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
-      ">
+      class="absolute inset-0 flex flex-col bg-surface p-2.5 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
       <div
         class="relative h-[200px] shrink-0 overflow-hidden rounded-2xl bg-neutral-200">
         <img
@@ -89,12 +83,9 @@ const to = computed(() => localePath(`/listings/${props.item.id}`))
       </div>
     </div>
 
-    <!-- ACTIVE dark overlay — fades in on hover (always on for the lead card) -->
+    <!-- ACTIVE dark overlay — fades in on hover -->
     <div
-      class="absolute inset-x-0 bottom-0 flex flex-col p-5 text-white transition-opacity duration-300"
-      :class="
-        item.recommended ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-      ">
+      class="absolute inset-x-0 bottom-0 flex flex-col p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
       <div class="mb-2 flex items-center gap-3 text-xs text-white/90">
         <span class="flex items-center gap-1"
           ><IconsGrid class="text-[13px]" />{{ item.area }}</span
@@ -125,15 +116,8 @@ const to = computed(() => localePath(`/listings/${props.item.id}`))
 
     <!-- shared chrome: badge + favourite, above both layers -->
     <span
-      class="absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur"
-      :class="
-        item.recommended
-          ? 'bg-black/40 text-white'
-          : 'bg-white/95 text-neutral-800'
-      ">
-      <IconsCrown
-        class="text-sm"
-        :class="item.recommended ? 'text-amber-300' : 'text-amber-500'" />
+      class="absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-xs font-medium text-neutral-800 backdrop-blur">
+      <IconsCrown class="text-sm text-amber-500" />
       {{
         item.recommended
           ? t('landing.listings.badge.recommended')

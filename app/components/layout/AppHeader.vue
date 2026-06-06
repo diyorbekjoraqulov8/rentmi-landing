@@ -34,13 +34,16 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
 <template>
   <header
-    class="sticky top-0 z-50 border-b transition-colors duration-300"
-    :class="scrolled
-      ? 'border-neutral-200/70 bg-surface/80 shadow-[0_6px_24px_-16px_rgba(16,24,40,0.45)] backdrop-blur-xl'
-      : 'border-transparent bg-background'">
+    class="sticky top-0 z-50 transition-all duration-300"
+    :class="scrolled ? 'px-3 sm:px-5 pt-3' : ''">
     <div
-      class="mx-auto container px-4 sm:px-6 flex items-center justify-between gap-4 transition-all duration-300"
-      :class="scrolled ? 'h-16' : 'h-20'">
+      class="mx-auto w-full transition-all duration-300"
+      :class="scrolled
+        ? 'max-w-280 rounded-2xl border border-neutral-200/70 bg-surface/80 shadow-[0_6px_24px_-16px_rgba(16,24,40,0.45)] backdrop-blur-xl'
+        : 'max-w-none border-b border-transparent bg-background'">
+      <div
+        class="mx-auto container px-4 sm:px-6 flex items-center justify-between gap-4 transition-all duration-300"
+        :class="scrolled ? 'h-16' : 'h-20'">
       <!-- Left slot: MENU on desktop, logo on mobile -->
       <div class="flex flex-1 items-center">
         <!-- desktop MENU -->
@@ -76,6 +79,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           <IconsMenu class="size-5" />
         </button>
       </div>
+    </div>
     </div>
 
     <!-- Slide-in navigation drawer -->
