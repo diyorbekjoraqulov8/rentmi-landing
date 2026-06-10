@@ -25,26 +25,23 @@ const phoneSrc = computed(() =>
 
 <template>
   <section
+    id="hero"
     class="relative overflow-hidden bg-background"
     aria-labelledby="hero-heading"
   >
-    <div class="mx-auto max-w-[1320px] px-4 sm:px-6 pt-6 pb-16 md:pb-24">
-      <!-- Primary page heading. The hero is visual (phone + cards), so the
-           SEO/a11y H1 is rendered for assistive tech and crawlers. -->
-      <h1
-        id="hero-heading"
-        class="sr-only"
-      >
-        {{ t('landing.hero.h1') }}
-      </h1>
+    <!-- Primary page heading. The hero is visual (phone + cards), so the
+         SEO/a11y H1 is rendered for assistive tech and crawlers. -->
+    <h1
+      id="hero-heading"
+      class="sr-only"
+    >
+      {{ t('landing.hero.h1') }}
+    </h1>
 
-      <!-- Audience tabs -->
-      <div class="flex justify-center">
-        <LandingAudienceTabs class="max-w-xl" />
-      </div>
-
-      <!-- ===================== MOBILE (stacked) ===================== -->
-      <div class="mt-8 space-y-4 lg:hidden">
+    <!-- ===================== MOBILE (stacked) ===================== -->
+    <!-- Audience tabs are the global floating pill; pt clears the fixed pill. -->
+    <div class="mx-auto max-w-[1320px] px-4 sm:px-6 pt-28 pb-16 lg:hidden">
+      <div class="space-y-4">
         <template v-if="isOwner">
           <LandingFloatingCard :delay="60">
             <LandingCardsAiAdviceCard />
@@ -83,22 +80,33 @@ const phoneSrc = computed(() =>
           />
         </div>
       </div>
+    </div>
 
-      <!-- ============== DESKTOP (phone + floating cards) ============== -->
-      <div class="relative mt-10 hidden lg:block min-h-[800px]">
-        <!-- Phone, centered (entrance only, no bob — it's the anchor) -->
-        <div class="relative z-20 flex justify-center">
+    <!-- ============== DESKTOP (phone centerpiece + floating cards) ============== -->
+    <!-- Narrower stage than the page so the cards always hug the phone (they
+         don't drift to the screen edges on wide monitors), matching the Figma. -->
+    <div class="relative mx-auto hidden w-full max-w-[1180px] px-6 pt-44 lg:block">
+      <!-- Audience tabs are the global floating pill (LandingFloatingAudienceTabs);
+           pt-44 leaves room for it above the phone. -->
+
+      <!-- Stage holds the phone + the cards arranged around it. Fixed height so
+           the phone's base overflows it and the section's overflow-hidden clips
+           the bottom — the phone's base is never shown, at any width. -->
+      <div class="relative h-[560px]">
+        <!-- Phone, top-aligned centerpiece (entrance only, no bob — it's the anchor) -->
+        <div class="absolute left-1/2 top-0 z-20 -translate-x-1/2">
           <LandingFloatingCard :float="false">
             <LandingPhoneMockup
               :src="phoneSrc"
               priority
+              size="hero"
             />
           </LandingFloatingCard>
         </div>
 
         <!-- ===== OWNER card set ===== -->
         <template v-if="isOwner">
-          <div class="absolute left-28 top-12 z-10 w-[280px]">
+          <div class="absolute left-24 top-24 z-10 w-[270px]">
             <LandingFloatingCard
               :delay="100"
               :amplitude="9"
@@ -107,7 +115,7 @@ const phoneSrc = computed(() =>
               <LandingCardsAiAdviceCard />
             </LandingFloatingCard>
           </div>
-          <div class="absolute left-22 top-50 z-10 w-[330px]">
+          <div class="absolute left-16 top-[232px] z-10 w-[320px]">
             <LandingFloatingCard
               :delay="200"
               :amplitude="12"
@@ -116,7 +124,7 @@ const phoneSrc = computed(() =>
               <LandingCardsProfileCard />
             </LandingFloatingCard>
           </div>
-          <div class="absolute left-30 top-110 z-10 w-[270px]">
+          <div class="absolute left-28 top-[440px] z-10 w-[260px]">
             <LandingFloatingCard
               :delay="320"
               :amplitude="10"
@@ -126,7 +134,7 @@ const phoneSrc = computed(() =>
             </LandingFloatingCard>
           </div>
 
-          <div class="absolute right-0 top-16 z-10 w-[360px]">
+          <div class="absolute right-20 top-28 z-10 w-[330px]">
             <LandingFloatingCard
               :delay="160"
               :amplitude="11"
@@ -135,7 +143,7 @@ const phoneSrc = computed(() =>
               <LandingCardsScoreCard />
             </LandingFloatingCard>
           </div>
-          <div class="absolute right-22 top-64 z-10 w-[300px]">
+          <div class="absolute right-16 top-[252px] z-10 w-[300px]">
             <LandingFloatingCard
               :delay="280"
               :amplitude="13"
@@ -148,7 +156,7 @@ const phoneSrc = computed(() =>
 
         <!-- ===== TENANT card set ===== -->
         <template v-else>
-          <div class="absolute left-13 top-24 z-10 w-[300px]">
+          <div class="absolute left-16 top-24 z-10 w-[300px]">
             <LandingFloatingCard
               :delay="100"
               :amplitude="10"
@@ -157,7 +165,7 @@ const phoneSrc = computed(() =>
               <LandingCardsSupportCard />
             </LandingFloatingCard>
           </div>
-          <div class="absolute left-26 bottom-40 z-10 w-[210px]">
+          <div class="absolute left-28 top-[360px] z-10 w-[210px]">
             <LandingFloatingCard
               :delay="300"
               :amplitude="12"
@@ -167,7 +175,7 @@ const phoneSrc = computed(() =>
             </LandingFloatingCard>
           </div>
 
-          <div class="absolute right-10 top-40 z-10 w-[330px]">
+          <div class="absolute right-16 top-28 z-10 w-[330px]">
             <LandingFloatingCard
               :delay="160"
               :amplitude="11"
@@ -176,7 +184,7 @@ const phoneSrc = computed(() =>
               <LandingCardsPriceFilterCard />
             </LandingFloatingCard>
           </div>
-          <div class="absolute right-6 bottom-50 z-10 w-[300px]">
+          <div class="absolute right-20 top-[332px] z-10 w-[300px]">
             <LandingFloatingCard
               :delay="240"
               :amplitude="9"

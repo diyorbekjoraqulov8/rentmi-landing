@@ -113,6 +113,7 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
+
 /* Visible focus ring for keyboard users (a11y) */
 :where(a, button, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: none;

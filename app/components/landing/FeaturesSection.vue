@@ -37,28 +37,35 @@ watch(isOwner, () => {
   mobileOpen.value = 0
 })
 
-// The <ul> (untyped to dodge clashing DOM lib types); rows are read from it.
-const list = ref()
+/**
+ * Desktop pins the whole block while you scroll through it: a tall `wrapper`
+ * supplies the scroll distance, an inner `sticky top-0 h-screen` element stays
+ * put, and the scroll progress *inside* that pinned range maps 1:1 onto the
+ * active card. Each card owns an equal slice of the pin, so they open one by
+ * one; once the last slice is past, the sticky releases and the page scrolls
+ * on normally. STEP_VH is the scroll distance (in vh) spent per card — bigger
+ * means the section "holds" longer before advancing.
+ */
+const STEP_VH = 70
+const wrapper = ref<HTMLElement>()
+const wrapperStyle = computed(() => ({
+  height: `${100 + items.value.length * STEP_VH}vh`,
+}))
 
 let raf = 0
 function measure() {
   cancelAnimationFrame(raf)
   raf = requestAnimationFrame(() => {
-    if (hoverIndex.value !== null || !list.value) return
-    const line = window.innerHeight * 0.42
-    let best = 0
-    let bestDist = Infinity
-    list.value
-      .querySelectorAll(':scope > li')
-      .forEach((el: { getBoundingClientRect(): DOMRect }, i: number) => {
-        const r = el.getBoundingClientRect()
-        const dist = Math.abs(r.top + r.height / 2 - line)
-        if (dist < bestDist) {
-          bestDist = dist
-          best = i
-        }
-      })
-    scrollIndex.value = best
+    if (hoverIndex.value !== null || !wrapper.value) return
+    const rect = wrapper.value.getBoundingClientRect()
+    const total = rect.height - window.innerHeight // scrollable while pinned
+    if (total <= 0) {
+      scrollIndex.value = 0
+      return
+    }
+    const p = Math.min(1, Math.max(0, -rect.top / total))
+    const n = items.value.length
+    scrollIndex.value = Math.min(n - 1, Math.floor(p * n))
   })
 }
 
@@ -90,13 +97,10 @@ onBeforeUnmount(() => {
 <template>
   <section id="features" class="bg-background">
     <div class="container py-14 md:py-28">
-      <h2 class="text-2xl md:text-3xl font-bold text-neutral-900">
+      <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 lg:hidden">
         {{ t('landing.features.title') }}
       </h2>
-
-      <div class="mt-6">
-        <LandingAudienceTabs class="max-w-md" />
-      </div>
+      <!-- Audience tabs live in the global floating pill (LandingFloatingAudienceTabs). -->
 
       <!-- ===================== MOBILE (accordion) ===================== -->
       <div class="mt-10 lg:hidden">
@@ -163,74 +167,87 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <!-- ================ DESKTOP (two-column hover/scroll) ============ -->
-      <div class="mt-12 hidden gap-12 lg:grid lg:grid-cols-2 lg:gap-20 lg:items-start">
-        <!-- Feature list -->
-        <ul ref="list" @mouseleave="onLeave">
-          <li
-            v-for="(feature, i) in items"
-            :key="feature.titleKey"
-            class="group relative cursor-default py-8 first:pt-0"
-            :class="i < items.length - 1 ? 'border-b border-neutral-200' : ''"
-            @mouseenter="hoverIndex = i">
-            <!-- moving accent bar -->
+      <!-- ============ DESKTOP (pinned scroll — cards reveal one-by-one) ===========
+           The tall wrapper supplies the scroll distance; the inner block pins
+           (sticky, full-height, vertically centred) and the active card tracks
+           how far we've scrolled through the pin. -->
+      <div ref="wrapper" class="relative hidden lg:block" :style="wrapperStyle">
+        <div class="sticky top-0 flex min-h-screen flex-col justify-center">
+          <h2 class="mb-12 text-2xl md:text-3xl font-bold text-neutral-900">
+            {{ t('landing.features.title') }}
+          </h2>
 
-            <span
-              class="inline-flex size-11 items-center justify-center rounded-full transition-colors duration-200"
-              :class="
-                active === i
-                  ? 'bg-brand-600 text-white'
-                  : 'bg-brand-50 text-brand-600'
-              ">
-              <AppIcon :name="feature.icon" class="size-5" />
-            </span>
+          <div class="grid grid-cols-2 gap-20 items-start">
+            <!-- Feature list -->
+            <ul @mouseleave="onLeave">
+              <li
+                v-for="(feature, i) in items"
+                :key="feature.titleKey"
+                class="group relative cursor-default py-8 first:pt-0"
+                :class="i < items.length - 1 ? 'border-b border-neutral-200' : ''"
+                @mouseenter="hoverIndex = i">
+                <span
+                  class="inline-flex size-11 items-center justify-center rounded-full transition-colors duration-200"
+                  :class="
+                    active === i
+                      ? 'bg-brand-600 text-white'
+                      : 'bg-brand-50 text-brand-600'
+                  ">
+                  <AppIcon :name="feature.icon" class="size-5" />
+                </span>
 
-            <h3
-              class="mt-5 text-2xl font-bold transition-colors duration-200"
-              :class="active === i ? 'text-neutral-900' : 'text-neutral-400'">
-              {{ t(feature.titleKey) }}
-            </h3>
+                <h3
+                  class="mt-5 text-2xl font-bold transition-colors duration-200"
+                  :class="
+                    active === i ? 'text-neutral-900' : 'text-neutral-400'
+                  ">
+                  {{ t(feature.titleKey) }}
+                </h3>
 
-            <!-- description: smooth height via grid-rows trick -->
-            <div
-              class="grid transition-all duration-300 ease-out"
-              :class="
-                active === i
-                  ? 'mt-3 grid-rows-[1fr] opacity-100'
-                  : 'grid-rows-[0fr] opacity-0'
-              ">
-              <div class="overflow-hidden">
-                <p class="max-w-xl text-base leading-relaxed text-neutral-500">
-                  {{ t(feature.descKey) }}
-                </p>
-              </div>
+                <!-- description: smooth height via grid-rows trick -->
+                <div
+                  class="grid transition-all duration-300 ease-out"
+                  :class="
+                    active === i
+                      ? 'mt-3 grid-rows-[1fr] opacity-100'
+                      : 'grid-rows-[0fr] opacity-0'
+                  ">
+                  <div class="overflow-hidden">
+                    <p
+                      class="max-w-xl text-base leading-relaxed text-neutral-500">
+                      {{ t(feature.descKey) }}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Crossfading panel -->
+            <div>
+              <Transition name="panel" mode="out-in">
+                <div :key="activePanel" class="min-h-[420px]">
+                  <!-- owner panels -->
+                  <LandingCardsScoreDetailPanel
+                    v-if="activePanel === 'score'" />
+                  <LandingFeaturesAnalyticsPanel
+                    v-else-if="activePanel === 'analytics'" />
+                  <LandingFeaturesContractPanel
+                    v-else-if="activePanel === 'contract'" />
+                  <LandingFeaturesIntegrationPanel
+                    v-else-if="activePanel === 'integration'" />
+                  <!-- tenant panels -->
+                  <LandingFeaturesFilterPanel
+                    v-else-if="activePanel === 'filter'" />
+                  <LandingFeaturesBestHomesPanel
+                    v-else-if="activePanel === 'bestHomes'" />
+                  <LandingFeaturesProfilePanel
+                    v-else-if="activePanel === 'profile'" />
+                  <LandingFeaturesScoringPanel
+                    v-else-if="activePanel === 'scoring'" />
+                </div>
+              </Transition>
             </div>
-          </li>
-        </ul>
-
-        <!-- Crossfading panel -->
-        <div class="lg:sticky lg:top-24">
-          <Transition name="panel" mode="out-in">
-            <div :key="activePanel" class="min-h-[420px]">
-              <!-- owner panels -->
-              <LandingCardsScoreDetailPanel v-if="activePanel === 'score'" />
-              <LandingFeaturesAnalyticsPanel
-                v-else-if="activePanel === 'analytics'" />
-              <LandingFeaturesContractPanel
-                v-else-if="activePanel === 'contract'" />
-              <LandingFeaturesIntegrationPanel
-                v-else-if="activePanel === 'integration'" />
-              <!-- tenant panels -->
-              <LandingFeaturesFilterPanel
-                v-else-if="activePanel === 'filter'" />
-              <LandingFeaturesBestHomesPanel
-                v-else-if="activePanel === 'bestHomes'" />
-              <LandingFeaturesProfilePanel
-                v-else-if="activePanel === 'profile'" />
-              <LandingFeaturesScoringPanel
-                v-else-if="activePanel === 'scoring'" />
-            </div>
-          </Transition>
+          </div>
         </div>
       </div>
     </div>

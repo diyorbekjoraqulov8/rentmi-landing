@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * Floating tenant-score card: the gauge is the `scoring-indicator.svg`
+ * Floating tenant-score card: the gauge is the `scoring-indicator.webp`
  * asset, and the score / name / tag / blurb are dynamic.
  *
  * By default the copy follows the page audience toggle — the owner sees a
@@ -20,7 +20,9 @@ const props = defineProps<{
 
 // Audience-driven defaults (overridden by any prop that is passed in).
 const base = computed(() =>
-  isOwner.value ? 'landing.hero.cards.score.owner' : 'landing.hero.cards.score.tenant'
+  isOwner.value
+    ? 'landing.hero.cards.score.owner'
+    : 'landing.hero.cards.score.tenant'
 )
 
 const score = computed(() => props.score ?? 86)
@@ -34,15 +36,14 @@ const blurb = computed(() => t(props.blurbKey ?? `${base.value}.blurb`))
   <div class="flex items-center gap-4 rounded-2xl bg-surface p-5 shadow-card">
     <!-- Gauge image with the score laid over the arc -->
     <div class="relative shrink-0 w-[100px]">
-      <img
-        src="/landing/scoring-indicator.svg"
-        alt=""
-        class="w-full"
-      >
+      <img src="/landing/scoring-indicator.webp" alt="" class="w-full" />
       <!-- The arc sits in the upper ~75% of the SVG; center the score inside it -->
       <div class="absolute inset-x-0 top-[42%] text-center">
         <p class="text-lg font-extrabold text-neutral-900 leading-none">
-          {{ score }}<span class="text-[11px] font-medium text-neutral-400">/{{ max }}</span>
+          {{ score
+          }}<span class="text-[11px] font-medium text-neutral-400"
+            >/{{ max }}</span
+          >
         </p>
         <p class="mt-1 text-[9px] leading-tight text-neutral-400">
           {{ tag }}

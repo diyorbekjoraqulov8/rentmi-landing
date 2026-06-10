@@ -27,6 +27,9 @@ useSchemaOrg([
 
 <template>
   <div>
+    <!-- One audience pill for the whole page: floating, fixed top-centre. -->
+    <LandingFloatingAudienceTabs />
+
     <LandingHeroSection />
     <LandingAboutSection />
     <LandingFeaturesSection />

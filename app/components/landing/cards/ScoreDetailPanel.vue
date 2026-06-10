@@ -18,13 +18,12 @@ const checks = [
     <LandingCardsScoreCard class="ring-1 ring-success-100" />
 
     <!-- Credit bureau row (mini gauge) -->
-    <div class="flex items-center justify-between rounded-2xl bg-surface p-4 shadow-card">
+    <div
+      class="flex items-center justify-between rounded-2xl bg-surface p-4 shadow-card">
       <div class="flex items-center gap-3">
-        <span class="inline-flex size-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-500">
-          <Icon
-            name="lucide:gauge"
-            class="size-5"
-          />
+        <span
+          class="inline-flex size-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-500">
+          <Icon name="lucide:gauge" class="size-5" />
         </span>
         <div>
           <p class="font-semibold text-neutral-900">
@@ -36,24 +35,20 @@ const checks = [
         </div>
       </div>
       <img
-        src="/landing/katm-scoring-indicator.svg"
+        src="/landing/katm-scoring-indicator.webp"
         alt=""
-        class="size-10 shrink-0"
-      >
+        class="size-10 shrink-0" />
     </div>
 
     <!-- Check rows -->
     <div
       v-for="row in checks"
       :key="row.titleKey"
-      class="flex items-center justify-between rounded-2xl bg-surface p-4 shadow-card"
-    >
+      class="flex items-center justify-between rounded-2xl bg-surface p-4 shadow-card">
       <div class="flex items-center gap-3">
-        <span class="inline-flex size-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-500">
-          <Icon
-            :name="row.icon"
-            class="size-5"
-          />
+        <span
+          class="inline-flex size-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-500">
+          <Icon :name="row.icon" class="size-5" />
         </span>
         <div>
           <p class="font-semibold text-neutral-900">
@@ -64,11 +59,9 @@ const checks = [
           </p>
         </div>
       </div>
-      <span class="inline-flex size-8 items-center justify-center rounded-full bg-success-50 text-success-600">
-        <Icon
-          name="lucide:thumbs-up"
-          class="size-4"
-        />
+      <span
+        class="inline-flex size-8 items-center justify-center rounded-full bg-success-50 text-success-600">
+        <Icon name="lucide:thumbs-up" class="size-4" />
       </span>
     </div>
   </div>

@@ -8,7 +8,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <section class="bg-brand-600 text-white my-16 md:my-32">
+  <section id="app-download" class="bg-brand-600 text-white my-16 md:my-32">
     <div
       class="container relative grid items-center gap-8 overflow-hidden md:grid-cols-2 md:overflow-visible">
       <!-- Left copy -->
