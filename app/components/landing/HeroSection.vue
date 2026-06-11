@@ -39,8 +39,9 @@ const phoneSrc = computed(() =>
     </h1>
 
     <!-- ===================== MOBILE (stacked) ===================== -->
-    <!-- Audience tabs are the global floating pill; pt clears the fixed pill. -->
-    <div class="mx-auto max-w-[1320px] px-4 sm:px-6 pt-28 pb-16 lg:hidden">
+    <!-- The audience pill sits in flow just above (sticky), so the hero only
+         needs a modest gap below it. -->
+    <div class="mx-auto max-w-[1320px] px-4 sm:px-6 pt-8 pb-16 lg:hidden">
       <div class="space-y-4">
         <template v-if="isOwner">
           <LandingFloatingCard :delay="60">
@@ -85,9 +86,9 @@ const phoneSrc = computed(() =>
     <!-- ============== DESKTOP (phone centerpiece + floating cards) ============== -->
     <!-- Narrower stage than the page so the cards always hug the phone (they
          don't drift to the screen edges on wide monitors), matching the Figma. -->
-    <div class="relative mx-auto hidden w-full max-w-[1180px] px-6 pt-44 lg:block">
-      <!-- Audience tabs are the global floating pill (LandingFloatingAudienceTabs);
-           pt-44 leaves room for it above the phone. -->
+    <div class="relative mx-auto hidden w-full max-w-[1180px] px-6 pt-12 lg:block">
+      <!-- The audience pill (LandingFloatingAudienceTabs) is sticky in flow just
+           above this section, so only a modest gap is needed before the phone. -->
 
       <!-- Stage holds the phone + the cards arranged around it. Fixed height so
            the phone's base overflows it and the section's overflow-hidden clips

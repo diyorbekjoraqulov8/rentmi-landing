@@ -27,10 +27,16 @@ useSchemaOrg([
 
 <template>
   <div>
-    <!-- One audience pill for the whole page: floating, fixed top-centre. -->
-    <LandingFloatingAudienceTabs />
+    <!-- The audience pill belongs to the hero: pill + hero share this wrapper,
+         so the pill's sticky range is bounded to the hero band. It pins under
+         the header while scrolling the hero, then scrolls away joined to the
+         hero's bottom edge — never hovering over the sections below. The
+         wrapper must not clip overflow (that would disable position: sticky). -->
+    <div class="relative">
+      <LandingFloatingAudienceTabs />
+      <LandingHeroSection />
+    </div>
 
-    <LandingHeroSection />
     <LandingAboutSection />
     <LandingFeaturesSection />
     <LandingListingsSection />
