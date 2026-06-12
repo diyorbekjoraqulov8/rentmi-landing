@@ -79,7 +79,8 @@ export interface Property {
   nearby: NearbyItem[]
   /** keys into the AUDIENCES catalog */
   audiences: string[]
-  location: { lat: number, lng: number, label: string }
+  /** map pin — absent for API-sourced listings (the feed has no coords) */
+  location?: { lat: number, lng: number, label: string }
   /** the lead card in carousels: pinned to the dark/active state */
   recommended?: boolean
 }

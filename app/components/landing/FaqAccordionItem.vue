@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import type { FaqItem } from '~/data/landing'
+import type { Faq } from '~/composables/useFaqs'
 
 const props = defineProps<{
-  item: FaqItem
+  item: Faq
   open: boolean
 }>()
 
 const emit = defineEmits<{ toggle: [id: number] }>()
-
-const { t } = useI18n()
 </script>
 
 <template>
@@ -19,7 +17,7 @@ const { t } = useI18n()
       :aria-expanded="open"
       @click="emit('toggle', props.item.id)"
     >
-      <span class="text-base md:text-lg font-medium text-neutral-900">{{ t(item.questionKey) }}</span>
+      <span class="text-base md:text-lg font-medium text-neutral-900">{{ item.question }}</span>
       <IconsPlus
         class="size-5 shrink-0 text-neutral-500 transition-transform duration-200"
         :class="open ? 'rotate-45' : ''"
@@ -38,7 +36,7 @@ const { t } = useI18n()
         v-if="open"
         class="overflow-hidden px-7 pb-5 text-sm leading-relaxed text-neutral-500"
       >
-        {{ t(item.answerKey) }}
+        {{ item.answer }}
       </p>
     </Transition>
   </div>

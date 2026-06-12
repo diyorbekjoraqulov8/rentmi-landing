@@ -19,6 +19,12 @@ const scrollBy = (dir: 1 | -1) => {
 <template>
   <section id="testimonials" class="bg-background py-16 md:py-24">
     <div class="mx-auto max-w-[1320px] px-4 sm:px-6">
+      <!-- Traveling-pill landing spot: above the heading, left-aligned.
+           Desktop only — on mobile the pill stays with the hero. -->
+      <div class="container mb-8 hidden justify-start lg:flex">
+        <LandingAudiencePillAnchor :order="4" />
+      </div>
+
       <div class="relative flex items-center">
         <h2
           class="container text-2xl md:text-3xl font-semibold text-neutral-900">

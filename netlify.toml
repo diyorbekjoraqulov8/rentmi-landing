@@ -18,12 +18,12 @@
 # Override per-context below; this is the production default.
 [context.production.environment]
   NUXT_PUBLIC_SITE_URL = "https://rentmi.uz"
-  NUXT_PUBLIC_API_BASE = "/api/v1"
+  NUXT_PUBLIC_API_BASE = "https://rentmi.uz/api/v1"
 
 [context.deploy-preview.environment]
   NUXT_PUBLIC_SITE_URL = "https://uzrentme.powerapp.uz"
-  NUXT_PUBLIC_API_BASE = "/api/v1"
+  NUXT_PUBLIC_API_BASE = "https://rentmi.uz/api/v1"
 
 [context.branch-deploy.environment]
   NUXT_PUBLIC_SITE_URL = "https://uzrentme.powerapp.uz"
-  NUXT_PUBLIC_API_BASE = "/api/v1"
+  NUXT_PUBLIC_API_BASE = "https://rentmi.uz/api/v1"

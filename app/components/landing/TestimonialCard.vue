@@ -14,14 +14,16 @@ const { t } = useI18n()
 
 <template>
   <div
-    class="flex h-full flex-col rounded-2xl bg-white px-5 py-6 shadow-lg md:px-10 md:py-8">
+    class="flex h-full flex-col rounded-2xl bg-white px-5 py-6 shadow-lg md:px-10 md:py-8"
+  >
     <!-- Head: avatar + name -->
     <div class="flex items-center gap-4">
       <img
         :src="item.avatar"
         :alt="item.name"
         class="size-14 shrink-0 rounded-full bg-white object-cover md:size-16"
-        onerror="this.style.visibility = 'hidden'" />
+        onerror="this.style.visibility = 'hidden'"
+      >
       <p class="text-xl font-bold leading-tight text-neutral-900 md:text-[26px]">
         {{ item.name }}
       </p>
@@ -34,7 +36,9 @@ const { t } = useI18n()
           {{ t(item.tenureKey) }}
         </span>
         <span class="h-9 w-px bg-neutral-200" />
-        <span class="text-xl font-bold text-neutral-900 md:text-2xl">
+        <span
+          class="whitespace-nowrap text-xl font-bold text-neutral-900 md:text-2xl"
+        >
           {{ item.tenure }} {{ t('landing.testimonials.year') }}
         </span>
       </div>

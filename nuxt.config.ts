@@ -40,14 +40,30 @@ export default defineNuxtConfig({
     public: {
       // Site origin (used by @nuxtjs/seo, canonical URLs).
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
-      // Backend API base. In production the outer Nginx proxies /api/* to
-      // Django, so the default is same-origin `/api/v1`. Override per-env.
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || '/api/v1'
+      // Backend API base — the prod host (absolute, since Netlify has no
+      // same-origin /api/* proxy). Override per-env via NUXT_PUBLIC_API_BASE.
+      apiBase:
+        process.env.NUXT_PUBLIC_API_BASE || 'https://rentmi.uz/api/v1'
     }
   },
 
   devServer: {
     port: 4000
+  },
+
+  // Dev-only: the prod API sends no Access-Control-* headers, so direct
+  // browser calls from localhost are CORS-blocked. Route them through the
+  // dev server instead (same-origin in the browser, proxied server-side).
+  // Production is same-origin on rentmi.uz and needs none of this.
+  $development: {
+    runtimeConfig: {
+      public: { apiBase: '/api/v1' }
+    },
+    nitro: {
+      devProxy: {
+        '/api/v1': { target: 'https://rentmi.uz/api/v1', changeOrigin: true }
+      }
+    }
   },
 
   compatibilityDate: '2025-01-15',

@@ -40,6 +40,104 @@
       "title": "Ijtimoiy tarmoqlarda"
     }
   },
+  "legal": {
+    "updated": "Oxirgi yangilanish: 2026-yil 12-iyun",
+    "contactLead": "Savollar bo'lsa, biz bilan bog'laning:",
+    "terms": {
+      "title": "Foydalanish shartlari",
+      "intro": "Ushbu shartlar rentmi.uz platformasi va Rentmi mobil ilovasidan foydalanish tartibini belgilaydi. Platformadan foydalanishni boshlash orqali siz quyidagi shartlarga rozilik bildirasiz.",
+      "sections": [
+        {
+          "h": "Xizmat haqida",
+          "p": "Rentmi — uy egalari va ijarachilarni bog'laydigan onlayn platforma. Biz e'lonlarni joylashtirish, ijara so'rovlarini yuborish, shartnomalarni onlayn rasmiylashtirish va tomonlar o'rtasidagi muloqot uchun vositalar taqdim etamiz. Rentmi ijara munosabatlarining tomoni hisoblanmaydi — shartnoma uy egasi va ijarachi o'rtasida tuziladi."
+        },
+        {
+          "h": "Ro'yxatdan o'tish va hisob",
+          "p": "Platformadan to'liq foydalanish uchun telefon raqamingiz orqali ro'yxatdan o'tishingiz kerak. Hisobingiz xavfsizligi va u orqali amalga oshirilgan harakatlar uchun siz javobgarsiz. Ma'lumotlaringiz to'g'ri va dolzarb bo'lishi shart."
+        },
+        {
+          "h": "E'lonlar va moderatsiya",
+          "p": "Barcha e'lonlar joylashtirilishidan oldin moderatsiyadan o'tadi. Yolg'on, chalg'ituvchi yoki qonunga zid ma'lumot kiritilgan e'lonlar rad etiladi yoki olib tashlanadi. E'lon mazmuni uchun javobgarlik e'lon beruvchiga yuklanadi."
+        },
+        {
+          "h": "Skoring tizimi",
+          "p": "Platformada foydalanuvchilar roziligi asosida ishlaydigan skoring tizimi mavjud. Skoring natijalari uy egalariga ijarachi haqida umumiy tasavvur berish uchun mo'ljallangan bo'lib, yakuniy qarorni tomonlarning o'zlari qabul qiladi."
+        },
+        {
+          "h": "Taqiqlangan harakatlar",
+          "p": "Platformadan firibgarlik, boshqa foydalanuvchilarni chalg'itish, spam tarqatish, tizim ishiga aralashish yoki qonunga zid boshqa maqsadlarda foydalanish taqiqlanadi. Qoidalar buzilganda hisob cheklanishi yoki bloklanishi mumkin."
+        },
+        {
+          "h": "Javobgarlik chegarasi",
+          "p": "Platforma \"boricha\" taqdim etiladi. Biz xizmatning uzluksizligini ta'minlashga intilamiz, ammo texnik nosozliklar yoki uchinchi shaxslar harakatlari natijasida yetkazilgan bilvosita zararlar uchun javobgar emasmiz."
+        },
+        {
+          "h": "Shartlarning o'zgarishi",
+          "p": "Biz ushbu shartlarni yangilash huquqini saqlab qolamiz. Muhim o'zgarishlar haqida platforma yoki ilova orqali xabar beramiz. O'zgarishlardan keyin foydalanishni davom ettirish yangi shartlarga rozilik hisoblanadi."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Maxfiylik siyosati",
+      "intro": "Ushbu siyosat rentmi.uz platformasi va Rentmi mobil ilovasi shaxsiy ma'lumotlaringizni qanday to'plashi, ishlatishi va himoya qilishini tushuntiradi.",
+      "sections": [
+        {
+          "h": "Qanday ma'lumotlar to'planadi",
+          "p": "Ro'yxatdan o'tishda telefon raqamingiz, ism-familiyangiz va profil ma'lumotlaringizni to'playmiz. Shaxsni tasdiqlash (MyID) va skoringdan o'tishda — faqat sizning roziligingiz bilan — tegishli identifikatsiya va to'lov qobiliyati ma'lumotlari qayta ishlanadi."
+        },
+        {
+          "h": "Ma'lumotlardan foydalanish",
+          "p": "To'plangan ma'lumotlar xizmatni ko'rsatish, e'lonlarni boshqarish, shartnomalarni rasmiylashtirish, xavfsizlikni ta'minlash va xizmat sifatini yaxshilash uchun ishlatiladi. Ma'lumotlaringizni reklama maqsadida uchinchi shaxslarga sotmaymiz."
+        },
+        {
+          "h": "Uchinchi shaxslarga berish",
+          "p": "Ma'lumotlar faqat xizmat ko'rsatish uchun zarur bo'lgan hamkorlarga (identifikatsiya, to'lov va SMS provayderlari) hamda qonunda belgilangan hollarda davlat organlariga taqdim etilishi mumkin."
+        },
+        {
+          "h": "Saqlash va xavfsizlik",
+          "p": "Ma'lumotlar zamonaviy texnik va tashkiliy himoya choralari qo'llanilgan serverlarda saqlanadi. Hisobingizga kirish faqat bir martalik SMS kod orqali amalga oshiriladi."
+        },
+        {
+          "h": "Sizning huquqlaringiz",
+          "p": "Siz o'z ma'lumotlaringizga kirish, ularni to'g'rilash yoki o'chirishni so'rash, shuningdek skoring uchun bergan roziligingizni qaytarib olish huquqiga egasiz. Buning uchun quyidagi kontaktlar orqali murojaat qiling."
+        },
+        {
+          "h": "Cookie va o'xshash texnologiyalar",
+          "p": "Saytda til tanlovi va sessiyani saqlash uchun cookie fayllardan foydalanamiz. Brauzer sozlamalari orqali cookie'larni o'chirishingiz mumkin, ammo bunda saytning ba'zi funksiyalari cheklanishi mumkin."
+        }
+      ]
+    },
+    "payment": {
+      "title": "To'lov va qaytarish",
+      "intro": "Ushbu sahifa rentmi.uz platformasidagi to'lovlar va mablag'larni qaytarish tartibini tushuntiradi.",
+      "sections": [
+        {
+          "h": "To'lov usullari",
+          "p": "To'lovlar O'zbekistonda litsenziyalangan to'lov tizimlari — Uzum, Click, Payme va Atmos orqali amalga oshiriladi. To'lov ma'lumotlaringiz (karta raqami va boshqalar) Rentmi serverlarida saqlanmaydi, ular to'g'ridan-to'g'ri to'lov provayderi tomonidan qayta ishlanadi."
+        },
+        {
+          "h": "Nima uchun to'lanadi",
+          "p": "Ro'yxatdan o'tish va e'lonlarni ko'rish bepul. Ayrim qo'shimcha xizmatlar — masalan, e'lonni targ'ib qilish yoki professional foto xizmati — pullik bo'lishi mumkin. Har bir pullik xizmat narxi to'lovdan oldin aniq ko'rsatiladi."
+        },
+        {
+          "h": "Ijara to'lovlari",
+          "p": "Ijara to'lovlari uy egasi va ijarachi o'rtasidagi shartnoma asosida amalga oshiriladi. Platforma to'lov jarayonini qulaylashtiradi, ammo ijara summasi bo'yicha kelishuv tomonlarning o'zaro javobgarligida qoladi."
+        },
+        {
+          "h": "Qaytarish shartlari",
+          "p": "Agar pullik xizmat texnik nosozlik tufayli ko'rsatilmagan bo'lsa, to'lov to'liq qaytariladi. Qaytarish so'rovi to'lovdan keyin 10 ish kuni ichida qabul qilinadi va ko'rib chiqilgach, mablag' o'sha to'lov usuliga qaytariladi."
+        },
+        {
+          "h": "Qaytarish muddati",
+          "p": "Tasdiqlangan qaytarishlar to'lov provayderiga bog'liq holda odatda 3 kundan 14 ish kunigacha bo'lgan muddatda amalga oshiriladi."
+        },
+        {
+          "h": "Murojaat qilish",
+          "p": "To'lov bo'yicha muammo yuzaga kelsa, to'lov chekini saqlagan holda quyidagi kontaktlar orqali murojaat qiling — har bir holatni alohida ko'rib chiqamiz."
+        }
+      ]
+    }
+  },
   "landing": {
     "audience": {
       "owner": "Uy egalari uchun",
@@ -310,7 +408,7 @@
       }
     },
     "videoReviews": {
-      "title": "Biz haqimizda, mijozlarimiz gapirishadi",
+      "title": "Foydali video maslahatlar",
       "items": {
         "1": "*Rentmi* ni siz bilmagan *8 ta* foydali *funksiyalari*",
         "2": "Qanday qilib *Rentmi Skoreni* yaxshilash mumkin",
@@ -373,10 +471,10 @@
       "subtitle": "Biz texnologiya, product va foydalanuvchi tajribasiga ishonadigan mutaxassislardan iborat jamoamiz. Maqsadimiz — ijara bozorini yaxshiroq qilish."
     },
     "sections": {
-      "founder": "Founder",
-      "advice": "Advice board",
-      "management": "Management",
-      "developers": "Developers"
+      "founder": "Asoschi",
+      "advice": "Maslahat kengashi",
+      "management": "Boshqaruv",
+      "developers": "Dasturchilar"
     },
     "founderQuote": "Bu loyiha real muammodan tug'ilgan. Biz O'zbekistondagi ijara jarayonidagi noqulayliklarni ko'rib, odamlar uchun ishonchli va qulay yechim yaratishga qaror qildik.",
     "roles": {

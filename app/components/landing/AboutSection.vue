@@ -1,8 +1,4 @@
 <script setup lang="ts">
-/**
- * "Biz haqimizda" — small bold heading, a large light-grey lead paragraph,
- * then a three-up KPI stat row (big brand-blue numbers).
- */
 import { stats } from '~/data/landing'
 
 const { t } = useI18n()
@@ -18,18 +14,21 @@ const { t } = useI18n()
 
         <LandingScrollRevealText
           :text="t('landing.about.body')"
-          class="mt-8 text-3xl md:text-[2.5rem] md:leading-[1.25] font-normal text-neutral-900"
-        />
+          class="mt-8 text-3xl md:text-[2.5rem] md:leading-[1.25] font-normal text-neutral-900" />
       </div>
 
       <!-- Stats -->
       <dl
         class="mt-16 md:mt-20 grid grid-cols-1 gap-10 sm:grid-cols-3 max-w-3xl">
-        <div v-for="stat in stats" :key="stat.labelKey" class="flex flex-col h-full">
+        <div
+          v-for="stat in stats"
+          :key="stat.labelKey"
+          class="flex flex-col h-full">
           <dt class="text-sm md:text-base text-neutral-500">
             {{ t(stat.labelKey) }}
           </dt>
-          <dd class="mt-auto pt-2 text-4xl md:text-5xl font-medium text-brand-600">
+          <dd
+            class="mt-auto pt-2 text-4xl md:text-5xl font-medium text-brand-600">
             <LandingCountUp :value="stat.value" />
           </dd>
         </div>

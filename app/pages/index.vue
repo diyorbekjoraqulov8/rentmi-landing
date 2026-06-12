@@ -27,12 +27,21 @@ useSchemaOrg([
 
 <template>
   <div>
-    <!-- The audience pill belongs to the hero: pill + hero share this wrapper,
-         so the pill's sticky range is bounded to the hero band. It pins under
-         the header while scrolling the hero, then scrolls away joined to the
-         hero's bottom edge — never hovering over the sections below. The
-         wrapper must not clip overflow (that would disable position: sticky). -->
     <div class="relative">
+      <!-- Hero landing spot for the traveling pill. Below lg it is the ONLY
+           anchor (the section anchors are desktop-only), so it stays sticky
+           under the header through the hero band — the audience switch must
+           remain reachable on mobile. At lg+ it is plain in-flow: the pill
+           departs with the hero on its spring and swims back down when the
+           next section's anchor activates. -->
+      <div
+        class="pointer-events-none sticky top-20 z-10 flex justify-center sm:top-24 lg:static">
+        <LandingAudiencePillAnchor :order="0" />
+      </div>
+      <!-- The one traveling audience pill — fixed; springs between the
+           anchors as you scroll. Early in the DOM so it is among the first
+           tab stops (it reconfigures the whole page); paint order comes from
+           its fixed z-40, not DOM position. -->
       <LandingFloatingAudienceTabs />
       <LandingHeroSection />
     </div>

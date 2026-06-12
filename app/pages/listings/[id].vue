@@ -18,7 +18,12 @@ definePageMeta({ key: (route) => route.fullPath })
 const { t } = useI18n()
 const route = useRoute()
 
-const property = getProperty(String(route.params.id))
+// Static mock listings first; API-sourced announcements (fetched in the
+// background on the home page) as fallback so carousel cards keep working.
+const announcementsState = useAnnouncements()
+const staticProperty = getProperty(String(route.params.id))
+const property
+  = staticProperty ?? announcementsState.findProperty(String(route.params.id))
 if (!property) {
   throw createError({
     statusCode: 404,
@@ -27,13 +32,16 @@ if (!property) {
   })
 }
 
-const similar = similarProperties(property.id)
+const similar = staticProperty
+  ? similarProperties(staticProperty.id)
+  : announcementsState.similar(property.id)
 
+// API listings carry no rooms — drop empty chips instead of rendering blanks.
 const meta = computed(() => [
   { icon: 'lucide:bed-double', label: property!.rooms },
   { icon: 'lucide:maximize-2', label: property!.area },
   { icon: 'lucide:layers', label: property!.floor }
-])
+].filter(m => m.label))
 
 const stats = computed(() => [
   {
@@ -143,7 +151,7 @@ useSchemaOrg([
           <hr class="my-8 border-neutral-200" />
 
           <!-- Tavsif -->
-          <section>
+          <section v-if="property.description">
             <h2 class="text-xl font-bold text-neutral-900">
               {{ t('property.sections.description') }}
             </h2>
@@ -153,7 +161,7 @@ useSchemaOrg([
           </section>
 
           <!-- Qulayliklar -->
-          <section class="mt-10">
+          <section v-if="amenityList.length" class="mt-10">
             <h2 class="text-xl font-bold text-neutral-900">
               {{ t('property.sections.amenities') }}
             </h2>
@@ -171,7 +179,7 @@ useSchemaOrg([
           </section>
 
           <!-- Atrofdagi qulayliklar -->
-          <section class="mt-10">
+          <section v-if="nearbyList.length" class="mt-10">
             <h2 class="text-xl font-bold text-neutral-900">
               {{ t('property.sections.nearby') }}
             </h2>
@@ -192,7 +200,7 @@ useSchemaOrg([
           </section>
 
           <!-- Kimlar uchun -->
-          <section class="mt-10">
+          <section v-if="property.audiences.length" class="mt-10">
             <h2 class="text-xl font-bold text-neutral-900">
               {{ t('property.sections.audience') }}
             </h2>
@@ -207,7 +215,7 @@ useSchemaOrg([
           </section>
 
           <!-- Manzil -->
-          <section class="mt-10">
+          <section v-if="property.location" class="mt-10">
             <div class="rounded-2xl bg-surface p-5 shadow-card">
               <h2 class="text-lg font-bold text-neutral-900">
                 {{ t('property.sections.location') }}
@@ -257,7 +265,7 @@ useSchemaOrg([
               >
             </p>
 
-            <div class="mt-3 text-sm text-neutral-500">
+            <div v-if="property.publishedAt" class="mt-3 text-sm text-neutral-500">
               <p>{{ t('property.published') }}</p>
               <p class="mt-1 flex items-center gap-1.5 text-neutral-700">
                 <Icon name="lucide:clock" class="size-4 text-neutral-400" />
@@ -267,6 +275,7 @@ useSchemaOrg([
 
             <div class="mt-4 space-y-2.5">
               <div
+                v-if="property.minRent"
                 class="flex items-center justify-between rounded-xl border border-neutral-200 px-4 py-3 text-sm">
                 <span class="text-neutral-500">{{
                   t('property.minRent')
@@ -301,6 +310,7 @@ useSchemaOrg([
 
     <!-- O'xshash e'lonlar (full width) -->
     <ListingsCarousel
+      v-if="similar.length"
       :title="t('property.sections.similar')"
       :items="similar" />
 

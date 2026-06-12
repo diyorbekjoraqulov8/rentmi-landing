@@ -8,7 +8,7 @@ const { goToSection } = useSectionNav()
 
 // `to` → real route (NuxtLink); `href` → in-page anchor on the landing page.
 const nav = [
-  { key: 'header.nav.about', href: '#about' },
+  { key: 'header.nav.about', to: '/solution' },
   { key: 'header.drawer.team', to: '/team' },
   { key: 'landing.features.title', href: '#features' },
   { key: 'header.drawer.testimonials', href: '#testimonials' }
@@ -21,7 +21,7 @@ const legal = [
 
 // Scroll-spy over the landing sections so the open drawer highlights the
 // section currently in view. Empty (no highlight) on real pages like /team.
-const activeSection = useActiveSection(['about', 'features', 'testimonials'])
+const activeSection = useActiveSection(['features', 'testimonials'])
 
 // Compare paths ignoring trailing slashes (routes may be normalised to `/x/`).
 const norm = (p: string) => p.replace(/\/+$/, '') || '/'

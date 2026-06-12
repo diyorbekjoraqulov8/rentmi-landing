@@ -59,6 +59,10 @@ const scrollBy = (dir: 1 | -1) => {
           :item="item"
           class="w-68 shrink-0 snap-start" />
       </div>
+
+      <!-- e.g. the home page drops the traveling pill's anchor here, centered
+           under the cards -->
+      <slot name="below" />
     </div>
   </section>
 </template>

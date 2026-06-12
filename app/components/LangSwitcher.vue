@@ -1,27 +1,33 @@
 <script setup lang="ts">
+/**
+ * Locale switcher — segmented pills showing all locales with the active one
+ * highlighted, so the current language is always visible (used in the nav
+ * drawer's bottom block).
+ */
 const { t, locale, locales, setLocale } = useI18n()
 
-const available = computed(() =>
-  (locales.value as { code: string, name: string }[]).filter(
-    l => l.code !== locale.value
-  )
+const items = computed(
+  () => locales.value as { code: 'uz' | 'ru' | 'en', name: string }[]
 )
 </script>
 
 <template>
   <div
-    class="flex items-center gap-2 text-sm"
+    class="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-background p-1"
     role="group"
     :aria-label="t('header.language')"
   >
     <button
-      v-for="l in available"
+      v-for="l in items"
       :key="l.code"
-      class="text-neutral-600 hover:text-brand-600 transition-colors"
       type="button"
+      class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors"
+      :class="l.code === locale
+        ? 'bg-surface text-neutral-900 shadow-sm'
+        : 'text-neutral-500 hover:text-neutral-900'"
       :lang="l.code"
-      :aria-label="l.name"
-      @click="setLocale(l.code as 'uz' | 'ru' | 'en')"
+      :aria-pressed="l.code === locale"
+      @click="setLocale(l.code)"
     >
       {{ l.name }}
     </button>

@@ -1,16 +1,14 @@
 <script setup lang="ts">
 /**
- * "Afzalliklarimiz" — heading + audience tabs, then an interactive two-column
- * block:
+ * "Afzalliklarimiz" — a heading, then an interactive two-column block:
  *   left  = a list of feature rows. Exactly one row is "active" at a time; the
- *           active row darkens, reveals its description (smooth height) and a
- *           moving accent bar marks it.
+ *           active row darkens and reveals its description (smooth height).
  *   right = a sticky illustration that crossfades to the active row's panel.
  *
- * Activation is driven two ways and they cooperate:
- *   • hover — pointing at a row activates it immediately (takes precedence).
- *   • scroll — with no hover, the row nearest a line ~42% down the viewport
- *     becomes active, so the panels advance one-by-one as the page scrolls.
+ * Activation is driven purely by scroll: the block pins while you scroll through
+ * it and the scroll progress maps onto the active row, so the panels advance
+ * one-by-one. There is intentionally NO hover activation — pointing at a row
+ * must not change the panel; only scrolling does.
  */
 import { features, tenantFeatures } from '~/data/landing'
 
@@ -20,10 +18,7 @@ const { isOwner } = useAudience()
 /** The row set swaps with the audience tab (owner vs tenant). */
 const items = computed(() => (isOwner.value ? features : tenantFeatures))
 
-const scrollIndex = ref(0)
-const hoverIndex = ref<number | null>(null)
-/** hover wins; otherwise follow the scroll position. */
-const active = computed(() => hoverIndex.value ?? scrollIndex.value)
+const active = ref(0)
 const activePanel = computed(() => items.value[active.value]?.panel)
 
 /**
@@ -46,38 +41,32 @@ watch(isOwner, () => {
  * on normally. STEP_VH is the scroll distance (in vh) spent per card — bigger
  * means the section "holds" longer before advancing.
  */
-const STEP_VH = 70
+const STEP_VH = 65
 const wrapper = ref<HTMLElement>()
 const wrapperStyle = computed(() => ({
-  height: `${100 + items.value.length * STEP_VH}vh`,
+  height: `${100 + items.value.length * STEP_VH}vh`
 }))
 
 let raf = 0
 function measure() {
   cancelAnimationFrame(raf)
   raf = requestAnimationFrame(() => {
-    if (hoverIndex.value !== null || !wrapper.value) return
+    if (!wrapper.value) return
     const rect = wrapper.value.getBoundingClientRect()
     const total = rect.height - window.innerHeight // scrollable while pinned
     if (total <= 0) {
-      scrollIndex.value = 0
+      active.value = 0
       return
     }
     const p = Math.min(1, Math.max(0, -rect.top / total))
     const n = items.value.length
-    scrollIndex.value = Math.min(n - 1, Math.floor(p * n))
+    active.value = Math.min(n - 1, Math.floor(p * n))
   })
 }
 
-const onLeave = () => {
-  hoverIndex.value = null
-  measure()
-}
-
-// Switching audience swaps the rows — drop any hover and re-measure so the
-// active row/panel matches the new set.
+// Switching audience swaps the rows — re-measure so the active row/panel
+// matches the new set.
 watch(isOwner, () => {
-  hoverIndex.value = null
   nextTick(measure)
 })
 
@@ -172,20 +161,37 @@ onBeforeUnmount(() => {
            (sticky, full-height, vertically centred) and the active card tracks
            how far we've scrolled through the pin. -->
       <div ref="wrapper" class="relative hidden lg:block" :style="wrapperStyle">
-        <div class="sticky top-0 flex min-h-screen flex-col justify-center">
-          <h2 class="mb-12 text-2xl md:text-3xl font-bold text-neutral-900">
+        <!-- Top-anchored (NOT centered): the active row expands its description
+             as a downward accordion, so the column never re-centers/jumps as
+             the active card changes — it just advances smoothly on scroll. -->
+        <!-- The pinned stack must fit the viewport (it can only grow past
+             min-h-screen, never scroll while pinned), so on short screens
+             (laptops, 1080p) the paddings compress. pt stays >= the 80px
+             overlaying header. -->
+        <div
+          class="sticky top-0 flex min-h-screen flex-col justify-start pt-28 [@media(max-height:60rem)]:pt-24">
+          <h2 class="mb-5 text-2xl md:text-3xl font-bold text-neutral-900">
             {{ t('landing.features.title') }}
           </h2>
 
+          <!-- Landing spot for the traveling audience pill: under the
+               heading, left-aligned. Lives inside the pinned block so the
+               pill holds position while the section is pinned. -->
+          <div
+            class="mb-10 flex justify-start [@media(max-height:60rem)]:mb-4">
+            <LandingAudiencePillAnchor :order="1" />
+          </div>
+
           <div class="grid grid-cols-2 gap-20 items-start">
-            <!-- Feature list -->
-            <ul @mouseleave="onLeave">
+            <!-- Feature list (scroll-driven; no hover activation) -->
+            <ul>
               <li
                 v-for="(feature, i) in items"
                 :key="feature.titleKey"
-                class="group relative cursor-default py-8 first:pt-0"
-                :class="i < items.length - 1 ? 'border-b border-neutral-200' : ''"
-                @mouseenter="hoverIndex = i">
+                class="group relative cursor-default py-8 first:pt-0 [@media(max-height:60rem)]:py-5"
+                :class="
+                  i < items.length - 1 ? 'border-b border-neutral-200' : ''
+                ">
                 <span
                   class="inline-flex size-11 items-center justify-center rounded-full transition-colors duration-200"
                   :class="

@@ -40,6 +40,104 @@
       "title": "Social media"
     }
   },
+  "legal": {
+    "updated": "Last updated: June 12, 2026",
+    "contactLead": "If you have any questions, contact us:",
+    "terms": {
+      "title": "Terms of Use",
+      "intro": "These terms govern the use of the rentmi.uz platform and the Rentmi mobile app. By using the platform you agree to the terms below.",
+      "sections": [
+        {
+          "h": "About the service",
+          "p": "Rentmi is an online platform connecting homeowners and tenants. We provide tools for publishing listings, sending rental requests, signing contracts online and communicating between the parties. Rentmi is not a party to the rental relationship — the contract is concluded between the owner and the tenant."
+        },
+        {
+          "h": "Registration and account",
+          "p": "Full use of the platform requires registration with your phone number. You are responsible for the security of your account and for the actions performed through it. Your information must be accurate and up to date."
+        },
+        {
+          "h": "Listings and moderation",
+          "p": "All listings are moderated before publication. Listings containing false, misleading or unlawful information are rejected or removed. The author of a listing is responsible for its content."
+        },
+        {
+          "h": "Scoring system",
+          "p": "The platform operates a consent-based scoring system. Scoring results are intended to give owners a general view of a tenant's reliability; the final decision is always made by the parties themselves."
+        },
+        {
+          "h": "Prohibited actions",
+          "p": "Using the platform for fraud, misleading other users, sending spam, interfering with the system or any other unlawful purpose is prohibited. Violations may lead to account restriction or suspension."
+        },
+        {
+          "h": "Limitation of liability",
+          "p": "The platform is provided \"as is\". We strive to keep the service available at all times, but we are not liable for indirect damages caused by technical failures or the actions of third parties."
+        },
+        {
+          "h": "Changes to the terms",
+          "p": "We reserve the right to update these terms. We will announce significant changes via the platform or the app. Continued use after changes constitutes acceptance of the new terms."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "This policy explains how the rentmi.uz platform and the Rentmi mobile app collect, use and protect your personal data.",
+      "sections": [
+        {
+          "h": "What data we collect",
+          "p": "At registration we collect your phone number, name and profile details. During identity verification (MyID) and scoring — only with your consent — the relevant identification and solvency data is processed."
+        },
+        {
+          "h": "How data is used",
+          "p": "Collected data is used to provide the service, manage listings, conclude contracts, ensure security and improve service quality. We do not sell your data to third parties for advertising purposes."
+        },
+        {
+          "h": "Sharing with third parties",
+          "p": "Data may be shared only with partners required to operate the service (identification, payment and SMS providers) and with state authorities in cases provided by law."
+        },
+        {
+          "h": "Storage and security",
+          "p": "Data is stored on servers protected by modern technical and organisational measures. Account access is granted only via a one-time SMS code."
+        },
+        {
+          "h": "Your rights",
+          "p": "You may request access to, correction or deletion of your data, and withdraw your scoring consent at any time. To do so, contact us using the details below."
+        },
+        {
+          "h": "Cookies and similar technologies",
+          "p": "The site uses cookies to remember your language choice and session. You can disable cookies in your browser settings, but some site features may become unavailable."
+        }
+      ]
+    },
+    "payment": {
+      "title": "Payment and Refunds",
+      "intro": "This page describes how payments and refunds work on the rentmi.uz platform.",
+      "sections": [
+        {
+          "h": "Payment methods",
+          "p": "Payments are processed through payment systems licensed in Uzbekistan — Uzum, Click, Payme and Atmos. Your payment details (card number, etc.) are not stored on Rentmi servers and are processed directly by the payment provider."
+        },
+        {
+          "h": "What you pay for",
+          "p": "Registration and browsing listings are free. Certain additional services — such as listing promotion or professional photography — may be paid. The price of every paid service is clearly shown before payment."
+        },
+        {
+          "h": "Rental payments",
+          "p": "Rental payments are made under the contract between the owner and the tenant. The platform simplifies the payment process, but agreements on the rental amount remain the mutual responsibility of the parties."
+        },
+        {
+          "h": "Refund conditions",
+          "p": "If a paid service was not delivered due to a technical failure, the payment is refunded in full. Refund requests are accepted within 10 business days of payment; once reviewed, funds are returned via the same payment method."
+        },
+        {
+          "h": "Refund timing",
+          "p": "Approved refunds are typically processed within 3 to 14 business days, depending on the payment provider."
+        },
+        {
+          "h": "Contact",
+          "p": "If you experience a payment issue, keep your receipt and contact us using the details below — we review every case individually."
+        }
+      ]
+    }
+  },
   "landing": {
     "audience": {
       "owner": "For owners",
@@ -310,7 +408,7 @@
       }
     },
     "videoReviews": {
-      "title": "Our clients speak about us",
+      "title": "Useful video tips",
       "items": {
         "1": "*8 useful features* of *Rentmi* you didn't know",
         "2": "How can you *improve* your *Rentmi Score*",
