@@ -40,30 +40,17 @@ export default defineNuxtConfig({
     public: {
       // Site origin (used by @nuxtjs/seo, canonical URLs).
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
-      // Backend API base — the prod host (absolute, since Netlify has no
-      // same-origin /api/* proxy). Override per-env via NUXT_PUBLIC_API_BASE.
-      apiBase:
-        process.env.NUXT_PUBLIC_API_BASE || 'https://rentmi.uz/api/v1'
+      // Backend API base — same-origin everywhere: the browser always calls
+      // `<site>/api/v1/...` and the server in front proxies to the backend
+      // (the Nitro routeRules proxy below in dev/Netlify, the outer Nginx in
+      // prod). The backend sends no CORS headers, so cross-origin calls are
+      // impossible — never point this at the backend host directly.
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || '/api/v1'
     }
   },
 
   devServer: {
     port: 4000
-  },
-
-  // Dev-only: the prod API sends no Access-Control-* headers, so direct
-  // browser calls from localhost are CORS-blocked. Route them through the
-  // dev server instead (same-origin in the browser, proxied server-side).
-  // Production is same-origin on rentmi.uz and needs none of this.
-  $development: {
-    runtimeConfig: {
-      public: { apiBase: '/api/v1' }
-    },
-    nitro: {
-      devProxy: {
-        '/api/v1': { target: 'https://rentmi.uz/api/v1', changeOrigin: true }
-      }
-    }
   },
 
   compatibilityDate: '2025-01-15',
@@ -74,6 +61,12 @@ export default defineNuxtConfig({
     preset: process.env.NITRO_PRESET || 'node-server',
     compressPublicAssets: { gzip: true, brotli: true },
     routeRules: {
+      // Same-origin /api/v1/* → backend, server-side (no browser CORS). Works
+      // in dev and on Netlify (the SSR function proxies); on prod Nginx the
+      // outer /api/* proxy catches these before they reach the app. The
+      // backend WAF drops non-browser UAs, but the proxy forwards the
+      // original browser headers, so real traffic passes.
+      '/api/v1/**': { proxy: 'https://rentmi.uz/api/v1/**' },
       '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
       '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
     }
